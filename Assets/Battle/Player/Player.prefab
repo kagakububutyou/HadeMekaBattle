@@ -50,6 +50,7 @@ GameObject:
   - 114: {fileID: 11440064}
   - 114: {fileID: 11458666}
   - 114: {fileID: 11440116}
+  - 114: {fileID: 11476582}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -175,9 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e7d9328567f4f4e8fb951450759182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  decreaseBoostPerSecond: .100000001
-  defaultBoostPower: 1
+  moveSpeed: 8
 --- !u!114 &11440064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +212,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ed8c338c6238f4396b5d748dce4825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11476582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b1fef4bd086ae418d546ec919db188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRegainPerSecond: 5
 --- !u!136 &13697938
 CapsuleCollider:
   m_ObjectHideFlags: 1

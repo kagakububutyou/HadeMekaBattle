@@ -7,23 +7,9 @@ public class PlayerMover : MonoBehaviour {
     float moveSpeed = 3.0f;
 
     /// <summary>
-    /// 1フレームあたりに減算されるブーストの運動量
-    /// </summary>
-    [SerializeField]
-    float decreaseBoostPerSecond = 0.1f;
-
-    /// <summary>
-    /// ブースト開始時のブーストの運動量
-    /// </summary>
-    [SerializeField]
-    float defaultBoostPower = 1.0f;
-
-
-    /// <summary>
     /// ブーストによって加算される移動量
     /// </summary>
-    float boostPower = 0.0f;
-
+    float boostPower = 1.0f;
 
     Rigidbody rigidBody = null;
 
@@ -69,19 +55,11 @@ public class PlayerMover : MonoBehaviour {
     void BoostMove()
     {
 
-        if (boostInput == 0)
-        {
-            boostPower = defaultBoostPower;
-            return;
-        }
-        else
-        {
-            boostPower -= decreaseBoostPerSecond;
-            if (boostPower < 0) boostPower = 0;
-        }
 
         rigidBody.AddForce(verticalInput * moveSpeed * transform.forward * boostPower, ForceMode.VelocityChange);
         rigidBody.AddForce(horizontalInput * moveSpeed * transform.right * boostPower, ForceMode.VelocityChange);
+
+ 
     }
 
 }
