@@ -14,6 +14,10 @@ public class BulletMover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// bulletParameter が null なら処理をしない
+		if(bulletParameter == null) return;
+
+		// 向いている方向に進む
 		this.transform.position += this.transform.TransformDirection(Vector3.forward) * bulletParameter.GetSpeed * Time.deltaTime ;
 	}
 }

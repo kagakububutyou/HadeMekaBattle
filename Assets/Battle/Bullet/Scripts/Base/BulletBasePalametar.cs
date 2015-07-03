@@ -21,5 +21,4 @@ public class BulletBasePalametar : MonoBehaviour {
 	
 	// プロパティ
 	public float GetSpeed{get{return speed;}}
-	//public float GetRotationSpeed{get{return rotationSpeed;}}
 }
