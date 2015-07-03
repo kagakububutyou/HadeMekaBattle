@@ -43,10 +43,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466392}
-  - 114: {fileID: 11439594}
   - 136: {fileID: 13697938}
   - 54: {fileID: 5454848}
   - 65: {fileID: 6556556}
+  - 114: {fileID: 11439594}
   - 114: {fileID: 11440064}
   - 114: {fileID: 11458666}
   - 114: {fileID: 11440116}
@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  decreaseBoostPerSecond: .100000001
+  defaultBoostPower: 1
 --- !u!114 &11440064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580e1424848d5374c9574a8226596575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 8
+  jumpPower: 20
 --- !u!114 &11440116
 MonoBehaviour:
   m_ObjectHideFlags: 1
