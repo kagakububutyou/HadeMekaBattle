@@ -4,6 +4,12 @@ using System.Collections;
 public class PlayerQuickBooster : MonoBehaviour {
 
     /// <summary>
+    /// ブースト使用時の消費量
+    /// </summary>
+    [SerializeField]
+    float boostConsumption = 20.0f;
+
+    /// <summary>
     /// 1フレームあたりに減算されるブーストの運動量
     /// </summary>
     [SerializeField]
@@ -35,11 +41,20 @@ public class PlayerQuickBooster : MonoBehaviour {
     float velocity = 1.0f;
 
 
+    /// <summary>
+    /// ちょうど押されたフレームかどうかを調べる用のカウント変数
+    /// </summary>
+    int pushingTime = 0;
+
+
     Rigidbody rigidBody = null;
+
+    BoostManager boostManager = null;
 
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
+        boostManager = GetComponent<BoostManager>();
 	}
 	
 	// Update is called once per frame
@@ -47,11 +62,16 @@ public class PlayerQuickBooster : MonoBehaviour {
 
         GetInput();
 
-        if (!isBoost && quickBoostInput != 0)
+        if (pushingTime == 1 && boostConsumption < boostManager.Quantity)
         {
             isBoost = true;
             velocity = quickBoostInput;
             boostPower = defaultBoostPower;
+
+            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+
+
+            boostManager.AddQuantity(-boostConsumption);
         }
         
         if (isBoost)
@@ -61,7 +81,17 @@ public class PlayerQuickBooster : MonoBehaviour {
 	}
     void GetInput()
     {
+
         quickBoostInput = Input.GetAxisRaw("QuickBoost");
+
+        if(quickBoostInput != 0)
+        {
+            ++pushingTime;
+        }
+        else
+        {
+            pushingTime = 0;
+        }
     }
 
     void QuickBoost()
@@ -72,7 +102,6 @@ public class PlayerQuickBooster : MonoBehaviour {
             boostPower = 0;
             isBoost = false;
         }
-
         rigidBody.AddForce(transform.right * boostPower * velocity, ForceMode.VelocityChange);
 
     }

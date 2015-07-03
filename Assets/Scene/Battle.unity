@@ -126,26 +126,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11440116, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
+      propertyPath: boostConsumption
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439594, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
+      propertyPath: boostConsumption
+      value: .300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &731703500 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 130908, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
-  m_PrefabInternal: {fileID: 403967291}
---- !u!114 &731703509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 731703500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 237e2de42789b4a4084e871155632254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decreaseBoostPerFrame: .400000006
-  defaultBoostPower: 20
 --- !u!4 &1056423919 stripped
 Transform:
   m_PrefabParentObject: {fileID: 466392, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}

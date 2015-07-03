@@ -8,12 +8,11 @@ public class PlayerJumper : MonoBehaviour {
 
     Rigidbody rigidBody = null;
 
-
     bool canJump = false;
 
 	// Use this for initialization
 	void Start () {
-        rigidBody = GetComponent<Rigidbody>();	
+        rigidBody = GetComponent<Rigidbody>();
 	}
 
 	void FixedUpdate()
