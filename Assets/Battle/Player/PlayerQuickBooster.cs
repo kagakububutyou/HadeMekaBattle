@@ -62,7 +62,7 @@ public class PlayerQuickBooster : MonoBehaviour {
 
         GetInput();
 
-        if (pushingTime == 1 && boostConsumption < boostManager.Quantity)
+        if (pushingTime == 1 && boostManager.CanUseBoost(boostConsumption))
         {
             isBoost = true;
             velocity = quickBoostInput;
@@ -102,7 +102,7 @@ public class PlayerQuickBooster : MonoBehaviour {
             boostPower = 0;
             isBoost = false;
         }
-        rigidBody.AddForce(transform.right * boostPower * velocity, ForceMode.VelocityChange);
+        rigidBody.AddForce(transform.right * boostPower * velocity * boostManager.BoostRatio, ForceMode.VelocityChange);
 
     }
 }

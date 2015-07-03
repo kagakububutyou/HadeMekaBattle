@@ -13,6 +13,29 @@ public class BoostManager : MonoBehaviour {
     /// </summary>
     const float quantityMax = 100.0f;
 
+    const float boostRatioMin = 1.0f;
+    const float boostRatioMax = 2.0f;
+
+    /// <summary>
+    /// エネルギー効率
+    /// 1.0から2.0fで扱う
+    /// </summary>
+    [SerializeField,Range(boostRatioMin,boostRatioMax)]
+    float boostRatio = boostRatioMin;
+
+    public float BoostRatio {
+        get 
+        {
+            return boostRatio;
+        }
+        set
+        {
+            boostRatio = value;
+            if (boostRatio > boostRatioMax) boostRatio = boostRatioMax;
+            if (BoostRatio < boostRatioMin) boostRatio = boostRatioMin;
+        }
+    }
+
     /// <summary>
     /// ブーストできる残り量
     /// </summary>
@@ -32,10 +55,19 @@ public class BoostManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        AddQuantity(autoRegainPerSecond * Time.deltaTime);
+        AutoRegain();
 
         Debug.Log(Quantity);
 	}
+
+    void AutoRegain()
+    {
+        quantity += autoRegainPerSecond * Time.deltaTime;
+
+        if (quantity > quantityMax) quantity = quantityMax;
+        if (quantity < quantityMin) quantity = quantityMin;
+
+    }
 
     /// <summary>
     /// ブースト残量を加算する
@@ -44,12 +76,19 @@ public class BoostManager : MonoBehaviour {
     /// <returns>加算後のブースト残量</returns>
     public float AddQuantity(float _addValue )
     {
-        quantity += _addValue;
+        quantity += _addValue * boostRatio;
 
         if (quantity > quantityMax) quantity = quantityMax;
         if (quantity < quantityMin) quantity = quantityMin;
 
 
         return quantity;
+    }
+
+    public bool CanUseBoost(float _consumption)
+    {
+        if (_consumption * boostRatio > quantity) return false;
+
+        return true;
     }
 }

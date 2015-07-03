@@ -25,7 +25,7 @@ public class PlayerMover : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
-        boostManager.GetComponent<BoostManager>();
+        boostManager = GetComponent<BoostManager>();
 	}
 	
 
@@ -34,7 +34,7 @@ public class PlayerMover : MonoBehaviour {
         GetInput();
         Move();
 
-        if(boostConsumption < boostManager.Quantity)
+        if (boostInput != 0 && boostManager.CanUseBoost(boostConsumption))
         {
             BoostMove();
         }
@@ -71,8 +71,8 @@ public class PlayerMover : MonoBehaviour {
     {
 
         boostManager.AddQuantity(-boostConsumption);
-        rigidBody.AddForce(verticalInput * moveSpeed * transform.forward * boostPower, ForceMode.VelocityChange);
-        rigidBody.AddForce(horizontalInput * moveSpeed * transform.right * boostPower, ForceMode.VelocityChange);
+        rigidBody.AddForce(verticalInput * moveSpeed * transform.forward * boostPower * boostManager.BoostRatio, ForceMode.VelocityChange);
+        rigidBody.AddForce(horizontalInput * moveSpeed * transform.right * boostPower * boostManager.BoostRatio, ForceMode.VelocityChange);
 
  
     }
