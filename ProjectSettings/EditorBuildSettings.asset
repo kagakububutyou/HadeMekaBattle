@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scene/Battle.unity
+  - enabled: 0
+    path: Assets/Scene/CharacterSelect.unity
+  - enabled: 0
+    path: Assets/Scene/MapSelect.unity
+  - enabled: 0
+    path: Assets/Scene/Title.unity
+  - enabled: 0
+    path: Assets/Scene/WeaponSelect.unity
