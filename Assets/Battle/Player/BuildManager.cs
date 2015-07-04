@@ -67,6 +67,14 @@ public class BuildManager : MonoBehaviour {
     WeaponInformation[] weaponList = new WeaponInformation[weaponNumberMax];
 
     /// <summary>
+    /// 選択されたロボットのテクスチャの種類。
+    /// -1がエラーコード
+    /// </summary>
+    [SerializeField]
+    int robotTextureID = -1;
+    public int RobotTextureID { get { return robotTextureID; } set { robotTextureID = value; } }
+
+    /// <summary>
     /// 武器を設定する
     /// </summary>
     /// <param name="_position">装備する箇所</param>
