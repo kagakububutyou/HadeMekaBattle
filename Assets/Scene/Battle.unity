@@ -126,14 +126,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11440116, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
-      propertyPath: boostConsumption
-      value: .300000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439594, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
-      propertyPath: boostConsumption
-      value: .300000012
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
   m_IsPrefabParent: 0
