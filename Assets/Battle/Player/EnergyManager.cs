@@ -6,7 +6,7 @@ public class EnergyManager : MonoBehaviour {
     const float energyRatioMin = -1.0f;
     const float energyRatioMax = 1.0f;
 
-    [SerializeField]
+    [SerializeField,Range(energyRatioMin,energyRatioMax)]
     float energyRatio = 0.0f;
     public float EnergyRatio { 
         get
