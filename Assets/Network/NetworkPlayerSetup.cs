@@ -2,19 +2,21 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class NetworkPlayerSetup : NetworkBehaviour {
+public class NetworkPlayerSetup : MonoBehaviour {
 
     GameObject sceneCamera = null;
+    NetworkView myNetworkView = null;
 
 	// Use this for initialization
 	void Start () {
+        myNetworkView = GetComponent<NetworkView>();
         sceneCamera =  GameObject.Find("Scene Camera");
         OpponentDestroy();
 
         if(sceneCamera != null)
             sceneCamera.SetActive(false);
 
-        if (isLocalPlayer)
+        if (myNetworkView.isMine)
         {
             transform.FindChild("Main Camera").parent = null;
         }
@@ -25,10 +27,11 @@ public class NetworkPlayerSetup : NetworkBehaviour {
     /// </summary>
     void OpponentDestroy()
     {
-        if (!isLocalPlayer)
+        if (!myNetworkView.isMine)
         {
             Destroy(GetComponent<PlayerMover>());
             Destroy(GetComponent<PlayerJumper>());
+          //  Destroy(GetComponent<PlayerShooter>());
             Destroy(transform.FindChild("Main Camera").gameObject);
         }
     }
