@@ -1,15 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LancherPalametar : MonoBehaviour {
+// ランチャーのパラメータ
+public class LancherPalametar : BulletBasePalametar {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

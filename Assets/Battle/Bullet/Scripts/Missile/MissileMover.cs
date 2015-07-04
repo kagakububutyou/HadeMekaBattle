@@ -5,10 +5,12 @@ using System.Collections;
 // MissileParameter.csが同じオブジェクトにないと動かない
 public class MissileMover : MonoBehaviour {
 	MissilePalametar missilePalametar = null;
-	
+	Rigidbody rigidbody = null;
+
 	// Use this for initialization
 	void Start () {
 		missilePalametar = this.gameObject.GetComponent<MissilePalametar>();
+		rigidbody = this.gameObject.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -18,6 +20,7 @@ public class MissileMover : MonoBehaviour {
 		if(missilePalametar == null) return;
 
 		// 向いている方向に移動
-		this.transform.position += this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed * Time.deltaTime ;
+		rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed;
+		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed * Time.deltaTime ;
 	}
 }
