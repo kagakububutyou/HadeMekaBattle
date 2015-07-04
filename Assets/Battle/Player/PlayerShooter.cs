@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class PlayerShooter : MonoBehaviour {
 
@@ -17,14 +18,42 @@ public class PlayerShooter : MonoBehaviour {
     /// </summary>
     float shotDeltaTime = 0.0f;
 
+    NetworkView myNetworkView = null;
+
+    void Start()
+    {
+        myNetworkView = GetComponent<NetworkView>();
+    }
+
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetAxis("Fire1") != 0 && shotDeltaTime < 0.0f)
+
+        if (IsCheckCreate())
         {
-            var clone = (GameObject)Instantiate(bullet,transform.position,Quaternion.identity);
-            clone.transform.forward = transform.forward;
             shotDeltaTime = NeedCoolTime;
+
+            var clone = (GameObject)Network.Instantiate(bullet,transform.position,Quaternion.identity,1);
+            clone.transform.forward = transform.forward;
         }
-        shotDeltaTime -= Time.deltaTime;
 	}
+
+    /// <summary>
+    /// 生成できるかどうかをチェックする。
+    /// </summary>
+    /// <returns></returns>
+    bool IsCheckCreate()
+    {
+        if (!myNetworkView.isMine) return false;
+
+        shotDeltaTime -= Time.deltaTime;
+        if (Input.GetAxis("Fire1") != 0 && shotDeltaTime < 0.0f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+
+
 }

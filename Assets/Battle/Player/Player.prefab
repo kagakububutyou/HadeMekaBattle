@@ -54,10 +54,11 @@ GameObject:
   - 114: {fileID: 11437544}
   - 114: {fileID: 11495572}
   - 114: {fileID: 11486332}
-  - 148: {fileID: 14831838}
   - 114: {fileID: 11450436}
-  - 114: {fileID: 11494558}
   - 114: {fileID: 11463666}
+  - 114: {fileID: 11436166}
+  - 148: {fileID: 14865354}
+  - 114: {fileID: 11442878}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -286,6 +287,18 @@ MonoBehaviour:
   moveSpeed: 4
   distanceFromTarget: -4
   addHeight: 3
+--- !u!114 &11436166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0aec9c2412c8e34787ce9830c017cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 123884, guid: cd15ccb8ffe3e114ab883dd5a76866b0, type: 2}
 --- !u!114 &11437544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +351,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostPower: .300000012
   boostConsumption: .300000012
+--- !u!114 &11442878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: .100000001
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: .00100000005
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &11448422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,26 +475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotTextureID: -1
---- !u!114 &11494558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: .100000001
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: .00100000005
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
 --- !u!114 &11495572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,7 +519,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!148 &14831838
+--- !u!148 &14865354
 NetworkView:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1613,7 +1626,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 123884, guid: cd15ccb8ffe3e114ab883dd5a76866b0, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ServerOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPlayerAuthority
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130908}

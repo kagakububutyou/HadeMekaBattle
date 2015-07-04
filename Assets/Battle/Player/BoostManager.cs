@@ -57,7 +57,6 @@ public class BoostManager : MonoBehaviour {
 	void Update () {
         AutoRegain();
 
-        Debug.Log(Quantity);
 	}
 
     void AutoRegain()
