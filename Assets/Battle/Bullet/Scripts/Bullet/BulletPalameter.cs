@@ -2,7 +2,7 @@
 using System.Collections;
 
 // 
-public class BulletParameter : BulletBasePalametar {
+public class BulletPalameter : BulletBasePalametar {
 	enum TYPE
 	{
 		PHYSICAL,

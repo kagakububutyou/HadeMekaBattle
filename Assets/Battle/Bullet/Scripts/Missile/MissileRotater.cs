@@ -5,9 +5,7 @@ using System.Collections;
 // MissileParameter.csが同じオブジェクトにないと動かない
 public class MissileRotater : MonoBehaviour {
 	MissilePalametar missilePalametar = null;
-	bool homingFlag = true;	// ホーミングをするか否か
-	[SerializeField]
-	private float finalApproachRenge = 5.0f;	// ホーミング処理を行わなくなる距離
+	private bool homingFlag = true;	// ホーミングをするか否か
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +42,6 @@ public class MissileRotater : MonoBehaviour {
 		}
 
 		// 一定距離まで近づいたら追尾対象を放棄する
-		if(Vector3.Distance(this.transform.position, missilePalametar.GetTargetObject.transform.position) <= finalApproachRenge) homingFlag = false;
+		if(Vector3.Distance(this.transform.position, missilePalametar.GetTargetObject.transform.position) <= missilePalametar.GetApproachRenge) homingFlag = false;
 	}
 }
