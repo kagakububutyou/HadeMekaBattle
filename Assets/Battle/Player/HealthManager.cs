@@ -31,7 +31,7 @@ public class HealthManager : MonoBehaviour {
     /// HPを加算する
     /// </summary>
     /// <param name="_addValue">加算する量</param>
-    void AddHealth(int _addValue)
+    public void AddHealth(int _addValue)
     {
         health += _addValue;
 
