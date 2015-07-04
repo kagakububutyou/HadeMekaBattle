@@ -1,5 +1,5 @@
 ﻿/*
- *  キャラクターの回転スクリプト
+ *  キャラクターの回転のスクリプト
  * 
  *  決め事
  * 
@@ -22,7 +22,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CharacterRotate : MonoBehaviour {
+public class CharacterRotater : MonoBehaviour {
 
 
     private const float RotateEularMax = 360.0f;
