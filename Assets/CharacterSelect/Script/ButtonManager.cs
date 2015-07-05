@@ -1,5 +1,5 @@
 ﻿/*
- *  キャラクターの回転スクリプト
+ *  ボタンのマネージャーのスクリプト
  * 
  *  決め事
  * 
@@ -21,22 +21,15 @@
  */
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class CharacterRotate : MonoBehaviour {
+public class ButtonManager : MonoBehaviour {
 
-
-    private const float RotateEularMax = 360.0f;
-    private const float RotateEularMin = 0.0f;
-    /// <summary>
-    /// 一秒あたりの回転量
-    /// </summary>
-    /// Range(Min,Max)やると
-    /// バーで選べるようになる
-    [SerializeField, Range(RotateEularMin, RotateEularMax)]
-    private float rotateEularPerSecond = 90.0f;
+    [SerializeField]
+    private Button[] button = null;
 
 	// Use this for initialization
-	private void Start ()
+	private void Start () 
     {
 
 	}
@@ -44,19 +37,21 @@ public class CharacterRotate : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () 
     {
-        Rotate();
+	
 	}
     /// <summary>
-    /// 回転
+    /// 押されたボタンを反応しないようにする
     /// </summary>
-    /// オイラー角　0～360度
-    /// ラジアン　　0～2π
-    private void Rotate()
+    /// <param name="myButton">押されたボタン</param>
+    public void OnPush(Button myButton)
     {
-        float rotateValue = Input.GetAxis("Rotate");
+        foreach (var item in button)
+        {
+            item.enabled = true;
+        }
 
-        if (rotateValue == 0) return;
-        //  ここで回転
-        transform.Rotate(new Vector3(0f, rotateEularPerSecond * rotateValue * Time.deltaTime, 0f));
+        myButton.enabled = false;
+
     }
+
 }
