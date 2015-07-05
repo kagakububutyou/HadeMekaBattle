@@ -638,6 +638,78 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11466966, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: buttonScaling
+      value: 
+      objectReference: {fileID: 1831177182}
+    - target: {fileID: 11436354, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: buttonScaling
+      value: 
+      objectReference: {fileID: 1831177182}
+    - target: {fileID: 22419830, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22419830, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22419830, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482852, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22407714, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443370, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471064, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482852, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22407714, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443370, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471064, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482852, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22407714, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443370, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471064, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404364, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 109eed38dcf91dd46a0276901811abbf, type: 2}
   m_IsPrefabParent: 0
@@ -692,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -771,6 +843,7 @@ MonoBehaviour:
   - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 1831177177}
   buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
 --- !u!1 &1098456357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1204,7 @@ RectTransform:
   m_GameObject: {fileID: 1304205761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 2019161583}
   m_Father: {fileID: 1843754304}
@@ -1232,6 +1305,7 @@ MonoBehaviour:
   - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 1831177177}
   buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
 --- !u!1 &1363273601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1334,7 @@ RectTransform:
   m_GameObject: {fileID: 1363273601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 1642936817}
   m_Father: {fileID: 1843754304}
@@ -1361,6 +1435,7 @@ MonoBehaviour:
   - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 1831177177}
   buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
 --- !u!1 &1367476661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1710,7 @@ RectTransform:
   m_GameObject: {fileID: 1492426661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 1167461184}
   m_Father: {fileID: 1843754304}
@@ -1736,6 +1811,7 @@ MonoBehaviour:
   - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 1831177177}
   buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
 --- !u!1 &1561941602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1840,7 @@ RectTransform:
   m_GameObject: {fileID: 1561941602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 1367476662}
   m_Father: {fileID: 1843754304}
@@ -1866,6 +1942,7 @@ MonoBehaviour:
   - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 1831177177}
   buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
 --- !u!1 &1642936816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +2025,8 @@ GameObject:
   - 114: {fileID: 1831177178}
   - 114: {fileID: 1831177177}
   - 114: {fileID: 1831177181}
+  - 114: {fileID: 1831177182}
+  - 114: {fileID: 1831177183}
   m_Layer: 5
   m_Name: GamePad Canvas
   m_TagString: Untagged
@@ -2061,6 +2140,55 @@ MonoBehaviour:
   - {fileID: 1304205763}
   - {fileID: 1363273603}
   - {fileID: 1492426663}
+--- !u!114 &1831177182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1831177175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54eddc76cd9cdb4e8a3749bf4f6d1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+  - {fileID: 879150133}
+  - {fileID: 1561941604}
+  - {fileID: 1304205763}
+  - {fileID: 1363273603}
+  - {fileID: 1492426663}
+  scaleMin: {x: .800000012, y: .800000012, z: .800000012}
+  scaleMax: {x: 1, y: 1, z: 1}
+  easeTime: .5
+  easeType: 16
+--- !u!114 &1831177183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1831177175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c09b5002a2b194ba7d0ccee92056d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+  - {fileID: 1492426663}
+  - {fileID: 1363273603}
+  - {fileID: 879150133}
+  - {fileID: 1561941604}
+  - {fileID: 1304205763}
+  characterObject:
+  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
+  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
+  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
+  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
+  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
+  characterChanger: {fileID: 1831177177}
+  buttonManager: {fileID: 1831177181}
+  buttonScaling: {fileID: 1831177182}
+  buttonIndex: 2
+  parent: {fileID: 1486827447}
 --- !u!1 &1843754303
 GameObject:
   m_ObjectHideFlags: 0

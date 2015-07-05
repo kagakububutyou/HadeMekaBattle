@@ -1,5 +1,5 @@
 ﻿/*
- *  ボタンのマネージャーのスクリプト
+ *  選択しているボタンを大きくするスクリプト
  * 
  *  決め事
  * 
@@ -23,16 +23,36 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviour {
+public class ButtonScaling : MonoBehaviour {
+
 
     [SerializeField]
     private Button[] button = null;
 
-	// Use this for initialization
-	private void Start () 
-    {
 
-	}
+
+    [SerializeField]
+    private Vector3 scaleMin = new Vector3(1.0625f, 1.0625f, 1);
+
+    [SerializeField]
+    private Vector3 scaleMax = new Vector3(1.0625f, 1.0625f, 1);
+
+    /// <summary>
+    /// イージングにかかる時間（秒）
+    /// </summary>
+    [SerializeField]
+    float easeTime = 1.0f;
+
+    /// <summary>
+    /// 行うイージングの種類
+    /// </summary>
+    [SerializeField]
+    iTween.EaseType easeType = iTween.EaseType.linear;
+
+	// Use this for initialization
+	private void Start ()
+    {
+    }
 	
 	// Update is called once per frame
 	private void Update () 
@@ -40,18 +60,17 @@ public class ButtonManager : MonoBehaviour {
 	
 	}
     /// <summary>
-    /// 押されたボタンを反応しないようにする
+    /// 押されたボタンを拡大　押されていないものを縮小
     /// </summary>
     /// <param name="myButton">押されたボタン</param>
     public void OnPush(Button myButton)
     {
         foreach (var item in button)
         {
-            item.enabled = true;
+            iTween.ScaleTo(item.gameObject, iTween.Hash("scale", scaleMin, "time", easeTime, "easetype", easeType));
         }
 
-        myButton.enabled = false;
+        iTween.ScaleTo(myButton.gameObject, iTween.Hash("scale", scaleMax, "time", easeTime, "easetype", easeType));
 
     }
-
 }

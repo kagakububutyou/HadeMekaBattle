@@ -34,6 +34,8 @@ public class TouchCharacter : MonoBehaviour {
     private CharacterChanger characterChanger = null;
     [SerializeField]
     private ButtonManager buttonManager = null;
+    [SerializeField]
+    private ButtonScaling buttonScaling = null;
 
 	// Use this for initialization
 	private void Start () 
@@ -55,7 +57,8 @@ public class TouchCharacter : MonoBehaviour {
     private void PushButton()
     {
         Clone();
-        buttonManager.onPush(characterButton);
+        buttonManager.OnPush(characterButton);
+        buttonScaling.OnPush(characterButton);
     }
     /// <summary>
     /// オブジェクトの生成
