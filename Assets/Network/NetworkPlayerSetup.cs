@@ -33,6 +33,7 @@ public class NetworkPlayerSetup : MonoBehaviour {
             Destroy(GetComponent<PlayerJumper>());
           //  Destroy(GetComponent<PlayerShooter>());
             Destroy(transform.FindChild("Main Camera").gameObject);
+            Destroy(GetComponent<PlayerRespawner>());
         }
     }
 

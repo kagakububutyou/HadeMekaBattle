@@ -286,6 +286,10 @@ MonoBehaviour:
   objectPrefab: {fileID: 130908, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
   ip: localhost
   port: 7777
+  connectionNum: 2
+  roomName: HadeMekaBattle
+  roomTypeName: HadeMekaBattleType
+  connectTimeOver: 2
 --- !u!1 &2129335114
 GameObject:
   m_ObjectHideFlags: 0
