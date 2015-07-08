@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/08 切り替え番号の取得方法の変更
  * 
  */
 using UnityEngine;
@@ -32,7 +33,7 @@ public class HorizontalCharacter : MonoBehaviour {
     [SerializeField]
     private Button[] button = null;
     /// <summary>
-    /// キャラクターしまうよう
+    /// キャラクターしまう用
     /// </summary>
     [SerializeField]
     private GameObject[] characterObject = null;
@@ -56,6 +57,11 @@ public class HorizontalCharacter : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private int buttonIndex = 0;
+    /// <summary>
+    /// お父さんの設定
+    /// </summary>
+    [SerializeField]
+    private GameObject nowCharacter = null;
 
 	// Use this for initialization
 	private void Start () 
@@ -75,23 +81,52 @@ public class HorizontalCharacter : MonoBehaviour {
     {
         var indexValue = (int)Input.GetAxisRaw("Horizontal");
 
+        LoopCount();
+
         if (Input.GetButtonDown("Horizontal"))
         {
             buttonIndex += indexValue;
             buttonIndex = buttonIndex % button.Length;
             if(buttonIndex >= 0)
             {
-                characterChanger.GetCharacter(characterObject[buttonIndex]);
-                buttonManager.OnPush(button[buttonIndex]);
-                buttonScaling.OnPush(button[buttonIndex]);
+                CharacterChanger(buttonIndex);
             }
             else
             {
                 var tmp = button.Length - Math.Abs(buttonIndex);
-                characterChanger.GetCharacter(characterObject[tmp]);
-                buttonManager.OnPush(button[tmp]);
-                buttonScaling.OnPush(button[tmp]);
+                CharacterChanger(tmp);
             }
+        }
+    }
+    /// <summary>
+    /// キャラクターの切り替え
+    /// </summary>
+    /// <param name="index">キャラの番号</param>
+    private void CharacterChanger(int index)
+    {
+        characterChanger.GetCharacter(characterObject[index]);
+        buttonManager.OnPush(button[index]);
+        buttonScaling.OnPush(button[index]);
+    }
+
+    /// <summary>
+    /// ループカウント
+    /// </summary>
+    /// スマートなやり方あったら教えて下さい
+    /// 
+    private void LoopCount()
+    {
+        // ループカウント
+        int loopCount = 0;
+        //　キャラ番号の取得
+        foreach (var item in button)
+        {
+            if (nowCharacter.transform.GetChild(0).gameObject.name == item.name)
+            {
+                buttonIndex = loopCount;
+                return;
+            }
+            loopCount += 1;
         }
     }
 }
