@@ -1669,6 +1669,10 @@ Prefab:
       propertyPath: deadHeight
       value: -5000
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: effect
+      value: 
+      objectReference: {fileID: 170108, guid: 03e19096c4c1c6a4497737b3871a2691, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130908}
