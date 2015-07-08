@@ -46,7 +46,6 @@ public class PlayerQuickBooster : MonoBehaviour {
     /// </summary>
     int pushingTime = 0;
 
-
     Rigidbody rigidBody = null;
 
     BoostManager boostManager = null;
@@ -70,8 +69,8 @@ public class PlayerQuickBooster : MonoBehaviour {
 
             rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
 
-
             boostManager.AddQuantity(-boostConsumption);
+                        
         }
         
         if (isBoost)

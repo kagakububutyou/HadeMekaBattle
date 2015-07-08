@@ -8,7 +8,18 @@ public class EffekseerEmitter : MonoBehaviour {
 	public bool playOnStart = false;
 	public bool loop = false;
 	private EffekseerHandle? handle;
-	
+
+    /// <summary>
+    /// エフェクト生成
+    /// </summary>
+    /// <param name="effect"></param>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    static GameObject Create(GameObject effect,Vector3 pos)
+    {
+        return (GameObject)Network.Instantiate(effect,pos,Quaternion.identity,0);
+    }
+
 	public void Play(string name)
 	{
 		effectName = name;
