@@ -2188,7 +2188,7 @@ MonoBehaviour:
   buttonManager: {fileID: 1831177181}
   buttonScaling: {fileID: 1831177182}
   buttonIndex: 2
-  parent: {fileID: 1486827447}
+  nowCharacter: {fileID: 1486827447}
 --- !u!1 &1843754303
 GameObject:
   m_ObjectHideFlags: 0

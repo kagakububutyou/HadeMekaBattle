@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/08 出産方法の変更　
  * 
  */
 using UnityEngine;
@@ -24,6 +25,9 @@ using System.Collections;
 
 public class CharacterChanger : MonoBehaviour {
 
+    /// <summary>
+    /// お父さんの設定
+    /// </summary>
     [SerializeField]
     private GameObject nowCharacter = null;
 
@@ -42,14 +46,17 @@ public class CharacterChanger : MonoBehaviour {
     /// Characterの取得
     /// </summary>
     /// <param name="character">キャラをもらってくる</param>
-    /// 子供がふたり以上いたら長男を消す
-    /// 
+    /// 子供がふたり以上いたら子供全員消す
+    /// 出産する
     public void GetCharacter(GameObject character)
     {
+        /// 子供がふたり以上いたら子供全員消す
         if (nowCharacter.transform.childCount >= 1)
         {
-            //         消す　   お父さんの            長男の      オブジェクトを
-            GameObject.Destroy(nowCharacter.transform.GetChild(0).gameObject);
+            foreach (Transform n in nowCharacter.transform)
+            {
+                GameObject.Destroy(n.gameObject);
+            }
         }
 
         /// 以下で生成
