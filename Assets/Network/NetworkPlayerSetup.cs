@@ -6,11 +6,14 @@ public class NetworkPlayerSetup : MonoBehaviour {
 
     GameObject sceneCamera = null;
     NetworkView myNetworkView = null;
+    GameObject enemyManager = null;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
         myNetworkView = GetComponent<NetworkView>();
         sceneCamera =  GameObject.Find("Scene Camera");
+        enemyManager = GameObject.Find("EnemyManager");
+
         OpponentDestroy();
 
         if(sceneCamera != null)
@@ -34,6 +37,8 @@ public class NetworkPlayerSetup : MonoBehaviour {
           //  Destroy(GetComponent<PlayerShooter>());
             Destroy(transform.FindChild("Main Camera").gameObject);
             Destroy(GetComponent<PlayerRespawner>());
+            
+            enemyManager.GetComponent<EnemyListManager>().Add(gameObject);
         }
     }
 
