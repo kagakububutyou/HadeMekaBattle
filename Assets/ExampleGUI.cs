@@ -19,7 +19,7 @@ public class ExampleGUI : MonoBehaviour {
 	
 	void OnGUI() {
 		GUILayout.BeginArea(new Rect(20, 20, 200, 100));
-		if (laserEffect.isPlaying) {
+		if (laserEffect.IsPlaying) {
 			if (GUILayout.Button("Emitter \"LaserEffect\" Stop")) {
 				laserEffect.Stop();
 			}
@@ -28,7 +28,7 @@ public class ExampleGUI : MonoBehaviour {
 				laserEffect.Play();
 			}
 		}
-		if (particleEffect.isPlaying) {
+		if (particleEffect.IsPlaying) {
 			if (GUILayout.Button("Emitter \"ParticleEffect\" Stop")) {
 				particleEffect.Stop();
 			}

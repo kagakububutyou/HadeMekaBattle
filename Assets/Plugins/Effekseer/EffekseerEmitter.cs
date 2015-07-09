@@ -40,7 +40,7 @@ public class EffekseerEmitter : MonoBehaviour {
 		}
 	}
 	
-	public bool isPlaying
+	public bool IsPlaying
 	{
 		get {
 			return handle.HasValue && handle.Value.exists;

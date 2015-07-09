@@ -12,7 +12,7 @@ public class EffekseerEmitterDestroyer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!effect.isPlaying)
+        if (!effect.IsPlaying)
         {
             Destroy(gameObject);
         }
