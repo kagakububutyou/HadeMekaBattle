@@ -1642,6 +1642,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: animationData.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 123884, guid: cd15ccb8ffe3e114ab883dd5a76866b0, type: 2}
