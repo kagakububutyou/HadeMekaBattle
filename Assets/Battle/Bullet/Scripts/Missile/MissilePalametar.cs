@@ -14,12 +14,4 @@ public class MissilePalametar : BulletBasePalametar {
 	public GameObject GetTargetObject{get{return targetObject;}}
 	public float GetRotationSpeed{get{return rotationSpeed;}}
 	public float GetApproachRenge{get{return finalApproachRenge;}}
-
-	public override void SetPalametar(float _power, float _energy, float _speed, GameObject _targetObject)
-	{
-		power = _power;
-		energy = _energy;
-		speed = _speed;
-		targetObject = _targetObject;
-	}
 }

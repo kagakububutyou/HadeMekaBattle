@@ -10,11 +10,4 @@ public class LancherPalametar : BulletBasePalametar {
 
 	public float GetVectorY{get{return vectorRotationY;}}
 	public float GetRotationSpeed{get{return rotationSpeed;}}
-
-	public override void SetPalametar(float _power, float _energy, float _speed, GameObject _targetObject)
-	{
-		power = _power;
-		energy = _energy;
-		speed = _speed;
-	}
 }
