@@ -40,8 +40,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96ef6c039acfa24bb4a72f790f404a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenCenter: {x: 101, y: 169, z: 0}
-  targetCircleRadius: 100
 --- !u!114 &11485450
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,7 +18,6 @@ public class TargetSystem : MonoBehaviour {
     /// <summary>
     /// ターゲットのわっかの中心位置
     /// </summary>
-    [SerializeField]
     Vector3 screenCenter = Vector3.zero;
 
 
@@ -30,42 +29,39 @@ public class TargetSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         enemyListManager = GetComponent<EnemyListManager>();
+        screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         
-        targetCircleRadius = Screen.height / 3;
 
         RefreshInsideObjects();
-        if(insideObjects.Count == 0) return;
 
-        var objCount = 0;
-	    foreach(var obj in insideObjects)
-        {
-            Debug.Log(objCount + obj.name);
-        }
 
 	}
 
-    public List<GameObject> RefreshInsideObjects()
+    /// <summary>
+    /// ターゲットサークル内にいる敵一覧を更新する
+    /// </summary>
+    void RefreshInsideObjects()
     {
+        targetCircleRadius = Screen.height / 3;
+
         ///削除
         InsideObjects.Clear();
 
 
-        foreach(var enemy in enemyListManager.GetEnemyList())
+        foreach (var enemy in enemyListManager.GetEnemyList())
         {
             var enemyScreenPoint = Camera.main.WorldToScreenPoint(enemy.transform.position);
-            screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, enemyScreenPoint.z);
+            enemyScreenPoint.z = 0.0f;
 
             if (Vector3.Distance(enemyScreenPoint, screenCenter) < targetCircleRadius)
             {
                 InsideObjects.Add(enemy);
             }
         }
-        
-        return InsideObjects;
-    }
 
+    }
 }
