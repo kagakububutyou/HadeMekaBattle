@@ -21,10 +21,10 @@ public class MissileRotater : MonoBehaviour {
 		if(missilePalametar == null) return;
 
 		// ターゲットが無いなら曲がらない
-		if(missilePalametar.GetTargetObject == null) return;
+		//if(missilePalametar.GetTargetObject == null) return;
 
 		// 回転処理
-		Vector3		vectorTarget = missilePalametar.GetTargetObject.transform.position - this.transform.position;	// ターゲットへのベクトル
+        Vector3 vectorTarget = Vector3.zero;//= missilePalametar.GetTargetObject.transform.position - this.transform.position;	// ターゲットへのベクトル
 		Vector3		vectorForward = this.transform.TransformDirection(Vector3.forward);								// 弾の正面ベクトル
 		float		angleDifference = Vector3.Angle(vectorTarget,vectorForward);									// ターゲットまでの角度
 		float		angleAdd = (missilePalametar.GetRotationSpeed * Time.deltaTime);								// 回転角
@@ -42,6 +42,6 @@ public class MissileRotater : MonoBehaviour {
 		}
 
 		// 一定距離まで近づいたら追尾対象を放棄する
-		if(Vector3.Distance(this.transform.position, missilePalametar.GetTargetObject.transform.position) <= missilePalametar.GetApproachRenge) homingFlag = false;
+		//if(Vector3.Distance(this.transform.position, missilePalametar.GetTargetObject.transform.position) <= missilePalametar.GetApproachRenge) homingFlag = false;
 	}
 }
