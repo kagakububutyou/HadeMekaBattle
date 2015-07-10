@@ -27,7 +27,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 459456}
   - 54: {fileID: 5400832}
-  - 114: {fileID: 11468418}
   - 114: {fileID: 11425680}
   - 114: {fileID: 11414628}
   - 114: {fileID: 11478868}
@@ -136,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   energy: 1
+  fireRate: 1
   speed: 1
   attackType: 0
 --- !u!114 &11430856
@@ -190,18 +190,6 @@ MonoBehaviour:
     i15: 239
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &11468418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d327d6a202a50468d4146f3ed5886a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: 0
 --- !u!114 &11478868
 MonoBehaviour:
   m_ObjectHideFlags: 1

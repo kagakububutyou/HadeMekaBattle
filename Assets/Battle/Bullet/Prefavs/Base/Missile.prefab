@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 435130}
   - 54: {fileID: 5402528}
-  - 114: {fileID: 11426752}
   - 114: {fileID: 11444356}
   - 114: {fileID: 11452972}
   - 114: {fileID: 11437740}
@@ -113,18 +112,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11426752
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d327d6a202a50468d4146f3ed5886a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: 1
 --- !u!114 &11432672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   energy: 1
+  fireRate: 1
   speed: 1
   targetObject: {fileID: 0}
   rotationSpeed: 90

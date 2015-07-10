@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 474934}
   - 54: {fileID: 5422562}
-  - 114: {fileID: 11460360}
   - 114: {fileID: 11467780}
   - 114: {fileID: 11452246}
   - 114: {fileID: 11485034}
@@ -136,18 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8db7ad2fb5ea146a64a1ac672b3c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11460360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d327d6a202a50468d4146f3ed5886a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: 1
 --- !u!114 &11467780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   energy: 1
+  fireRate: 1
   speed: 1
   targetObject: {fileID: 0}
   rotationSpeed: 90
