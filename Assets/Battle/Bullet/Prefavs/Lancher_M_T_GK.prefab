@@ -27,7 +27,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 406028}
   - 54: {fileID: 5419730}
-  - 114: {fileID: 11453276}
   - 114: {fileID: 11487614}
   - 114: {fileID: 11462158}
   - 114: {fileID: 11495568}
@@ -132,18 +131,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &11453276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d327d6a202a50468d4146f3ed5886a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: 2
 --- !u!114 &11462158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   energy: 1
+  fireRate: 1
   speed: 1
   vectorRotationY: -.5
   rotationSpeed: 15

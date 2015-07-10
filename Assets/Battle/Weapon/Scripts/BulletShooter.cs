@@ -6,9 +6,9 @@ public class BulletShooter : MonoBehaviour {
 	[SerializeField]
 	private BuildManager.WeaponID id;			// 武器名
 	[SerializeField]
-	private float fireRate;						// 連射速度
-	[SerializeField]
 	private GameObject bullet = null;			// 生成する弾のプレハブ
+
+	private float fireRate;						// 連射速度
 
 	private EnergyManager energyManager = null;	// 親オブジェクトからエネルギー値を受け取る
 
@@ -26,7 +26,6 @@ public class BulletShooter : MonoBehaviour {
 		}
 		catch//()
 		{
-			Debug.Log("親オブジェクトが存在していません");
 			energyManager = null;
 		}
 		createInterval = (1.0f / fireRate);
