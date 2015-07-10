@@ -32,9 +32,7 @@ public class BulletShooter : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-	}
+	void Update () {}
 
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
@@ -57,5 +55,11 @@ public class BulletShooter : MonoBehaviour {
 		// 生成する
 		GameObject obj;
 		obj = Instantiate (bullet, this.transform.position, this.transform.rotation) as GameObject;
+
+		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
+		//if()
+		//	obj.gameObject.GetComponent<MissilePalametar> ().TargetObject = null;
+		//}
+		// 
 	}
 }

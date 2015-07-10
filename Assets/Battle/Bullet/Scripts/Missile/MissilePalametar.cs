@@ -11,7 +11,7 @@ public class MissilePalametar : BulletBasePalametar {
 	private float finalApproachRenge = 5.0f;// ホーミング処理を行わなくなる距離
 
 	// プロパティ
-	public GameObject GetTargetObject{get{return targetObject;}}
+	public GameObject TargetObject{get{return targetObject;} set{if(targetObject == null)targetObject = value;}}
 	public float GetRotationSpeed{get{return rotationSpeed;}}
 	public float GetApproachRenge{get{return finalApproachRenge;}}
 }
