@@ -3,22 +3,17 @@ using System.Collections;
 
 public class BulletBasePalametar : MonoBehaviour {
 	// 攻撃系パラメータ
-	//[SerializeField]
-	protected float power;
-	//[SerializeField]
-	protected float energy;
+	[SerializeField]
+	protected float power = 1.0f;
+	[SerializeField]
+	protected float energy = 1.0f;
+	[SerializeField]
+	private float fireRate = 1.0f;
 	
 	// 移動系パラメータ
-	//[SerializeField]
-	protected float speed;
+	[SerializeField]
+	protected float speed = 1.0f;
 	
 	// プロパティ
 	public float GetSpeed{get{return speed;}}
-
-	public virtual void SetPalametar(float _power, float _energy, float _speed, GameObject _targetObject)
-	{
-		power = _power;
-		energy = _energy;
-		speed = _speed;
-	}
 }
