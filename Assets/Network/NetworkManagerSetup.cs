@@ -24,6 +24,8 @@ public class NetworkManagerSetup : MonoBehaviour {
     [SerializeField]
     float connectTimeOver = 2.0f;
 
+    EnemyListManager enemyListManager = null;
+
     bool connected = false;
     bool isInitializeServer = false;
 
@@ -47,6 +49,7 @@ public class NetworkManagerSetup : MonoBehaviour {
     {
         Network.RemoveRPCs(player);
         Network.DestroyPlayerObjects(player);
+        enemyListManager.ClearList();
     }
 
 	// Use this for initialization
@@ -54,6 +57,7 @@ public class NetworkManagerSetup : MonoBehaviour {
     {
         StartCoroutine(WaitRequestHostList());
         StartCoroutine(WaitInitializeServer());
+        enemyListManager = GameObject.Find("EnemyManager").GetComponent<EnemyListManager>();
     }
 
     public void OnGUI()

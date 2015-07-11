@@ -15,8 +15,16 @@ public class EnemyListManager : MonoBehaviour {
     /// <param name="_newObject">追加する敵</param>
     public void Add(GameObject _newObject)
     {
-        Debug.Log("add func");
         enemyList.Add(_newObject);
+    }
+
+    /// <summary>
+    /// 指定したオブジェクトを削除する
+    /// </summary>
+    /// <param name="_gameObject">削除するゲームオブジェクト</param>
+    public void ClearList()
+    {
+        enemyList.Clear();
     }
 
     /// <summary>
