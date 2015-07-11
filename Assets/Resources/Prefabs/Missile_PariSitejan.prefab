@@ -16,6 +16,8 @@ GameObject:
   - 148: {fileID: 14893334}
   - 114: {fileID: 11488822}
   - 114: {fileID: 11466532}
+  - 114: {fileID: 11460890}
+  - 135: {fileID: 13508646}
   m_Layer: 0
   m_Name: Missile_PariSitejan
   m_TagString: Untagged
@@ -158,12 +160,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
   fireRate: 1
   speed: 1
+  attackType: 0
   targetObject: {fileID: 0}
   rotationSpeed: 90
   finalApproachRenge: 5
+--- !u!114 &11460890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86cad3f2868feb4bb623eee700fa812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11466532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,24 +211,36 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 142
-    i1: 183
-    i2: 239
-    i3: 57
-    i4: 179
-    i5: 199
-    i6: 91
-    i7: 228
-    i8: 186
-    i9: 75
-    i10: 188
-    i11: 149
-    i12: 107
-    i13: 31
-    i14: 251
-    i15: 219
+    i0: 232
+    i1: 218
+    i2: 154
+    i3: 42
+    i4: 157
+    i5: 237
+    i6: 161
+    i7: 212
+    i8: 251
+    i9: 205
+    i10: 192
+    i11: 250
+    i12: 190
+    i13: 132
+    i14: 239
+    i15: 237
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!135 &13508646
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13608938
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -247,7 +272,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135868}

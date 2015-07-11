@@ -33,6 +33,8 @@ GameObject:
   - 148: {fileID: 14814644}
   - 114: {fileID: 11401506}
   - 114: {fileID: 11415992}
+  - 114: {fileID: 11479620}
+  - 135: {fileID: 13590476}
   m_Layer: 0
   m_Name: Lancher_M_F_DS
   m_TagString: Untagged
@@ -125,22 +127,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 37
-    i1: 54
-    i2: 44
-    i3: 231
-    i4: 116
-    i5: 62
-    i6: 25
+    i0: 7
+    i1: 200
+    i2: 62
+    i3: 187
+    i4: 153
+    i5: 200
+    i6: 235
     i7: 132
-    i8: 122
-    i9: 104
-    i10: 105
-    i11: 112
-    i12: 231
-    i13: 132
-    i14: 20
-    i15: 83
+    i8: 58
+    i9: 40
+    i10: 179
+    i11: 211
+    i12: 64
+    i13: 123
+    i14: 198
+    i15: 145
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &11408076
@@ -155,9 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
   fireRate: 1
   speed: 1
+  attackType: 0
   vectorRotationY: -.5
   rotationSpeed: 15
 --- !u!114 &11415992
@@ -191,6 +193,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f82b032385b0542bb8cc0e7b71a7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11479620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86cad3f2868feb4bb623eee700fa812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11493034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +216,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
+--- !u!135 &13590476
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13609238
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -234,7 +259,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179466}

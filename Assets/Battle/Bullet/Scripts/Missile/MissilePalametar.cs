@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// ミサイルのパラメータ
 public class MissilePalametar : BulletBasePalametar {
 	// ホーミング系パラメータ
 	[SerializeField]
@@ -14,4 +15,9 @@ public class MissilePalametar : BulletBasePalametar {
 	public GameObject TargetObject{get{return targetObject;} set{if(targetObject == null)targetObject = value;}}
 	public float GetRotationSpeed{get{return rotationSpeed;}}
 	public float GetApproachRenge{get{return finalApproachRenge;}}
+
+    void Start()
+    {
+        this.gameObject.GetComponent<HitChecker>().Palametar = this;
+    }
 }

@@ -10,4 +10,9 @@ public class LancherPalametar : BulletBasePalametar {
 
 	public float GetVectorY{get{return vectorRotationY;}}
 	public float GetRotationSpeed{get{return rotationSpeed;}}
+
+    void Start()
+    {
+        this.gameObject.GetComponent<HitChecker>().Palametar = this;
+    }
 }

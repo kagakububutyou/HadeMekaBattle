@@ -16,6 +16,8 @@ GameObject:
   - 148: {fileID: 14898822}
   - 114: {fileID: 11490870}
   - 114: {fileID: 11494204}
+  - 114: {fileID: 11422440}
+  - 135: {fileID: 13571922}
   m_Layer: 0
   m_Name: Missile_End_of_a_Tard
   m_TagString: Untagged
@@ -112,6 +114,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11422440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86cad3f2868feb4bb623eee700fa812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11450992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,9 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
   fireRate: 1
   speed: 1
+  attackType: 0
   targetObject: {fileID: 0}
   rotationSpeed: 90
   finalApproachRenge: 5
@@ -178,22 +191,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 191
-    i1: 55
-    i2: 135
-    i3: 40
-    i4: 2
-    i5: 145
-    i6: 159
-    i7: 180
-    i8: 56
-    i9: 103
-    i10: 59
-    i11: 46
-    i12: 151
-    i13: 4
-    i14: 90
-    i15: 164
+    i0: 76
+    i1: 91
+    i2: 176
+    i3: 109
+    i4: 45
+    i5: 121
+    i6: 13
+    i7: 84
+    i8: 27
+    i9: 112
+    i10: 121
+    i11: 114
+    i12: 8
+    i13: 89
+    i14: 68
+    i15: 215
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &11494204
@@ -216,6 +229,18 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!135 &13571922
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13608178
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -247,7 +272,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133014}

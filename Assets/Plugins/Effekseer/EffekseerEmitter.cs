@@ -15,7 +15,7 @@ public class EffekseerEmitter : MonoBehaviour {
     /// <param name="effect"></param>
     /// <param name="pos"></param>
     /// <returns></returns>
-    static GameObject Create(GameObject effect,Vector3 pos)
+    static public GameObject Create(GameObject effect, Vector3 pos)
     {
         return (GameObject)Network.Instantiate(effect,pos,Quaternion.identity,0);
     }
