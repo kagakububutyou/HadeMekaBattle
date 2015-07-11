@@ -28,6 +28,13 @@ public class HealthManager : MonoBehaviour {
     /// </summary>
     public bool IsDead { get; private set; }
 
+    EnergyManager energyManager = null;
+
+    void Start()
+    {
+        energyManager = GetComponent<EnergyManager>();
+    }
+
     /// <summary>
     /// HPを加算する
     /// </summary>
@@ -51,5 +58,29 @@ public class HealthManager : MonoBehaviour {
             IsDead = true;
         }
     }
+
+    /// <summary>
+    /// 物理ダメージの計算
+    /// </summary>
+    /// <param name="_damageValue">自然数のダメージ値</param>
+    public void PhysicalDamage(int _damageValue)
+    {
+        AddHealth(-_damageValue);
+    }
+
+    /// <summary>
+    /// 電気ダメージの計算
+    /// </summary>
+    /// <param name="_damageValue">自然数のダメージ値</param>
+    public void EnergyDamage(int _damageValue)
+    {
+        if(energyManager.EnergyRatio < 0)
+        {
+            _damageValue = (int)(energyManager.EnergyRatio * -0.5f) * _damageValue;
+        }
+        AddHealth(-_damageValue);
+    }
+
+
     
 }

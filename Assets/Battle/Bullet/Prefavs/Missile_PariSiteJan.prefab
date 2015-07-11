@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11488822}
   - 114: {fileID: 11466532}
   m_Layer: 0
-  m_Name: Missile_PariSitejan
+  m_Name: Missile_PariSiteJan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
   fireRate: 1
   speed: 1
   targetObject: {fileID: 0}
