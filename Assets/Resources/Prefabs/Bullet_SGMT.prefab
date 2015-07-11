@@ -134,8 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
-  fireRate: 1
+  fireRate: 50
   speed: 1
   attackType: 0
 --- !u!114 &11430856
@@ -172,22 +171,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 150
-    i1: 221
-    i2: 176
-    i3: 5
-    i4: 24
-    i5: 253
-    i6: 56
-    i7: 196
+    i0: 24
+    i1: 63
+    i2: 134
+    i3: 155
+    i4: 121
+    i5: 142
+    i6: 22
+    i7: 68
     i8: 251
-    i9: 3
-    i10: 175
-    i11: 203
-    i12: 15
-    i13: 81
-    i14: 233
-    i15: 239
+    i9: 45
+    i10: 180
+    i11: 42
+    i12: 133
+    i13: 186
+    i14: 108
+    i15: 2
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &11478868
@@ -233,7 +232,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: fireRate
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193678}

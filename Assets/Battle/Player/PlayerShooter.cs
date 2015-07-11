@@ -4,9 +4,6 @@ using UnityEngine.Networking;
 
 public class PlayerShooter : MonoBehaviour {
 
-    [SerializeField]
-    GameObject bullet = null;
-
     /// <summary>
     /// クールタイム
     /// </summary>
@@ -20,9 +17,12 @@ public class PlayerShooter : MonoBehaviour {
 
     NetworkView myNetworkView = null;
 
+    BulletShooter bulletShooter = null;
+
     void Start()
     {
         myNetworkView = GetComponent<NetworkView>();
+        bulletShooter = GetComponent<BulletShooter>();
     }
 
 	// Update is called once per frame
@@ -30,10 +30,7 @@ public class PlayerShooter : MonoBehaviour {
 
         if (IsCheckCreate())
         {
-            shotDeltaTime = NeedCoolTime;
-
-            var clone = (GameObject)Network.Instantiate(bullet,transform.position,Quaternion.identity,1);
-            clone.transform.forward = transform.forward;
+            bulletShooter.CreateBullet();
         }
 	}
 
@@ -45,8 +42,7 @@ public class PlayerShooter : MonoBehaviour {
     {
         if (!myNetworkView.isMine) return false;
 
-        shotDeltaTime -= Time.deltaTime;
-        if (Input.GetAxis("Fire1") != 0 && shotDeltaTime < 0.0f)
+        if (Input.GetAxis("Fire1") != 0 )
         {
             return true;
         }
