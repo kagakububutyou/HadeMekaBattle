@@ -101,7 +101,7 @@ public class BuildManager : MonoBehaviour {
     /// </summary>
     /// <param name="_id">武器のID</param>
     /// <returns>武器の種類</returns>
-    WeaponType GetTypeByID(WeaponID _id)
+    static public WeaponType GetTypeByID(WeaponID _id)
     {
         switch ((int)_id / 10)
         {

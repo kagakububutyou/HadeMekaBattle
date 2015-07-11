@@ -17,4 +17,5 @@ public class BulletBasePalametar : MonoBehaviour {
 	// プロパティ
 	public float GetSpeed{get{return speed;}}
     public float GetEnergy { get { return energy; } set { if(energy == -1.0f)energy = value; } }
+    public float Firerate { get { return fireRate; } }
 }

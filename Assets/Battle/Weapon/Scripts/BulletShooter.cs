@@ -10,6 +10,8 @@ public class BulletShooter : MonoBehaviour {
 
 	[SerializeField]
 	private BuildManager.WeaponID id;			// 武器名
+
+    private BuildManager.WeaponType type = BuildManager.WeaponType.NONE;
 	//[SerializeField]
 	private GameObject bullet = null;			// 生成する弾のプレハブ
 
@@ -43,6 +45,8 @@ public class BulletShooter : MonoBehaviour {
             bulletTable.Add(BuildManager.WeaponID.L_F_GK, "Lancher_L_F_GK");
         }
 
+        type = BuildManager.GetTypeByID(id);
+
 
 		// 親オブジェクトに登録されたEnergyManagerを取得する
 		try
@@ -53,11 +57,25 @@ public class BulletShooter : MonoBehaviour {
 		{
 			energyManager = null;
 		}
-		createInterval = (1.0f / fireRate);
+		
 
         // プレハブを取得
         bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
-        //Debug.Log(bullet);
+       
+        if(bullet == null)
+        {
+            Debug.Log("bullet is NULL!!");
+        }
+
+        fireRate = GetRate();
+
+        if(fireRate < 0)
+        {
+            Debug.Log("firerate is failed");
+        }
+
+        createInterval = (1.0f / fireRate);
+
 	}
 	
 	// Update is called once per frame
@@ -66,13 +84,14 @@ public class BulletShooter : MonoBehaviour {
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
 	{
+        Debug.Log("cr bll");
 		// クリエイトタイマーを増加させる
 		createTimer += Time.deltaTime;
 
 		// タイマーがインターバル値を超えたら生成する処理を呼ぶ
 		while(createTimer >= createInterval)
 		{
-			///Debug.Log("ショット！");
+			Debug.Log("ショット！");
 			Create();						// 生成し
 			createTimer -= createInterval;	// インターバルを減らす
 		}
@@ -91,6 +110,26 @@ public class BulletShooter : MonoBehaviour {
 		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
         TargetRequest(obj);
 	}
+
+    float GetRate()
+    {
+        
+
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                return bullet.GetComponent<BulletPalameter>().Firerate;
+
+            case BuildManager.WeaponType.Missile:
+                return bullet.GetComponent<MissilePalametar>().Firerate;
+
+            case BuildManager.WeaponType.Launcher:
+                return bullet.GetComponent<LancherPalametar>().Firerate;
+        }
+
+        return -1;
+    }
 
     // エネルギーを取得させる
     void EnergySet(GameObject _obj)
