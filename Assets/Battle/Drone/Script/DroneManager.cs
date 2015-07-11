@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DollManager : MonoBehaviour {
+public class DroneManager : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {

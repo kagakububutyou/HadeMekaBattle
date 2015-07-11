@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DollTypeManager : MonoBehaviour 
+public class DroneTypeManager : MonoBehaviour 
 {
     enum type
     {
