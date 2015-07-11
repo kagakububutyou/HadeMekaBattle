@@ -63,7 +63,7 @@ public class HealthManager : MonoBehaviour {
     /// 物理ダメージの計算
     /// </summary>
     /// <param name="_damageValue">自然数のダメージ値</param>
-    public void PhisicalDamage(int _damageValue)
+    public void PhysicalDamage(int _damageValue)
     {
         AddHealth(-_damageValue);
     }
