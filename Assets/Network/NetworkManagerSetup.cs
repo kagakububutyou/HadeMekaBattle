@@ -49,7 +49,7 @@ public class NetworkManagerSetup : MonoBehaviour {
     {
         Network.RemoveRPCs(player);
         Network.DestroyPlayerObjects(player);
-        enemyListManager.ClearList();
+        enemyListManager.RefreshList();
     }
 
 	// Use this for initialization
