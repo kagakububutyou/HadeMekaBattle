@@ -5,8 +5,8 @@ public class BulletBasePalametar : MonoBehaviour {
 	// 攻撃系パラメータ
 	[SerializeField]
 	protected float power = 1.0f;
-	[SerializeField]
-	protected float energy = 1.0f;
+	//[SerializeField]
+	protected float energy = -1.0f;
 	[SerializeField]
 	private float fireRate = 1.0f;
 	
@@ -16,4 +16,5 @@ public class BulletBasePalametar : MonoBehaviour {
 	
 	// プロパティ
 	public float GetSpeed{get{return speed;}}
+    public float GetEnergy { get { return energy; } set { if(energy == -1.0f)energy = value; } }
 }
