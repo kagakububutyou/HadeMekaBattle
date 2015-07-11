@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour {
     /// </summary>
     [SerializeField]
     int healthMax = 10000;
+    public int HealthMax { get { return healthMax; } }
 
     /// <summary>
     /// HPの最小値
