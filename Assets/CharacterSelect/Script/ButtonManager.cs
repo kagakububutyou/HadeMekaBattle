@@ -22,7 +22,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// ボタンのマネージャーのスクリプト
+/// </summary>
 public class ButtonManager : MonoBehaviour {
 
     [SerializeField]

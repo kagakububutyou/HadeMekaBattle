@@ -1,5 +1,5 @@
 ﻿/*
- *  選択しているボタンを大きくするスクリプト
+ *  タッチした場所にフレームを生成するスクリプト
  * 
  *  決め事
  * 
@@ -16,45 +16,36 @@
  * 
  * Code by shinnnosuke hiratsuka
  * 
- * 2015/07/04 書き始める
+ * 2015/07/10 書き始める
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-/// <summary>
-/// 選択しているボタンを大きくするスクリプト
-/// </summary>
-public class ButtonScaling : MonoBehaviour {
 
-
-    [SerializeField]
-    private Button[] button = null;
-
-
-
-    [SerializeField]
-    private Vector3 scaleMin = new Vector3(1.0625f, 1.0625f, 1);
-
-    [SerializeField]
-    private Vector3 scaleMax = new Vector3(1.0625f, 1.0625f, 1);
+public class SelectFrame : MonoBehaviour {
 
     /// <summary>
-    /// イージングにかかる時間（秒）
+    /// 選択した時のフレーム
     /// </summary>
     [SerializeField]
-    float easeTime = 1.0f;
-
+    private Image selectFrame = null;
     /// <summary>
-    /// 行うイージングの種類
+    /// お父さん
     /// </summary>
     [SerializeField]
-    iTween.EaseType easeType = iTween.EaseType.linear;
+    private GameObject myFather = null;
+    /// <summary>
+    /// 武器の数
+    /// </summary>
+    [SerializeField]
+    private int weaponNum = 0;
 
 	// Use this for initialization
 	private void Start ()
     {
-    }
+	
+	}
 	
 	// Update is called once per frame
 	private void Update () 
@@ -62,17 +53,32 @@ public class ButtonScaling : MonoBehaviour {
 	
 	}
     /// <summary>
-    /// 押されたボタンを拡大　押されていないものを縮小
+    /// 押された場所に生成
     /// </summary>
-    /// <param name="myButton">押されたボタン</param>
+    /// <param name="myButton">ボタンの押した場所</param>
     public void OnPush(Button myButton)
     {
-        foreach (var item in button)
+        if (Selection(weaponNum)) return;
+
+        Image clone = (Image)Instantiate(selectFrame, myButton.transform.position, myButton.transform.rotation);
+        clone.name = selectFrame.name;
+
+        /// お父さんを設定
+        clone.transform.parent = myFather.transform;
+        clone.transform.localScale = selectFrame.transform.localScale;
+    }
+    /// <summary>
+    /// 何個選択しているか？
+    /// </summary>
+    /// <returns>選択されていたらtrue</returns>
+    private bool Selection(int nun)
+    {
+        if (myFather.transform.childCount >= nun)
         {
-            iTween.ScaleTo(item.gameObject, iTween.Hash("scale", scaleMin, "time", easeTime, "easetype", easeType));
+            return true;
         }
 
-        iTween.ScaleTo(myButton.gameObject, iTween.Hash("scale", scaleMax, "time", easeTime, "easetype", easeType));
-
+        return false;
     }
+
 }
