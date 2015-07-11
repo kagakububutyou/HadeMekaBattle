@@ -83,7 +83,7 @@ public class BulletShooter : MonoBehaviour {
 	{
 		// 生成する
 		GameObject obj;
-		obj = Instantiate (bullet, this.transform.position, this.transform.rotation) as GameObject;
+		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
 
         // energyをセットする
         EnergySet(obj);
