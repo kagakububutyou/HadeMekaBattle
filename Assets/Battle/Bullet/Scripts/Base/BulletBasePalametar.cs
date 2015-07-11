@@ -22,8 +22,9 @@ public class BulletBasePalametar : MonoBehaviour {
     // 属性パラメータ
     [SerializeField]
     private TYPE attackType = TYPE.PHYSICAL;
-	
+
 	// プロパティ
+    public float GetPower { get { return power; } }
 	public float GetSpeed{get{return speed;}}
     public float GetEnergy { get { return energy; } set { if(energy == -1.0f)energy = value; } }
     public float Firerate { get { return fireRate; } }

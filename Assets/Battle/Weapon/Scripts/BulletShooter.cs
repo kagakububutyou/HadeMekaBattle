@@ -53,7 +53,7 @@ public class BulletShooter : MonoBehaviour {
 		{
 			energyManager = GetComponent<EnergyManager>();
 		}
-		catch//()
+		catch
 		{
 			energyManager = null;
 		}
