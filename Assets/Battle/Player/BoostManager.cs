@@ -12,6 +12,7 @@ public class BoostManager : MonoBehaviour {
     /// ブースト残量の最大値
     /// </summary>
     const float quantityMax = 100.0f;
+    public float QuantityMax { get { return quantityMax; } }
 
     const float boostRatioMin = 1.0f;
     const float boostRatioMax = 2.0f;

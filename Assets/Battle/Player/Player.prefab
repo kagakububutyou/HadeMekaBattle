@@ -60,6 +60,8 @@ GameObject:
   - 148: {fileID: 14865354}
   - 114: {fileID: 11442878}
   - 114: {fileID: 11433822}
+  - 114: {fileID: 11452322}
+  - 114: {fileID: 11449216}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -398,6 +400,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aspect: {x: 16, y: 9}
   backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &11449216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f18a49cb741bc4cb6d0d76d5cb231e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 10000
+  healthMin: 0
+  health: 10000
 --- !u!114 &11450436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,6 +446,17 @@ MonoBehaviour:
     i15: 92
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &11452322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e1039b5848ec948879f3364fcb27b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11458666
 MonoBehaviour:
   m_ObjectHideFlags: 1
