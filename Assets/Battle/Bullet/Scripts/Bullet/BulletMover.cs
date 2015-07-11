@@ -5,7 +5,7 @@ using System.Collections;
 // 同じオブジェクトに "BulletParameter.cs" を適用していないと動かない
 public class BulletMover : MonoBehaviour {
 	BulletPalameter bulletPalametar = null;
-	Rigidbody rigidbody;
+	Rigidbody rigidbody = null;
 
 	// Use this for initialization
 	void Start () {

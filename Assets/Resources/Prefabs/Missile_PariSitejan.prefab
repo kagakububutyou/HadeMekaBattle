@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11488822}
   - 114: {fileID: 11466532}
   m_Layer: 0
-  m_Name: Missile_PariSiteJan
+  m_Name: Missile_PariSitejan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+  energy: 1
   fireRate: 1
   speed: 1
   targetObject: {fileID: 0}
@@ -197,22 +198,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 206
-    i1: 86
-    i2: 241
-    i3: 120
-    i4: 137
-    i5: 179
-    i6: 246
-    i7: 84
-    i8: 233
-    i9: 24
-    i10: 219
-    i11: 148
-    i12: 39
-    i13: 218
-    i14: 69
-    i15: 12
+    i0: 142
+    i1: 183
+    i2: 239
+    i3: 57
+    i4: 179
+    i5: 199
+    i6: 91
+    i7: 228
+    i8: 186
+    i9: 75
+    i10: 188
+    i11: 149
+    i12: 107
+    i13: 31
+    i14: 251
+    i15: 219
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!136 &13608938
