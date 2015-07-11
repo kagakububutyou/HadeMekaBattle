@@ -15,6 +15,8 @@ GameObject:
   - 148: {fileID: 14807806}
   - 114: {fileID: 11423600}
   - 114: {fileID: 11443700}
+  - 114: {fileID: 11473714}
+  - 135: {fileID: 13525486}
   m_Layer: 0
   m_Name: RBullet_Minami
   m_TagString: Untagged
@@ -125,22 +127,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 79
-    i1: 52
-    i2: 154
-    i3: 233
-    i4: 233
-    i5: 84
-    i6: 146
-    i7: 84
-    i8: 185
-    i9: 12
-    i10: 57
-    i11: 166
-    i12: 94
-    i13: 174
-    i14: 177
-    i15: 201
+    i0: 148
+    i1: 168
+    i2: 216
+    i3: 185
+    i4: 15
+    i5: 85
+    i6: 48
+    i7: 4
+    i8: 248
+    i9: 117
+    i10: 5
+    i11: 49
+    i12: 156
+    i13: 106
+    i14: 153
+    i15: 93
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &11443700
@@ -186,10 +188,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  energy: 1
   fireRate: 1
   speed: 1
   attackType: 0
+--- !u!114 &11473714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86cad3f2868feb4bb623eee700fa812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11478964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +214,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
+--- !u!135 &13525486
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13656404
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -233,7 +257,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111980}

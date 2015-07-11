@@ -69,7 +69,7 @@ public class BulletShooter : MonoBehaviour {
 
         fireRate = GetRate();
 
-        if(fireRate < 0)
+        if(fireRate < -1)
         {
             Debug.Log("firerate is failed");
         }
@@ -134,18 +134,18 @@ public class BulletShooter : MonoBehaviour {
     // エネルギーを取得させる
     void EnergySet(GameObject _obj)
     {
-        switch ((int)id / 10)
+        switch (type)
         {
-            case (int)BuildManager.WeaponType.MachineGun:
-            case (int)BuildManager.WeaponType.Rifle:
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
                 _obj.gameObject.GetComponent<BulletPalameter>().GetEnergy = energyManager.EnergyRatio;
                 break;
 
-            case (int)BuildManager.WeaponType.Missile:
+            case BuildManager.WeaponType.Missile:
                 _obj.gameObject.GetComponent<MissilePalametar>().GetEnergy = energyManager.EnergyRatio;
                 break;
 
-            case (int)BuildManager.WeaponType.Launcher:
+            case BuildManager.WeaponType.Launcher:
                 _obj.gameObject.GetComponent<LancherPalametar>().GetEnergy = energyManager.EnergyRatio;
                 break;
         }
