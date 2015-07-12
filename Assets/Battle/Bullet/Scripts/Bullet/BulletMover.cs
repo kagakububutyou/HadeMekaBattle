@@ -4,7 +4,9 @@ using System.Collections;
 // 弾の挙動を行うクラス
 // 同じオブジェクトに "BulletParameter.cs" を適用していないと動かない
 public class BulletMover : MonoBehaviour {
+
 	BulletPalameter bulletPalametar = null;
+
 	Rigidbody rigidbody = null;
 
 	// Use this for initialization
@@ -20,7 +22,7 @@ public class BulletMover : MonoBehaviour {
 		if(bulletPalametar == null) return;
 
 		// 向いている方向に進む
-		GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward) * bulletPalametar.GetSpeed;
+		GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward) * bulletPalametar.Speed;
 		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * bulletPalametar.GetSpeed * Time.deltaTime ;
 	}
 }

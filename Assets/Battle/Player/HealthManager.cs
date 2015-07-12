@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class HealthManager : MonoBehaviour {
+
     /// <summary>
     /// HPの最大値
     /// </summary>

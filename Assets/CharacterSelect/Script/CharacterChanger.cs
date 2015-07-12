@@ -42,6 +42,7 @@ public class CharacterChanger : MonoBehaviour {
     {
 	
 	}
+
     /// <summary>
     /// Characterの取得
     /// </summary>

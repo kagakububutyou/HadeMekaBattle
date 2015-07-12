@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DroneTypeManager : MonoBehaviour 
 {
-    enum type
+    enum Type
     {
 
         Gun,
@@ -12,7 +12,8 @@ public class DroneTypeManager : MonoBehaviour
         Sensor,
     }
 
-    type dollType;
+    Type dollType = Type.Gun;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -20,10 +21,10 @@ public class DroneTypeManager : MonoBehaviour
 
         switch(_rand)
         {
-            case 0: dollType = type.Gun; break;
-            case 1: dollType = type.Jammer; break;
-            case 2: dollType = type.Mine; break;
-            case 3: dollType = type.Sensor; break;
+            case 0: dollType = Type.Gun; break;
+            case 1: dollType = Type.Jammer; break;
+            case 2: dollType = Type.Mine; break;
+            case 3: dollType = Type.Sensor; break;
         }
         Debug.Log("type->" + dollType);
 	}

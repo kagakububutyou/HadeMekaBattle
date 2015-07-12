@@ -98,6 +98,7 @@ public class HorizontalCharacter : MonoBehaviour {
             }
         }
     }
+
     /// <summary>
     /// キャラクターの切り替え
     /// </summary>

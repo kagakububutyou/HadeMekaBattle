@@ -3,6 +3,7 @@ using System.Collections;
 
 // ランチャー弾の回転処理
 public class LancharRotater : MonoBehaviour {
+
 	LancherPalametar lancherPalametar = null;
 
 	// Use this for initialization
@@ -17,11 +18,15 @@ public class LancharRotater : MonoBehaviour {
 
 		// 回転処理
 		Vector3		vectorTarget = new Vector3(this.transform.TransformDirection(Vector3.forward).x,
-		                                    lancherPalametar.GetVectorY,
+		                                    lancherPalametar.VectorRotationY,
 		                                    this.transform.TransformDirection(Vector3.forward).z);		// ターゲットへのベクトル
+
 		Vector3		vectorForward = this.transform.TransformDirection(Vector3.forward);					// 弾の正面ベクトル
+
 		float		angleDifference = Vector3.Angle(vectorTarget,vectorForward);						// ターゲットまでの角度
-		float		angleAdd = (lancherPalametar.GetRotationSpeed * Time.deltaTime);					// 回転角
+
+		float		angleAdd = (lancherPalametar.RotationSpeed * Time.deltaTime);					// 回転角
+
 		Quaternion	rotationTarget = Quaternion.LookRotation(vectorTarget);								// ターゲットへ向けるクォータニオン
 
 		if(angleDifference <= angleAdd)

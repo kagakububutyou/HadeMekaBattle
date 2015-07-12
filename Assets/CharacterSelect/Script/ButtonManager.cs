@@ -39,6 +39,7 @@ public class ButtonManager : MonoBehaviour {
     {
 	
 	}
+
     /// <summary>
     /// 押されたボタンを反応しないようにする
     /// </summary>
