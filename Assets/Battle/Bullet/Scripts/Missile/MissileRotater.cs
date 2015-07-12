@@ -4,8 +4,11 @@ using System.Collections;
 // ミサイルの回転クラス
 // MissileParameter.csが同じオブジェクトにないと動かない
 public class MissileRotater : MonoBehaviour {
+
 	MissilePalametar missilePalametar = null;
-	private bool homingFlag = true;	// ホーミングをするか否か
+ 
+    // ホーミングをするか否か
+	private bool homingFlag = true;	
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +31,7 @@ public class MissileRotater : MonoBehaviour {
         //Vector3 vectorTarget = missilePalametar.GetTargetObject.transform.position - this.transform.position;	// ターゲットへのベクトル
         Vector3		vectorForward = this.transform.TransformDirection(Vector3.forward);								// 弾の正面ベクトル
 		float		angleDifference = Vector3.Angle(vectorTarget,vectorForward);									// ターゲットまでの角度
-		float		angleAdd = (missilePalametar.GetRotationSpeed * Time.deltaTime);								// 回転角
+		float		angleAdd = (missilePalametar.RotationSpeed * Time.deltaTime);								// 回転角
 		Quaternion	rotationTarget = Quaternion.LookRotation(vectorTarget);											// ターゲットへ向けるクォータニオン
 
 		if(angleDifference <= angleAdd)

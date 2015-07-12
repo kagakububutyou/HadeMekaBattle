@@ -9,13 +9,11 @@ public class PlayerRespawner : MonoBehaviour {
     [SerializeField]
     float deadHeight = -30.0f;
 
-
     /// <summary>
     /// リスポンする場所
     /// </summary>
     [SerializeField]
     Vector3 spawnPosition = Vector3.zero;
-
 
     Rigidbody rigidBody = null;
 

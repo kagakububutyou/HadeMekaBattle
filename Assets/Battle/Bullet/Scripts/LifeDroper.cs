@@ -3,6 +3,7 @@ using System.Collections;
 
 // 弾丸の寿命設定
 public class LifeDroper : MonoBehaviour {
+
 	[SerializeField]
 	private float lifeTime = 5.0f;
 
@@ -11,7 +12,9 @@ public class LifeDroper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lifeTime -= 1.0f * Time.deltaTime;
+
+		lifeTime -= Time.deltaTime;
+
 		if(lifeTime <= 0.0f) Destroy(this.gameObject);
 	}
 }

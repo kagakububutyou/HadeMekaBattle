@@ -6,6 +6,7 @@ public class MapSelecter : MonoBehaviour
 
     [SerializeField]
     GameObject prefab = null;
+
     [SerializeField]
     GameObject pos = null;
 
@@ -13,7 +14,7 @@ public class MapSelecter : MonoBehaviour
     MapCreator creator = null;
 
 
-    public int mopNumber
+    public int mapNumber
     {
         get;
         private set;
@@ -23,7 +24,7 @@ public class MapSelecter : MonoBehaviour
     public void OnClick(int _mopNumber)
     {
         Debug.Log("Clicked->." + _mopNumber);
-        if (mopNumber == _mopNumber) { return; }
+        if (mapNumber == _mopNumber) { return; }
         else
         {
             creator.Create(prefab, pos);

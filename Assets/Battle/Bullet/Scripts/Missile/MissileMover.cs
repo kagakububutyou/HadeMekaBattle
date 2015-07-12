@@ -4,6 +4,7 @@ using System.Collections;
 // ミサイルの移動クラス
 // MissileParameter.csが同じオブジェクトにないと動かない
 public class MissileMover : MonoBehaviour {
+
 	MissilePalametar missilePalametar = null;
 	Rigidbody rigidbody = null;
 
@@ -20,7 +21,7 @@ public class MissileMover : MonoBehaviour {
 		if(missilePalametar == null) return;
 
 		// 向いている方向に移動
-		rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed;
+		rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * missilePalametar.Speed;
 		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed * Time.deltaTime ;
 	}
 }

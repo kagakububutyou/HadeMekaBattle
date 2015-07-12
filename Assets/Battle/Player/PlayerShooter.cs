@@ -4,17 +4,6 @@ using UnityEngine.Networking;
 
 public class PlayerShooter : MonoBehaviour {
 
-    /// <summary>
-    /// クールタイム
-    /// </summary>
-    [SerializeField]
-    const float NeedCoolTime = 0.5f;
-
-    /// <summary>
-    /// 前回打ってからの時間
-    /// </summary>
-    float shotDeltaTime = 0.0f;
-
     NetworkView myNetworkView = null;
 
     BulletShooter bulletShooter = null;

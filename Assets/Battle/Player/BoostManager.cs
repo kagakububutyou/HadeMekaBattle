@@ -49,17 +49,16 @@ public class BoostManager : MonoBehaviour {
     [SerializeField,Range(quantityMin,quantityMax)]
     float autoRegainPerSecond = 5.0f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
+
         AutoRegain();
 
 	}
 
+    /// <summary>
+    /// 自然に回復する処理
+    /// </summary>
     void AutoRegain()
     {
         quantity += autoRegainPerSecond * Time.deltaTime;

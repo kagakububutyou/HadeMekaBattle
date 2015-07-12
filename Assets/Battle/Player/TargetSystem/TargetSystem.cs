@@ -19,8 +19,7 @@ public class TargetSystem : MonoBehaviour {
     /// ターゲットのわっかの中心位置
     /// </summary>
     Vector3 screenCenter = Vector3.zero;
-
-
+    
     /// <summary>
     /// ターゲットサークルの半径
     /// </summary>

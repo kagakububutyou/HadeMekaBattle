@@ -63,13 +63,7 @@ public class PlayerQuickBooster : MonoBehaviour {
 
         if (pushingTime == 1 && boostManager.CanUseBoost(boostConsumption))
         {
-            isBoost = true;
-            velocity = quickBoostInput;
-            boostPower = defaultBoostPower;
-
-            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
-
-            boostManager.AddQuantity(-boostConsumption);
+            BeginQuickBoost();
                         
         }
         
@@ -91,6 +85,20 @@ public class PlayerQuickBooster : MonoBehaviour {
         {
             pushingTime = 0;
         }
+    }
+
+    /// <summary>
+    /// クイックブーストを開始するための処理
+    /// </summary>
+    void BeginQuickBoost()
+    {
+        isBoost = true;
+        velocity = quickBoostInput;
+        boostPower = defaultBoostPower;
+
+        rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+
+        boostManager.AddQuantity(-boostConsumption);
     }
 
     void QuickBoost()

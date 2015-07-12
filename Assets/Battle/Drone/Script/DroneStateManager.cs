@@ -18,22 +18,22 @@ public class DroneStateManager : MonoBehaviour
     enum OwnerState
     {
         None,
-        Maine,
+        Mine,
         Your
     }
 
-    NowState dollState;
-    OwnerState owner;
+    NowState dollState = NowState.Stay;
+    OwnerState owner = OwnerState.None;
 
-    NetworkView netState;
-    bool maine;
+    NetworkView netState = null;
+    bool mine = false;
 
 
     public bool IsStay { get { return dollState == NowState.Stay; } }
     public bool IsActive { get { return dollState == NowState.Active; } }
 
     public bool IsNone { get { return owner == OwnerState.None; } }
-    public bool IsMaine{ get { return owner == OwnerState.Maine;} }
+    public bool IsMaine { get { return owner == OwnerState.Mine; } }
     public bool IsYour { get { return owner == OwnerState.Your; } }
 	
     // Use this for initialization
@@ -49,7 +49,7 @@ public class DroneStateManager : MonoBehaviour
     {
         gameObject.transform.parent = null;
         dollState = NowState.Active;
-        owner = OwnerState.Maine;
+        owner = OwnerState.Mine;
         //Debug.Log("State->" + DollState);
     }
 	
@@ -58,8 +58,8 @@ public class DroneStateManager : MonoBehaviour
     {
         if (owner == OwnerState.None)  return OwnerState.None;
 
-        if (netState.isMine)  return OwnerState.Maine; 
-        else  return OwnerState.Your; 
+        if (netState.isMine) return OwnerState.Mine;
+        else return OwnerState.Your; 
     }
 
 	// Update is called once per frame

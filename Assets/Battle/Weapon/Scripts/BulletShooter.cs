@@ -138,15 +138,15 @@ public class BulletShooter : MonoBehaviour {
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                _obj.gameObject.GetComponent<BulletPalameter>().GetEnergy = energyManager.EnergyRatio;
+                _obj.gameObject.GetComponent<BulletPalameter>().Energy = energyManager.EnergyRatio;
                 break;
 
             case BuildManager.WeaponType.Missile:
-                _obj.gameObject.GetComponent<MissilePalametar>().GetEnergy = energyManager.EnergyRatio;
+                _obj.gameObject.GetComponent<MissilePalametar>().Energy = energyManager.EnergyRatio;
                 break;
 
             case BuildManager.WeaponType.Launcher:
-                _obj.gameObject.GetComponent<LancherPalametar>().GetEnergy = energyManager.EnergyRatio;
+                _obj.gameObject.GetComponent<LancherPalametar>().Energy = energyManager.EnergyRatio;
                 break;
         }
     }

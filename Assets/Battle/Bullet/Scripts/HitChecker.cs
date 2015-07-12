@@ -2,8 +2,20 @@
 using System.Collections;
 
 public class HitChecker : MonoBehaviour {
+
     BulletBasePalametar palametar = null;
-    public BulletBasePalametar Palametar { get { return palametar; } set { if (palametar == null) palametar = value; } }
+
+    public BulletBasePalametar Palametar 
+    { 
+        get 
+        {
+            return palametar; 
+        }
+        set
+        { 
+            if (palametar == null) palametar = value;
+        } 
+    }
 
     [SerializeField]
     private GameObject effect = null;
@@ -13,7 +25,6 @@ public class HitChecker : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) 
     {
-        Debug.Log("Hey");
         EffekseerEmitter.Create(effect, this.transform.position);
     }
 
@@ -32,12 +43,12 @@ public class HitChecker : MonoBehaviour {
             if (other.gameObject.GetComponent<NetworkView>().isMine == true) return;
             
             // ダメージ計算
-            if (palametar.GetType == BulletBasePalametar.TYPE.PHYSICAL) 
+            if (palametar.AttackType == BulletBasePalametar.TYPE.PHYSICAL) 
             {
                 //
-                other.gameObject.GetComponent<HealthManager>().PhysicalDamage((int)palametar.GetPower);
+                other.gameObject.GetComponent<HealthManager>().PhysicalDamage((int)palametar.Power);
             }
-            else if(palametar.GetType == BulletBasePalametar.TYPE.ENERGY)
+            else if(palametar.AttackType == BulletBasePalametar.TYPE.ENERGY)
             {
                 //
                 other.gameObject.GetComponent<HealthManager>().EnergyDamage(100);
