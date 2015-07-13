@@ -151,7 +151,7 @@ public class TouchDragController : MonoBehaviour{
     private void DestroyChildrens(RectTransform panel)
     {
         // 子供全員消す
-        if (panel.transform.childCount >= 1)
+        if (panel.transform.IsChildOf(panel.transform)) 
         {
             foreach (Transform n in panel)
             {

@@ -35,17 +35,8 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// 自分自身
     /// </summary>
     [SerializeField]
-    private Button characterButton = null;
-    /// <summary>
-    /// マネージャーさん
-    /// </summary>
-    [SerializeField]
-    private ButtonManager buttonManager = null;
-    /// <summary>
-    /// 選択された時に表示する枠
-    /// </summary>
-    [SerializeField]
-    private SelectFrame selectFrame = null;
+    private Button characterButton = null;  
+
     /// <summary>
     /// お父さんの設定
     /// </summary>
@@ -60,10 +51,6 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// 押しっぱなし判定の間隔（この間隔毎にイベントが呼ばれる）
     /// </summary>
     float intervalAction = 0.2f;
-    /// <summary>
-    /// 押下開始時にもイベントを呼び出すフラグ
-    /// </summary>
-    bool callEventFirstPress;
 
     /// <summary>
     /// 次の押下判定時間
@@ -95,10 +82,6 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	public void OnPointerDown (PointerEventData eventData)
     {
         pressed = true;
-        if (callEventFirstPress)
-        {
-            onLongPress.Invoke();
-        }
         OnTouch();
         nextTime = Time.realtimeSinceStartup + intervalAction;
 	}
@@ -133,17 +116,15 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         TouchInstantiate(characterButton);
     }
 
-    
-
     /// <summary>
     /// タッチされたら分身する
     /// </summary>
     private void TouchInstantiate(Button myButton)
     {
         clone = (Button)Instantiate(myButton);                      //  生成して
+        clone.transform.parent = myFather.transform;                //  親決めて
         clone.name = characterButton.name;                          //  名前変えて
         clone.transform.rotation = myButton.transform.rotation;     //  角度変える
-        clone.transform.parent = myFather.transform;                //  親決めて
         clone.gameObject.AddComponent<TouchDragController>();       //  スクリプトくっつける
         Destroy(clone.gameObject.GetComponent<TouchWeapon>());      //  スクリプトをはずす
         var rectTrans = clone.transform as RectTransform;           //  データもらってくる
