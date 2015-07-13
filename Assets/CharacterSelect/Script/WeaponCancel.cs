@@ -83,11 +83,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// <param name="eventData"></param>
     public void OnPointerDown(PointerEventData eventData)
     {
-        pressed = true;
-        if (callEventFirstPress)
-        {
-            onLongPress.Invoke();
-        }
+        pressed = true;      
         nextTime = Time.realtimeSinceStartup + intervalAction;
 
         transform.localScale = new Vector3(10.0f, 10.0f, 1);        //  サイズ変更

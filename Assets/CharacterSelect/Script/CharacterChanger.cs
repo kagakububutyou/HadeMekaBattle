@@ -18,6 +18,7 @@
  * 
  * 2015/07/04 書き始める
  * 2015/07/08 出産方法の変更　
+ * 2015/07/13 子供を消す条件を変更
  * 
  */
 using UnityEngine;
@@ -53,8 +54,8 @@ public class CharacterChanger : MonoBehaviour {
     /// 出産する
     public void GetCharacter(GameObject character)
     {
-        /// 子供がふたり以上いたら子供全員消す
-        if (nowCharacter.transform.childCount >= 1)
+        /// 子供がいたら子供全員消す
+        if (nowCharacter.transform.IsChildOf(nowCharacter.transform))
         {
             foreach (Transform n in nowCharacter.transform)
             {
