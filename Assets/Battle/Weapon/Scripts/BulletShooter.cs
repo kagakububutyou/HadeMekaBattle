@@ -1,69 +1,99 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 // 球を打ち出す
 public class BulletShooter : MonoBehaviour {
-	[SerializeField]
-	private BuildManager.WeaponType type;		// 武器タイプ
+    // バレットデータテーブル
+    static Dictionary<BuildManager.WeaponID, string> bulletTable = new Dictionary<BuildManager.WeaponID, string>();
+
 	[SerializeField]
 	private BuildManager.WeaponID id;			// 武器名
-	[SerializeField]
+
+    private BuildManager.WeaponType type = BuildManager.WeaponType.NONE;
+	//[SerializeField]
+	private GameObject bullet = null;			// 生成する弾のプレハブ
+
 	private float fireRate;						// 連射速度
-	[SerializeField]
-	private float power;						// 火力
-	[SerializeField]
-	private float speed;						// 弾丸速度
-	[SerializeField]
-	private GameObject bullet;					// 生成する弾のプレハブ
-	[SerializeField]
-	private Vector3 criatePosition;				// 弾の生成ポジション (+ 武器のポジション)　調整中のため未実装
 
 	private EnergyManager energyManager = null;	// 親オブジェクトからエネルギー値を受け取る
 
 	private float createTimer = 0.0f;			// 弾生成時間管理
 	private float createInterval = 0.0f;		// 生成間隔
-	private bool triggerOnFlag = false;			// ショットを行っているかのフラグ(タイマーの初期化などに使う)
-	private float previousTimer = 0.0f;			// 前フレームの生成時間
-	
-	public BuildManager.WeaponType GetWeaponType{get{return type;}}
+
 	public BuildManager.WeaponID GetWeaponId{get{return id;}}
 
 	// Use this for initialization
 	void Start () {
+        if(bulletTable.Count == 0)
+        {
+            //Debug.Log("初期化 : bulletTable");
+            bulletTable.Add(BuildManager.WeaponID.SGMT, "Bullet_SGMT");
+            bulletTable.Add(BuildManager.WeaponID.YMD, "Bullet_YMD");
+            bulletTable.Add(BuildManager.WeaponID.HRTK, "Bullet_HRTK");
+            bulletTable.Add(BuildManager.WeaponID.TKG, "Bullet_TKG");
+            bulletTable.Add(BuildManager.WeaponID.雷楽, "RBullet_Raigaku");
+            bulletTable.Add(BuildManager.WeaponID.藤鷹, "RBullet_Fuzitaka");
+            bulletTable.Add(BuildManager.WeaponID.南, "RBullet_Minami");
+            bulletTable.Add(BuildManager.WeaponID.パリサイトジャン, "Missile_PariSitejan");
+            bulletTable.Add(BuildManager.WeaponID.コガマージャン, "Missile_KogaMajan");
+            bulletTable.Add(BuildManager.WeaponID.オートモージャン, "Missile_AutoMojan");
+            bulletTable.Add(BuildManager.WeaponID.End_of_a_Tard, "Missile_End_of_a_Tard");
+            bulletTable.Add(BuildManager.WeaponID.M_F_DS, "Lancher_M_F_DS");
+            bulletTable.Add(BuildManager.WeaponID.M_T_GK, "Lancher_M_T_GK");
+            bulletTable.Add(BuildManager.WeaponID.L_F_GK, "Lancher_L_F_GK");
+        }
+
+        type = BuildManager.GetTypeByID(id);
+
+
 		// 親オブジェクトに登録されたEnergyManagerを取得する
 		try
 		{
-			energyManager = gameObject.transform.parent.gameObject.GetComponent<EnergyManager>();
+			energyManager = GetComponent<EnergyManager>();
 		}
-		catch//()
+		catch
 		{
-			Debug.Log("親オブジェクトが存在していません");
 			energyManager = null;
 		}
+		
+
+        // プレハブを取得
+        bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
+       
+        if(bullet == null)
+        {
+            Debug.Log("bullet is NULL!!");
+        }
+
+        fireRate = GetRate();
+
+        if(fireRate < -1)
+        {
+            Debug.Log("firerate is failed");
+        }
+
+        createInterval = (1.0f / fireRate);
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(createInterval == 0.0f) createInterval = (1.0f / fireRate);	// Startで初期化失敗したときの為の保険
-		CheckCreateTrigger ();
-		TestCreateShot ();		// BulletTestシーンでのみ有効
-	}
+	//void Update () {}
 
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
 	{
-		// トリガーを起動する
-		if(!triggerOnFlag) triggerOnFlag = true;
-
+        Debug.Log("cr bll");
 		// クリエイトタイマーを増加させる
 		createTimer += Time.deltaTime;
 
 		// タイマーがインターバル値を超えたら生成する処理を呼ぶ
 		while(createTimer >= createInterval)
 		{
+			Debug.Log("ショット！");
 			Create();						// 生成し
 			createTimer -= createInterval;	// インターバルを減らす
-			previousTimer = createTimer;	// このフレームのタイマーを保存する
 		}
 	}
 
@@ -71,41 +101,62 @@ public class BulletShooter : MonoBehaviour {
 	void Create()
 	{
 		// 生成する
-		GameObject obj = Network.Instantiate(bullet,this.transform.position,this.transform.rotation,0) as GameObject;
+		GameObject obj;
+		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
 
-		// 生成したオブジェクトにパラメータを適用する
-		GameObject target = null;
-		if(type == BuildManager.WeaponType.Missile) target = null;	// ミサイルなら目標物のゲームオブジェクトをリクエスト(実装待ち)
+        // energyをセットする
+        EnergySet(obj);
 
-		if (energyManager == null) 
-		{
-			obj.gameObject.GetComponent<BulletPalametarSetter>().SetPalametar(power, 0.0f, speed, target);
-		}
-		else 
-		{
-			obj.gameObject.GetComponent<BulletPalametarSetter>().SetPalametar(power, energyManager.EnergyRatio, speed, target);
-		}
+		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
+        TargetRequest(obj);
 	}
 
-	void CheckCreateTrigger()
-	{
-		// そもそもフラグが立っていない場合
-		if(!triggerOnFlag) return;
+    float GetRate()
+    {
+        
 
-		// createTimerが更新されていないのであれば値は同じのはず
-		if (previousTimer == createTimer) 
-		{
-			triggerOnFlag = false;
-			createTimer = createInterval;
-		}
-	}
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                return bullet.GetComponent<BulletPalameter>().Firerate;
 
-	// BulletTestシーンでのみ有効なメソッド
-	void TestCreateShot()
-	{
-		if (Application.loadedLevelName == "BulletTest") 
-		{
-			if (Input.GetButton ("Fire2")) CreateBullet ();	// テスト
-		}
-	}
+            case BuildManager.WeaponType.Missile:
+                return bullet.GetComponent<MissilePalametar>().Firerate;
+
+            case BuildManager.WeaponType.Launcher:
+                return bullet.GetComponent<LancherPalametar>().Firerate;
+        }
+
+        return -1;
+    }
+
+    // エネルギーを取得させる
+    void EnergySet(GameObject _obj)
+    {
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                _obj.gameObject.GetComponent<BulletPalameter>().Energy = energyManager.EnergyRatio;
+                break;
+
+            case BuildManager.WeaponType.Missile:
+                _obj.gameObject.GetComponent<MissilePalametar>().Energy = energyManager.EnergyRatio;
+                break;
+
+            case BuildManager.WeaponType.Launcher:
+                _obj.gameObject.GetComponent<LancherPalametar>().Energy = energyManager.EnergyRatio;
+                break;
+        }
+    }
+
+    // ホーミングミサイルが要求する
+    void TargetRequest(GameObject _obj) 
+    {
+        if ((int)id / 10 == (int)BuildManager.WeaponType.Missile)
+        {
+            _obj.gameObject.GetComponent<MissilePalametar>().TargetObject = null;
+        }
+    }
 }

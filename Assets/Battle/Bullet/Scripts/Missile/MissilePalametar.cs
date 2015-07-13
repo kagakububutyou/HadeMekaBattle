@@ -1,25 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// ミサイルのパラメータ
 public class MissilePalametar : BulletBasePalametar {
-	// ホーミング系パラメータ
-	[SerializeField]
-	private GameObject targetObject = null;	// 追尾する対象
-	[SerializeField]
-	private float rotationSpeed = 90.0f;	// 回転する速度(°/秒)
-	[SerializeField]
-	private float finalApproachRenge = 5.0f;// ホーミング処理を行わなくなる距離
+	//---------ホーミング系パラメータ------------//
+    // 追尾する対象
+    [SerializeField]
+	private GameObject targetObject = null;	
 
-	// プロパティ
-	public GameObject GetTargetObject{get{return targetObject;}}
-	public float GetRotationSpeed{get{return rotationSpeed;}}
-	public float GetApproachRenge{get{return finalApproachRenge;}}
+    // 回転する速度(°/秒)
+    [SerializeField]
+	private float rotationSpeed = 90.0f;	
 
-	public override void SetPalametar(float _power, float _energy, float _speed, GameObject _targetObject)
-	{
-		power = _power;
-		energy = _energy;
-		speed = _speed;
-		targetObject = _targetObject;
-	}
+    // ホーミング処理を行わなくなる距離
+    [SerializeField]
+	private float finalApproachRange = 5.0f;
+
+	//---------------プロパティ----------------//
+	public GameObject TargetObject
+    {
+        get
+        {
+            return targetObject;
+        }
+        set
+        {
+            if(targetObject == null)targetObject = value;
+        }
+    }
+
+	public float RotationSpeed{get{return rotationSpeed;}}
+	public float ApproachRange{get{return finalApproachRange;}}
+
+    void Start()
+    {
+        this.gameObject.GetComponent<HitChecker>().Palametar = this;
+    }
 }

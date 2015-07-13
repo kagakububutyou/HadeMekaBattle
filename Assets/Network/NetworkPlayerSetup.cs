@@ -6,11 +6,15 @@ public class NetworkPlayerSetup : MonoBehaviour {
 
     GameObject sceneCamera = null;
     NetworkView myNetworkView = null;
-
-	// Use this for initialization
+    GameObject enemyManager = null;
+    AttachCamera attachCamera = null;
+    // Use this for initialization
 	void Start () {
         myNetworkView = GetComponent<NetworkView>();
         sceneCamera =  GameObject.Find("Scene Camera");
+        enemyManager = GameObject.Find("EnemyManager");
+        attachCamera = GetComponent<AttachCamera>();
+
         OpponentDestroy();
 
         if(sceneCamera != null)
@@ -19,6 +23,8 @@ public class NetworkPlayerSetup : MonoBehaviour {
         if (myNetworkView.isMine)
         {
             transform.FindChild("Main Camera").parent = null;
+            attachCamera.Initialize();
+            attachCamera.Attach();
         }
 	}
 
@@ -34,6 +40,9 @@ public class NetworkPlayerSetup : MonoBehaviour {
           //  Destroy(GetComponent<PlayerShooter>());
             Destroy(transform.FindChild("Main Camera").gameObject);
             Destroy(GetComponent<PlayerRespawner>());
+
+            Destroy(GetComponent<AttachCamera>());
+            enemyManager.GetComponent<EnemyListManager>().Add(gameObject);
         }
     }
 

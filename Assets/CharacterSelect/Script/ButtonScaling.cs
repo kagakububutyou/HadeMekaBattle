@@ -31,8 +31,6 @@ public class ButtonScaling : MonoBehaviour {
     [SerializeField]
     private Button[] button = null;
 
-
-
     [SerializeField]
     private Vector3 scaleMin = new Vector3(1.0625f, 1.0625f, 1);
 
@@ -61,6 +59,7 @@ public class ButtonScaling : MonoBehaviour {
     {
 	
 	}
+
     /// <summary>
     /// 押されたボタンを拡大　押されていないものを縮小
     /// </summary>

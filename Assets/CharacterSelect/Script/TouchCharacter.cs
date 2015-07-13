@@ -30,12 +30,16 @@ public class TouchCharacter : MonoBehaviour {
 
     [SerializeField]
     private Button characterButton = null;
+
     [SerializeField]
     private GameObject[] characterObject = null;
+
     [SerializeField]
     private CharacterChanger characterChanger = null;
+
     [SerializeField]
     private ButtonManager buttonManager = null;
+
     [SerializeField]
     private ButtonScaling buttonScaling = null;
 

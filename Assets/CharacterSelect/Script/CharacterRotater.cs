@@ -29,6 +29,7 @@ public class CharacterRotater : MonoBehaviour {
 
     private const float RotateEularMax = 360.0f;
     private const float RotateEularMin = 0.0f;
+
     /// <summary>
     /// 一秒あたりの回転量
     /// </summary>
