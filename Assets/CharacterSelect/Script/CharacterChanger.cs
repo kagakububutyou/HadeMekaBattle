@@ -22,7 +22,9 @@
  */
 using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// キャラクターの切り替えのスクリプト
+/// </summary>
 public class CharacterChanger : MonoBehaviour {
 
     /// <summary>
@@ -61,9 +63,9 @@ public class CharacterChanger : MonoBehaviour {
         }
 
         /// 以下で生成
-        GameObject Clone = (GameObject)Instantiate(character);
-        Clone.name = character.name;
+        GameObject clone = (GameObject)Instantiate(character);
+        clone.name = character.name;
         /// お父さんを設定
-        Clone.transform.parent = nowCharacter.transform;
+        clone.transform.parent = nowCharacter.transform;
     }
 }

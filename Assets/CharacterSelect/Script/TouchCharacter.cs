@@ -23,7 +23,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// キャラクターのタッチを取得するスクリプト
+/// </summary>
 public class TouchCharacter : MonoBehaviour {
 
     [SerializeField]
