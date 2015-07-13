@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drone: {fileID: 206432941}
-  _material: {fileID: 2100000, guid: d6861a313d35c39439d65d69d2a2750d, type: 2}
+  material: {fileID: 2100000, guid: 2581be74990ad804dac4b630a54d300c, type: 2}
 --- !u!33 &896220845
 MeshFilter:
   m_ObjectHideFlags: 0
