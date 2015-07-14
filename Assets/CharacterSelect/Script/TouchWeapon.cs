@@ -17,6 +17,8 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/10 書き始める
+ * 2018/07/14 コメントつける
+ *            Parentの設定の変更
  * 
  */
 using UnityEngine;
@@ -65,8 +67,13 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         get;
         private set;
     }
-
+    /// <summary>
+    /// カメラ取得
+    /// </summary>
     Camera padCamera = null;
+    /// <summary>
+    /// ボタン生成に使う
+    /// </summary>
     Button clone = null;
 	// Use this for initialization
 	private void Start () 
@@ -111,8 +118,6 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// </summary>
     private void OnTouch()
     {
-        //buttonManager.OnPush(characterButton);
-        //selectFrame.OnPush(characterButton);
         TouchInstantiate(characterButton);
     }
 
@@ -122,7 +127,7 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void TouchInstantiate(Button myButton)
     {
         clone = (Button)Instantiate(myButton);                      //  生成して
-        clone.transform.parent = myFather.transform;                //  親決めて
+        clone.transform.SetParent(myFather.transform);              //  親決めて
         clone.name = characterButton.name;                          //  名前変えて
         clone.transform.rotation = myButton.transform.rotation;     //  角度変える
         clone.gameObject.AddComponent<TouchDragController>();       //  スクリプトくっつける

@@ -784,6 +784,14 @@ Prefab:
       propertyPath: equippedWeapon
       value: 
       objectReference: {fileID: 1245994747}
+    - target: {fileID: 167680, guid: a7ff2a6638520024b933e0fc17cc80ab, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 139956, guid: a7ff2a6638520024b933e0fc17cc80ab, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7ff2a6638520024b933e0fc17cc80ab, type: 2}
   m_IsPrefabParent: 0

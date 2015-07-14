@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/11 書き始める
+ * 2015/07/14 コメントつける
  * 
  */
 using UnityEngine;
@@ -27,12 +28,19 @@ using UnityEngine.EventSystems;
 
 public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
+    /// <summary>
+    /// GamePadのカメラ
+    /// </summary>
     private Camera padCamera = null;
 
+    /// <summary>
+    /// 武器装備のパネル
+    /// </summary>
     private RectTransform panel = null;
 
-    //
+    /// <summary>
+    /// 選択しているかどうか？
+    /// </summary>
     bool isSelect = false;
 
     /// <summary>
@@ -43,11 +51,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// 押しっぱなし判定の間隔（この間隔毎にイベントが呼ばれる）
     /// </summary>
     float intervalAction = 0.2f;
-    /// <summary>
-    /// 押下開始時にもイベントを呼び出すフラグ
-    /// </summary>
-    bool callEventFirstPress;
-
+   
     /// <summary>
     /// 次の押下判定時間
     /// </summary>
@@ -61,21 +65,26 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         get;
         private set;
     }
+    /// <summary>
+    /// 武器装備のキャンパス
+    /// </summary>
     Canvas canvas = null;
 
+    /// <summary>
+    /// パネルの設定
+    /// </summary>
+    /// <param name="rectTrans"></param>
     public void SetNowPanel(RectTransform rectTrans)
     {
         panel = rectTrans;
 
     }
 
-
 	// Use this for initialization
 	private void Start () 
     {
         padCamera = GameObject.Find("GamePad Camera").GetComponent<Camera>();
 	}
-
 
     /// <summary>
     /// ボタンをおした時の処理
@@ -88,7 +97,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
         transform.localScale = new Vector3(10.0f, 10.0f, 1);        //  サイズ変更
         canvas = GameObject.Find("EquippedWeaponCanvas").GetComponent<Canvas>();
-        canvas.sortingOrder = 2;
+        canvas.sortingOrder = 2;    //  オーダーレイヤーを変える
         isSelect = true;
     }
 
@@ -117,8 +126,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 transform.localScale = new Vector3(1.0f, 1.0f, 1);        //  サイズ変更
             }
         }
-        canvas.sortingOrder = 0;
-
+        canvas.sortingOrder = 0;    //  オーダーレイヤーを変える
     }
 
 	// Update is called once per frame

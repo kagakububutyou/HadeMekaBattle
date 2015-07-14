@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/13 コメントを付ける
  * 
  */
 using UnityEngine;
@@ -27,13 +28,19 @@ using UnityEngine.UI;
 /// </summary>
 public class ButtonScaling : MonoBehaviour {
 
-
+    /// <summary>
+    /// キャラ選択用のボタン全部
+    /// </summary>
     [SerializeField]
     private Button[] button = null;
-
+    /// <summary>
+    /// 最小サイズ
+    /// </summary>
     [SerializeField]
     private Vector3 scaleMin = new Vector3(1.0625f, 1.0625f, 1);
-
+    /// <summary>
+    /// 最大サイズ
+    /// </summary>
     [SerializeField]
     private Vector3 scaleMax = new Vector3(1.0625f, 1.0625f, 1);
 
@@ -49,19 +56,8 @@ public class ButtonScaling : MonoBehaviour {
     [SerializeField]
     iTween.EaseType easeType = iTween.EaseType.linear;
 
-	// Use this for initialization
-	private void Start ()
-    {
-    }
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
-
     /// <summary>
-    /// 押されたボタンを拡大　押されていないものを縮小
+    /// 一旦全部縮小 押されたボタンを拡大
     /// </summary>
     /// <param name="myButton">押されたボタン</param>
     public void OnPush(Button myButton)
@@ -70,8 +66,6 @@ public class ButtonScaling : MonoBehaviour {
         {
             iTween.ScaleTo(item.gameObject, iTween.Hash("scale", scaleMin, "time", easeTime, "easetype", easeType));
         }
-
         iTween.ScaleTo(myButton.gameObject, iTween.Hash("scale", scaleMax, "time", easeTime, "easetype", easeType));
-
     }
 }

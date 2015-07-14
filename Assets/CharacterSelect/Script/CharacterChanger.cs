@@ -19,6 +19,7 @@
  * 2015/07/04 書き始める
  * 2015/07/08 出産方法の変更　
  * 2015/07/13 子供を消す条件を変更
+ *   同日     Start,Update削除
  * 
  */
 using UnityEngine;
@@ -33,18 +34,6 @@ public class CharacterChanger : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private GameObject nowCharacter = null;
-
-	// Use this for initialization
-	private void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
 
     /// <summary>
     /// Characterの取得
@@ -62,7 +51,6 @@ public class CharacterChanger : MonoBehaviour {
                 GameObject.Destroy(n.gameObject);
             }
         }
-
         /// 以下で生成
         GameObject clone = (GameObject)Instantiate(character);
         clone.name = character.name;

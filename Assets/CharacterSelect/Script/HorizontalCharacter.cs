@@ -18,13 +18,16 @@
  * 
  * 2015/07/04 書き始める
  * 2015/07/08 切り替え番号の取得方法の変更
+ * 2015/07/13 Start関数削除
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System;
-
+/// <summary>
+/// キャラクターの十字キーを取得するスクリプト
+/// </summary>
 public class HorizontalCharacter : MonoBehaviour {
 
     /// <summary>
@@ -63,12 +66,6 @@ public class HorizontalCharacter : MonoBehaviour {
     [SerializeField]
     private GameObject nowCharacter = null;
 
-	// Use this for initialization
-	private void Start () 
-    {
-	    
-	}
-	
 	// Update is called once per frame
 	private void Update () 
     {
@@ -80,6 +77,8 @@ public class HorizontalCharacter : MonoBehaviour {
     private void Horizontal()
     {
         var indexValue = (int)Input.GetAxisRaw("Horizontal");
+
+        if (indexValue == 0) return;
 
         LoopCount();
 
@@ -114,20 +113,15 @@ public class HorizontalCharacter : MonoBehaviour {
     /// ループカウント
     /// </summary>
     /// スマートなやり方あったら教えて下さい
-    /// 
     private void LoopCount()
     {
-        // ループカウント
-        int loopCount = 0;
-        //　キャラ番号の取得
-        foreach (var item in button)
+        for (int i = 0; i < button.Length; i++)
         {
-            if (nowCharacter.transform.GetChild(0).gameObject.name == item.name)
+            if(nowCharacter.transform.GetChild(0).gameObject.name == button[i].name)
             {
-                buttonIndex = loopCount;
+                buttonIndex = i;
                 return;
             }
-            loopCount += 1;
         }
     }
 }

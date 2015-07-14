@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/10 書き始める
+ * 2015/07/14 関数の整理
  * 
  */
 using UnityEngine;
@@ -40,18 +41,6 @@ public class SelectFrame : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private int weaponNum = 0;
-
-	// Use this for initialization
-	private void Start ()
-    {
-	
-	}
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
     /// <summary>
     /// 押された場所に生成
     /// </summary>
@@ -77,8 +66,6 @@ public class SelectFrame : MonoBehaviour {
         {
             return true;
         }
-
         return false;
     }
-
 }
