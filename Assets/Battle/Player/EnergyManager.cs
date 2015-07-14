@@ -3,10 +3,10 @@ using System.Collections;
 
 public class EnergyManager : MonoBehaviour {
 
-    const float energyRatioMin = -1.0f;
-    const float energyRatioMax = 1.0f;
+    public const float EnergyRatioMin = -1.0f;
+    public const float EnergyRatioMax = 1.0f;
 
-    [SerializeField,Range(energyRatioMin,energyRatioMax)]
+    [SerializeField, Range(EnergyRatioMin, EnergyRatioMax)]
     float energyRatio = 0.0f;
     public float EnergyRatio { 
         get
@@ -16,8 +16,8 @@ public class EnergyManager : MonoBehaviour {
         set
         {
             energyRatio = value;
-            if (energyRatio > energyRatioMax) energyRatio = energyRatioMax;
-            if (energyRatio < energyRatioMin) energyRatio = energyRatioMin;
+            if (energyRatio > EnergyRatioMax) energyRatio = EnergyRatioMax;
+            if (energyRatio < EnergyRatioMin) energyRatio = EnergyRatioMin;
         }
     }
 

@@ -35,6 +35,7 @@ public class NetworkPlayerSetup : MonoBehaviour {
     {
         if (!myNetworkView.isMine)
         {
+            gameObject.tag = "Enemy";
             Destroy(GetComponent<PlayerMover>());
             Destroy(GetComponent<PlayerJumper>());
           //  Destroy(GetComponent<PlayerShooter>());

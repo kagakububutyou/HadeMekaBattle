@@ -14,15 +14,15 @@ public class BoostManager : MonoBehaviour {
     const float quantityMax = 100.0f;
     public float QuantityMax { get { return quantityMax; } }
 
-    const float boostRatioMin = 1.0f;
-    const float boostRatioMax = 2.0f;
+    public const float BoostRatioMin = 1.0f;
+    public const float BoostRatioMax = 2.0f;
 
     /// <summary>
     /// エネルギー効率
     /// 1.0から2.0fで扱う
     /// </summary>
-    [SerializeField,Range(boostRatioMin,boostRatioMax)]
-    float boostRatio = boostRatioMin;
+    [SerializeField,Range(BoostRatioMin,BoostRatioMax)]
+    float boostRatio = BoostRatioMin;
 
     public float BoostRatio {
         get 
@@ -32,8 +32,8 @@ public class BoostManager : MonoBehaviour {
         set
         {
             boostRatio = value;
-            if (boostRatio > boostRatioMax) boostRatio = boostRatioMax;
-            if (BoostRatio < boostRatioMin) boostRatio = boostRatioMin;
+            if (boostRatio > BoostRatioMax) boostRatio = BoostRatioMax;
+            if (BoostRatio < BoostRatioMin) boostRatio = BoostRatioMin;
         }
     }
 
