@@ -35,27 +35,10 @@ public class WeaponEquipment : MonoBehaviour {
     [SerializeField]
     private GameObject displayingPosition = null;
 
-    /// <summary>
-    /// 自分自身
-    /// </summary>
-    [SerializeField]
-    private GameObject equipmentWeapon = null;
-
-	// Use this for initialization
-	private void Start () 
-    {
-        
-	}
-	
-    private void Update()
-    {
-        WeaponChange();
-    }
-
 	/// <summary>
 	/// 武器の装備
 	/// </summary>
-    private void WeaponChange() 
+    public void WeaponChange(string childrenName) 
     {
         //*
         /// 子供がいたら子供全員消す
@@ -67,11 +50,10 @@ public class WeaponEquipment : MonoBehaviour {
             }
         }
         //*/
-        if (equipmentWeapon.transform.childCount == 0) return;
 
         foreach (var weapon in weapons)
         {
-            if (equipmentWeapon.transform.GetChild(0).name == weapon.name)
+            if (childrenName == weapon.name)
             {
                 GameObject clone = (GameObject)Instantiate(weapon);
                 clone.name = weapon.name;
