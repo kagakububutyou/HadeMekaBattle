@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/13 改行整理
  * 
  */
 using UnityEngine;
@@ -30,19 +31,8 @@ public class ButtonManager : MonoBehaviour {
     [SerializeField]
     private Button[] button = null;
 
-	// Use this for initialization
-	private void Start () 
-    {
-
-	}
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
-
     /// <summary>
+    /// すべてのボタンを反応するようにし
     /// 押されたボタンを反応しないようにする
     /// </summary>
     /// <param name="myButton">押されたボタン</param>
@@ -52,9 +42,6 @@ public class ButtonManager : MonoBehaviour {
         {
             item.enabled = true;
         }
-
         myButton.enabled = false;
-
     }
-
 }

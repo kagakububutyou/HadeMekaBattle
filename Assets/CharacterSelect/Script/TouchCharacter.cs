@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/14 コメントつける
  * 
  */
 
@@ -28,18 +29,29 @@ using UnityEngine.UI;
 /// </summary>
 public class TouchCharacter : MonoBehaviour {
 
+    /// <summary>
+    /// 自分自身のボタン
+    /// </summary>
     [SerializeField]
     private Button characterButton = null;
-
+    /// <summary>
+    /// キャラクター全員分のオブジェクト
+    /// </summary>
     [SerializeField]
     private GameObject[] characterObject = null;
-
+    /// <summary>
+    /// キャラクター変更
+    /// </summary>
     [SerializeField]
     private CharacterChanger characterChanger = null;
-
+    /// <summary>
+    /// キャラクターキャンパスを
+    /// </summary>
     [SerializeField]
     private ButtonManager buttonManager = null;
-
+    /// <summary>
+    /// キャラクターキャンパスを
+    /// </summary>
     [SerializeField]
     private ButtonScaling buttonScaling = null;
 
@@ -47,12 +59,6 @@ public class TouchCharacter : MonoBehaviour {
 	private void Start () 
     {
         characterButton.onClick.AddListener(PushButton);
-	}
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
 	}
 
     /// <summary>

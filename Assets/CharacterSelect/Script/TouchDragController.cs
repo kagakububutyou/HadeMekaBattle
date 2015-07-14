@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/11 書き始める
+ * 2015/07/14 Parentの設定の変更
  * 
  */
 using UnityEngine;
@@ -166,12 +167,12 @@ public class TouchDragController : MonoBehaviour{
     /// <param name="panel">なんの武器か</param>
     private void SetWeapon(RectTransform panel)
     {
-        transform.parent = panel.transform;                 //  親決め 
-        transform.position = panel.transform.position;      //  座標を入れる
-        transform.localScale = new Vector3(1, 1, 1);    //  サイズ変更
-        Destroy(this);                                  //  スクリプト消す
-        var cansel = gameObject.AddComponent<WeaponCancel>();        //  スクリプトくっつける
-        cansel.SetNowPanel(panel);                          //  Panelを渡す
+        transform.SetParent(panel.transform);                   //  親決め 
+        transform.position = panel.transform.position;          //  座標を入れる
+        transform.localScale = new Vector3(1, 1, 1);            //  サイズ変更
+        Destroy(this);                                          //  スクリプト消す
+        var cansel = gameObject.AddComponent<WeaponCancel>();   //  スクリプトくっつける
+        cansel.SetNowPanel(panel);                              //  Panelを渡す
         
     }
 

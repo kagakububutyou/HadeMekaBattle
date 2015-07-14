@@ -17,6 +17,7 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/04 書き始める
+ * 2015/07/13 コメントを付ける
  * 
  */
 using UnityEngine;
@@ -26,8 +27,13 @@ using System.Collections;
 /// </summary>
 public class CharacterRotater : MonoBehaviour {
 
-
+    /// <summary>
+    /// 最大角度
+    /// </summary>
     private const float RotateEularMax = 360.0f;
+    /// <summary>
+    /// 最低角度
+    /// </summary>
     private const float RotateEularMin = 0.0f;
 
     /// <summary>
@@ -37,12 +43,6 @@ public class CharacterRotater : MonoBehaviour {
     /// バーで選べるようになる
     [SerializeField, Range(RotateEularMin, RotateEularMax)]
     private float rotateEularPerSecond = 90.0f;
-
-	// Use this for initialization
-	private void Start ()
-    {
-
-	}
 	
 	// Update is called once per frame
 	private void Update () 
@@ -58,8 +58,8 @@ public class CharacterRotater : MonoBehaviour {
     {
         float rotateValue = Input.GetAxis("Rotate");
 
-        if (rotateValue == 0) return;
+        if (rotateValue == 0) return;   //  回転していなかったら抜ける
         //  ここで回転
-        transform.Rotate(new Vector3(0f, rotateEularPerSecond * rotateValue * Time.deltaTime, 0f));
+        transform.Rotate(new Vector3(0.0f, rotateEularPerSecond * rotateValue * Time.deltaTime, 0.0f));
     }
 }

@@ -17,12 +17,15 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/13 書き始める
+ * 2015/07/14 コメントつける
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// 武器のNextボタンの表示のスクリプト
+/// </summary>
 public class WeaponNextButtonDisplaying : MonoBehaviour {
 
     /// <summary>
@@ -30,16 +33,12 @@ public class WeaponNextButtonDisplaying : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private GameObject nextButton = null;
-
+    /// <summary>
+    /// 装備枠
+    /// </summary>
     [SerializeField]
     private GameObject[] childrens = null;
 
-	// Use this for initialization
-	private void Start () 
-    {
-	
-	}
-	
 	// Update is called once per frame
 	private void Update () 
     {
@@ -64,6 +63,7 @@ public class WeaponNextButtonDisplaying : MonoBehaviour {
     /// <summary>
     /// ボタンの表示
     /// </summary>
+    /// <param name="isShow">表示するか否か</param>
     private void ButtonDisplaying(bool isShow)
     {
         nextButton.SetActive(isShow);

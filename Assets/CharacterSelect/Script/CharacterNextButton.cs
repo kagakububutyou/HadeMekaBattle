@@ -17,21 +17,35 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/13 書き始める
+ *     同日   コメントを付ける
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// キャラ選択画面のNextボタンのスクリプト
+/// </summary>
 public class CharacterNextButton : MonoBehaviour {
 
+    /// <summary>
+    /// ボタン自体
+    /// </summary>
     [SerializeField]
     private Button nextButton = null;
-
+    /// <summary>
+    /// GamePadのキャラクターのUIのキャンパス
+    /// </summary>
     [SerializeField]
     private GameObject characterCanvas = null;
+    /// <summary>
+    /// GamePadの武器ボタンのキャンパス
+    /// </summary>
     [SerializeField]
     private GameObject weaponButton = null;
+    /// <summary>
+    /// GamePadの武器装備のキャンパス
+    /// </summary>
     [SerializeField]
     private GameObject equippedWeapon = null;
 
@@ -39,11 +53,6 @@ public class CharacterNextButton : MonoBehaviour {
 	private void Start () 
     {
         nextButton.onClick.AddListener(PushButton);
-	}
-	// Update is called once per frame
-	private void Update () 
-    {
-	
 	}
     /// <summary>
     /// ボタンをおした時
@@ -59,8 +68,8 @@ public class CharacterNextButton : MonoBehaviour {
     /// キャラ選択から武器選択へ
     private void SceneSwitching()
     {
-        weaponButton.SetActive(true);
-        equippedWeapon.SetActive(true);
-        characterCanvas.SetActive(false);
+        weaponButton.SetActive(true);       //  表示
+        equippedWeapon.SetActive(true);     //  表示
+        characterCanvas.SetActive(false);   //  非表示
     }
 }
