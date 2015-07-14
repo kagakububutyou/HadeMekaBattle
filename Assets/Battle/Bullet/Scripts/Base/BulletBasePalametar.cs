@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class BulletBasePalametar : MonoBehaviour {
+    [SerializeField]
+    public BuildManager.WeaponID weaponID;
 
     public enum TYPE
     {
@@ -11,7 +13,7 @@ public class BulletBasePalametar : MonoBehaviour {
 
     /*-------------攻撃系パラメータ-------------*/
 	[SerializeField]
-	public float power = 1.0f;
+    public float power = 1.0f;
 
 	//[SerializeField]
     public float energy = -1.0f;
@@ -29,7 +31,7 @@ public class BulletBasePalametar : MonoBehaviour {
     public TYPE attackType = TYPE.PHYSICAL;
 
     /*------------------------------------------*/
-    public BuildManager.WeaponID weaponID;
+
 
 	// プロパティ
     public float Power { get { return power; } }
