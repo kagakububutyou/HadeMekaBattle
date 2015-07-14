@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2524c287edbc7284591fea7a6dbd1bda
+timeCreated: 1436669130
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Drone: {fileID: 131186, guid: acfaf4d845afe0041a5876a0a5fbc80e, type: 2}
+  - Type_Gun: {fileID: 143434, guid: 73a1e2576ee9c0f4883f6f6fc914d2b5, type: 2}
+  - Type_Mine: {fileID: 143434, guid: 73a1e2576ee9c0f4883f6f6fc914d2b5, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

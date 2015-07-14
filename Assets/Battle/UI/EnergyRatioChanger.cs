@@ -12,8 +12,10 @@ public class EnergyRatioChanger : MonoBehaviour
 
     void Initialize()
     {
-        energyManager = GameObject.FindGameObjectWithTag("Player").GetComponent<EnergyManager>();
-        if (energyManager == null) return;
+        var player =  GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        energyManager = player.GetComponent<EnergyManager>();
 
         parentRect = transform.parent.GetComponent<RectTransform>();
 

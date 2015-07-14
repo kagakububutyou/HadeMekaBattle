@@ -11,8 +11,10 @@ public class BoostRatioChanger : MonoBehaviour {
 
     void Initialize()
     {
-        boostManager = GameObject.FindGameObjectWithTag("Player").GetComponent<BoostManager>();
-        if (boostManager == null) return;
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        boostManager = player.GetComponent<BoostManager>();
 
         parentRect = transform.parent.GetComponent<RectTransform>();
 
