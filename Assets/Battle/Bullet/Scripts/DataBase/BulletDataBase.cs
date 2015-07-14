@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BulletDataBase : MonoBehaviour {
-    static List<BulletBasePalametar> data = new List<BulletBasePalametar>();
+    static List<BulletPalamaterData> data = new List<BulletPalamaterData>();
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class BulletDataBase : MonoBehaviour {
             Debug.LogError("MachineGun DataBaseが空です");
             return;
         }
-        var bulletData = LitJson.JsonMapper.ToObject<List<BulletBasePalametar>>(json.text);
+        var bulletData = LitJson.JsonMapper.ToObject<List<BulletPalamaterData>>(json.text);
 
         foreach (var bullet in bulletData)
         {
@@ -27,7 +27,7 @@ public class BulletDataBase : MonoBehaviour {
         }
 	}
 
-    public static BulletBasePalametar GetData(BuildManager.WeaponID id)
+    public static BulletPalamaterData GetData(BuildManager.WeaponID id)
     {
         return data.Find(i => i.weaponID == id);
     }
