@@ -119,6 +119,8 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             if (hit.collider.gameObject != panel.gameObject)
             {
                 Destroy(gameObject);
+                WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
+                weaponEquipment.WeaponCancel();
             }
             else 
             {

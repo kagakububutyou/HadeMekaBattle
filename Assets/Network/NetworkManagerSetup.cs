@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NetworkManagerSetup : MonoBehaviour {
 
     [SerializeField]
-    GameObject objectPrefab;
-    
+    GameObject playerPrefab;
+
+    [SerializeField]
+    List<GameObject> createPrefabs = new List<GameObject>();
+
     [SerializeField]
     string ip = "localhost";
 
@@ -29,16 +33,27 @@ public class NetworkManagerSetup : MonoBehaviour {
     bool connected = false;
     bool isInitializeServer = false;
 
+
+
+    void CreatePrefab()
+    {
+        foreach (var obj in createPrefabs)
+        {
+            Network.Instantiate(obj, obj.transform.position, obj.transform.rotation, 0);
+        }
+    }
+
     //サーバ立ち上げ時に呼ばれるメソッド
     public void OnServerInitialized()
     {
-        Network.Instantiate(objectPrefab, objectPrefab.transform.position, objectPrefab.transform.rotation, 1);
+        Network.Instantiate(playerPrefab, playerPrefab.transform.position, playerPrefab.transform.rotation, 1);
+        CreatePrefab();
     }
 
     //サーバに接続したときに呼ばれるメソッド
     public void OnConnectedToServer()
     {
-        Network.Instantiate(objectPrefab, objectPrefab.transform.position, objectPrefab.transform.rotation, 2);
+        Network.Instantiate(playerPrefab, playerPrefab.transform.position, playerPrefab.transform.rotation, 2);
     }
 
     /// <summary>

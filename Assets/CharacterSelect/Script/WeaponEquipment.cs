@@ -62,4 +62,18 @@ public class WeaponEquipment : MonoBehaviour {
             }
         }
 	}
+
+    /// <summary>
+    /// 武器解除
+    /// </summary>
+    public void WeaponCancel()
+    {
+        if (displayingPosition.transform.IsChildOf(displayingPosition.transform))
+        {
+            foreach (Transform n in displayingPosition.transform)
+            {
+                GameObject.Destroy(n.gameObject);
+            }
+        }
+    }
 }
