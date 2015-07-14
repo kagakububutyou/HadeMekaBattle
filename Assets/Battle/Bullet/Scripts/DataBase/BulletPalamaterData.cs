@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// 生成されても固定のパラメータ
 public class BulletPalamaterData : MonoBehaviour {
     public enum TYPE
     {
@@ -17,7 +18,7 @@ public class BulletPalamaterData : MonoBehaviour {
     public float power = 1.0f;
 
     //[SerializeField]
-    public float energy = -1.0f;
+    //public float energy = -1.0f;
 
     [SerializeField]
     public float fireRate = 1.0f;
