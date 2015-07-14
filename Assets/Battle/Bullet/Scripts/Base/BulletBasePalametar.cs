@@ -11,25 +11,25 @@ public class BulletBasePalametar : MonoBehaviour {
 
     /*-------------攻撃系パラメータ-------------*/
 	[SerializeField]
-	protected float power = 1.0f;
+	public float power = 1.0f;
 
 	//[SerializeField]
-	protected float energy = -1.0f;
+    public float energy = -1.0f;
 
 	[SerializeField]
-	private float fireRate = 1.0f;
+    public float fireRate = 1.0f;
 
     /*-------------移動系パラメータ-------------*/
     [SerializeField]
-	protected float speed = 1.0f;
+    public float speed = 1.0f;
 
 
     /*--------------属性パラメータ--------------*/
     [SerializeField]
-    private TYPE attackType = TYPE.PHYSICAL;
+    public TYPE attackType = TYPE.PHYSICAL;
 
     /*------------------------------------------*/
-
+    public BuildManager.WeaponID weaponID;
 
 	// プロパティ
     public float Power { get { return power; } }

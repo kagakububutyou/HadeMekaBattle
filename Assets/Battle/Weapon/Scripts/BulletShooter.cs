@@ -3,8 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+//--------------------------------------------------
+[System.Serializable]
+public struct DataBase
+{
+    public float power;
+    public float speed;
+}
+
+[System.Serializable]
+public class BulletTable : TableBase<BuildManager.WeaponID, DataBase, BulletPair>
+{ }
+
+[System.Serializable]
+public class BulletPair : KeyAndValue<BuildManager.WeaponID, DataBase>
+{
+    public BulletPair(BuildManager.WeaponID key, DataBase value)
+        : base(key, value)
+    { }
+}
+//--------------------------------------------------
+
 // 球を打ち出す
 public class BulletShooter : MonoBehaviour {
+    [SerializeField]
+    private BulletTable table;
+
     // バレットデータテーブル
     static Dictionary<BuildManager.WeaponID, string> bulletTable = new Dictionary<BuildManager.WeaponID, string>();
 
@@ -61,6 +85,7 @@ public class BulletShooter : MonoBehaviour {
 
         // プレハブを取得
         bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
+        Debug.Log(bullet);
        
         if(bullet == null)
         {
@@ -84,14 +109,14 @@ public class BulletShooter : MonoBehaviour {
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
 	{
-        Debug.Log("cr bll");
+        //Debug.Log("cr bll");
 		// クリエイトタイマーを増加させる
 		createTimer += Time.deltaTime;
 
 		// タイマーがインターバル値を超えたら生成する処理を呼ぶ
 		while(createTimer >= createInterval)
 		{
-			Debug.Log("ショット！");
+			//Debug.Log("ショット！");
 			Create();						// 生成し
 			createTimer -= createInterval;	// インターバルを減らす
 		}
@@ -138,15 +163,15 @@ public class BulletShooter : MonoBehaviour {
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                _obj.gameObject.GetComponent<BulletPalameter>().Energy = energyManager.EnergyRatio;
+                //_obj.gameObject.GetComponent<BulletPalameter>().Energy = energyManager.EnergyRatio;
                 break;
 
             case BuildManager.WeaponType.Missile:
-                _obj.gameObject.GetComponent<MissilePalametar>().Energy = energyManager.EnergyRatio;
+                //_obj.gameObject.GetComponent<MissilePalametar>().Energy = energyManager.EnergyRatio;
                 break;
 
             case BuildManager.WeaponType.Launcher:
-                _obj.gameObject.GetComponent<LancherPalametar>().Energy = energyManager.EnergyRatio;
+                //_obj.gameObject.GetComponent<LancherPalametar>().Energy = energyManager.EnergyRatio;
                 break;
         }
     }
