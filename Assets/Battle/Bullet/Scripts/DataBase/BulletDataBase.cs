@@ -21,7 +21,6 @@ public class BulletDataBase : MonoBehaviour {
             Debug.Log("WeaponID : " + bullet.weaponID);
             Debug.Log("タイプ : " + bullet.attackType);
             Debug.Log("速度 : " + bullet.speed);
-            Debug.Log("エネルギー : " + bullet.energy);
             Debug.Log("発射レート : " + bullet.fireRate);
             Debug.Log("攻撃 : " + bullet.power);
         }

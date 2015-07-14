@@ -79,12 +79,12 @@ public class HitChecker : MonoBehaviour {
             if (collision.gameObject.GetComponent<NetworkView>().isMine == true) return;
             
             // ダメージ計算
-            if (palametar.AttackType == BulletBasePalametar.TYPE.PHYSICAL) 
+            if (palametar.AttackType == BulletPalamaterData.TYPE.PHYSICAL) 
             {
                 //
                 collision.gameObject.GetComponent<HealthManager>().PhysicalDamage((int)palametar.Power);
             }
-            else if(palametar.AttackType == BulletBasePalametar.TYPE.ENERGY)
+            else if (palametar.AttackType == BulletPalamaterData.TYPE.ENERGY)
             {
                 //
                 collision.gameObject.GetComponent<HealthManager>().EnergyDamage(100);

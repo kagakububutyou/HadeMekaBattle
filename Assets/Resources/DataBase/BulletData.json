@@ -3,7 +3,6 @@
         "weaponID": 0,
         "attackType": 0,
         "speed": 1,
-        "energy": 5,
         "fireRate": 10,
         "power": 6
     },
@@ -11,7 +10,6 @@
         "weaponID": 1,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -19,7 +17,6 @@
         "weaponID": 2,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -27,7 +24,6 @@
         "weaponID": 3,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -35,7 +31,6 @@
         "weaponID": 10,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -43,7 +38,6 @@
         "weaponID": 11,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -51,7 +45,6 @@
         "weaponID": 12,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -59,7 +52,6 @@
         "weaponID": 20,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -67,7 +59,6 @@
         "weaponID": 21,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -75,7 +66,6 @@
         "weaponID": 22,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -83,7 +73,6 @@
         "weaponID": 23,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -91,7 +80,6 @@
         "weaponID": 30,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -99,7 +87,6 @@
         "weaponID": 31,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     },
@@ -107,7 +94,6 @@
         "weaponID": 32,
         "attackType": 1,
         "speed": 5,
-        "energy": 15,
         "fireRate": 120,
         "power": 60
     }
