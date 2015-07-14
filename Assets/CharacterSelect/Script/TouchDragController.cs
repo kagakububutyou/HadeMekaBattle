@@ -173,7 +173,5 @@ public class TouchDragController : MonoBehaviour{
         Destroy(this);                                          //  スクリプト消す
         var cansel = gameObject.AddComponent<WeaponCancel>();   //  スクリプトくっつける
         cansel.SetNowPanel(panel);                              //  Panelを渡す
-        
     }
-
 }

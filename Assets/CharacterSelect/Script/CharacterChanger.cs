@@ -20,6 +20,7 @@
  * 2015/07/08 出産方法の変更　
  * 2015/07/13 子供を消す条件を変更
  *   同日     Start,Update削除
+ * 2015/07/14 親の設定の変更
  * 
  */
 using UnityEngine;
@@ -55,6 +56,6 @@ public class CharacterChanger : MonoBehaviour {
         GameObject clone = (GameObject)Instantiate(character);
         clone.name = character.name;
         /// お父さんを設定
-        clone.transform.parent = nowCharacter.transform;
+        clone.transform.SetParent(nowCharacter.transform);
     }
 }
