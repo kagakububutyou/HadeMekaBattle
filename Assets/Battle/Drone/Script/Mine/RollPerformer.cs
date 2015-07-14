@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DroneManager : MonoBehaviour
+public class RollPerformer : MonoBehaviour
 {
+    [SerializeField]
+    DroneStateManager drone = null;
 
 	// Use this for initialization
 	void Start () {
