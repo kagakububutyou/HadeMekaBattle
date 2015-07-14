@@ -3,31 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-//--------------------------------------------------
-[System.Serializable]
-public struct DataBase
-{
-    public float power;
-    public float speed;
-}
-
-[System.Serializable]
-public class BulletTable : TableBase<BuildManager.WeaponID, DataBase, BulletPair>
-{ }
-
-[System.Serializable]
-public class BulletPair : KeyAndValue<BuildManager.WeaponID, DataBase>
-{
-    public BulletPair(BuildManager.WeaponID key, DataBase value)
-        : base(key, value)
-    { }
-}
-//--------------------------------------------------
-
 // 球を打ち出す
 public class BulletShooter : MonoBehaviour {
-    [SerializeField]
-    private BulletTable table;
 
     // バレットデータテーブル
     static Dictionary<BuildManager.WeaponID, string> bulletTable = new Dictionary<BuildManager.WeaponID, string>();
