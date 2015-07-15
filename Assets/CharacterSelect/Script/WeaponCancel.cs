@@ -121,6 +121,8 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 Destroy(gameObject);
                 WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
                 weaponEquipment.WeaponCancel();
+                EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
+                equippedCutIn.StartPositionMoving();
             }
             else 
             {

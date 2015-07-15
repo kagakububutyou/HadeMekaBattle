@@ -222,7 +222,6 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
-  equipmentWeapon: {fileID: 152686}
 --- !u!114 &11407386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +251,6 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
-  equipmentWeapon: {fileID: 115352}
 --- !u!114 &11419330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,7 +360,6 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
-  equipmentWeapon: {fileID: 144244}
 --- !u!114 &11476048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -392,7 +389,6 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
-  equipmentWeapon: {fileID: 113812}
 --- !u!114 &11487404
 MonoBehaviour:
   m_ObjectHideFlags: 1
