@@ -222,6 +222,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
   - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 1795695356}
+  startPosition: {x: -1200, y: -430, z: 0}
+  targetPosition: {x: -676, y: -430, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!20 &414270279 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2073862, guid: dbb16ed358d735d4f9b692237043f9c8,
@@ -260,6 +264,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
   - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 1242077841}
+  startPosition: {x: -1200, y: -110, z: 0}
+  targetPosition: {x: -676, y: -110, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!1001 &830476168
 Prefab:
   m_ObjectHideFlags: 0
@@ -836,6 +844,22 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22479336, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22419778, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487758, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22437996, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11481064, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 97632450f4cc64c4599d4c312881ecf2, type: 2}
@@ -914,6 +938,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
   - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 1774832704}
+  startPosition: {x: -1200, y: -270, z: 0}
+  targetPosition: {x: -676, y: -270, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!1001 &1588804551
 Prefab:
   m_ObjectHideFlags: 0
@@ -1127,3 +1155,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
   - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 1419106682}
+  startPosition: {x: -1200, y: 50, z: 0}
+  targetPosition: {x: -676, y: 50, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16

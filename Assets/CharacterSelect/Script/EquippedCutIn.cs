@@ -36,6 +36,28 @@ public class EquippedCutIn : MonoBehaviour {
     [SerializeField]
     private Image displayingPosition = null;
 
+    /// <summary>
+    /// 開始位置
+    /// </summary>
+    [SerializeField]
+    private Vector3 startPosition = Vector3.zero;
+    /// <summary>
+    /// 目標位置
+    /// </summary>
+    [SerializeField]
+    private Vector3 targetPosition = Vector3.zero;
+    /// <summary>
+    /// 移動時間(秒)
+    /// </summary>
+    [SerializeField]
+    private float movingTimeSeconds = 0.0f;
+
+    /// <summary>
+    /// 行うイージングの種類
+    /// </summary>
+    [SerializeField]
+    iTween.EaseType easeType = iTween.EaseType.linear;
+
 	// Use this for initialization
 	private void Start ()
     {
@@ -53,6 +75,15 @@ public class EquippedCutIn : MonoBehaviour {
     /// <param name="childrenName"></param>
     public void EquippedDisplay(string childrenName)
     {
+        ChangeIcon(childrenName);
+        TargetPositionMoving();
+    }
+    /// <summary>
+    /// 切り替え
+    /// </summary>
+    /// <param name="childrenName"></param>
+    private void ChangeIcon(string childrenName)
+    {
         foreach (var icon in icons)
         {
             if (childrenName == icon.name)
@@ -60,5 +91,34 @@ public class EquippedCutIn : MonoBehaviour {
                 displayingPosition.sprite = icon;
             }
         }
+    }
+    // 処理が終わったどうかを示すフラグ
+    bool iTweenMoving = false;
+    // 処理が終わったら呼び出され、フラグをクリアする。
+    void OnCompleteHandler()
+    {
+        iTweenMoving = false;
+    }
+
+    /// <summary>
+    /// 表示位置に移動
+    /// </summary>
+    public void TargetPositionMoving()
+    {
+        iTween.MoveTo(displayingPosition.gameObject, iTween.Hash("x", targetPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
+    }
+    /// <summary>
+    /// 開始位置から始める
+    /// </summary>
+    public void LoopPositionMoving()
+    {
+        iTween.MoveFrom(displayingPosition.gameObject, iTween.Hash("x", startPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
+    }
+    /// <summary>
+    /// 開始位置に戻す
+    /// </summary>
+    public void StartPositionMoving()
+    {
+        iTween.MoveTo(displayingPosition.gameObject, iTween.Hash("x", startPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
     }
 }

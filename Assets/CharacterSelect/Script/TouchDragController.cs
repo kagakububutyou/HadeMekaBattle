@@ -177,6 +177,7 @@ public class TouchDragController : MonoBehaviour{
         WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
         weaponEquipment.WeaponChange(transform.name);
         EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
+        equippedCutIn.LoopPositionMoving();
         equippedCutIn.EquippedDisplay(transform.name);
     }
 }
