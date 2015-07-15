@@ -174,7 +174,9 @@ public class TouchDragController : MonoBehaviour{
         var cansel = gameObject.AddComponent<WeaponCancel>();   //  スクリプトくっつける
         cansel.SetNowPanel(panel);                              //  Panelを渡す
         //  武器装備
-        WeaponEquipment weaponEquipment =GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
+        WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
         weaponEquipment.WeaponChange(transform.name);
+        EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
+        equippedCutIn.EquippedDisplay(transform.name);
     }
 }
