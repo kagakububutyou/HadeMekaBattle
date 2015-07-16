@@ -58,17 +58,6 @@ public class EquippedCutIn : MonoBehaviour {
     [SerializeField]
     iTween.EaseType easeType = iTween.EaseType.linear;
 
-	// Use this for initialization
-	private void Start ()
-    {
-
-	}
-	
-	// Update is called once per frame
-	private void Update ()
-    {
-	
-	}
     /// <summary>
     /// 装備の表示
     /// </summary>
@@ -77,6 +66,7 @@ public class EquippedCutIn : MonoBehaviour {
     {
         ChangeIcon(childrenName);
         TargetPositionMoving();
+        Debug.Log(childrenName);
     }
     /// <summary>
     /// 切り替え
@@ -91,13 +81,6 @@ public class EquippedCutIn : MonoBehaviour {
                 displayingPosition.sprite = icon;
             }
         }
-    }
-    // 処理が終わったどうかを示すフラグ
-    bool iTweenMoving = false;
-    // 処理が終わったら呼び出され、フラグをクリアする。
-    void OnCompleteHandler()
-    {
-        iTweenMoving = false;
     }
 
     /// <summary>

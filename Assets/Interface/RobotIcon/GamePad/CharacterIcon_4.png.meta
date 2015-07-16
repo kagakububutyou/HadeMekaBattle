@@ -1,11 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Interface/RobotIcon/CharacterIcon_3.png.meta
-guid: f9de6b0a40b83ed4a8881a8df5b79670
-=======
-guid: 94242307744f81a48957b4134f1100e7
-timeCreated: 1436239436
+guid: 16665fa4805753641bf57c836e76b9de
+timeCreated: 1436960308
 licenseType: Free
->>>>>>> 05f82b125ce49fb583d99334f58057a1fa9c3a77:Assets/Interface/RobotIcon/CharacterPadIcon_4.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2

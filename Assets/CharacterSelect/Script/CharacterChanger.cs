@@ -36,6 +36,9 @@ public class CharacterChanger : MonoBehaviour {
     [SerializeField]
     private GameObject nowCharacter = null;
 
+    [SerializeField]
+    private EquippedCutIn icon = null;
+
     /// <summary>
     /// Characterの取得
     /// </summary>
@@ -57,5 +60,7 @@ public class CharacterChanger : MonoBehaviour {
         clone.name = character.name;
         /// お父さんを設定
         clone.transform.SetParent(nowCharacter.transform);
+        icon.LoopPositionMoving();
+        icon.EquippedDisplay(character.name);
     }
 }
