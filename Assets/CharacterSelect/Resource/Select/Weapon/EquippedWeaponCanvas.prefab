@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11431472}
   - 65: {fileID: 6560730}
   - 114: {fileID: 11476048}
+  - 114: {fileID: 11424462}
   m_Layer: 5
   m_Name: Fitment Panel_3
   m_TagString: Equipped Weapon
@@ -49,6 +50,7 @@ GameObject:
   - 114: {fileID: 11487404}
   - 65: {fileID: 6509982}
   - 114: {fileID: 11407386}
+  - 114: {fileID: 11416462}
   m_Layer: 5
   m_Name: Fitment Panel_4
   m_TagString: Equipped Weapon
@@ -68,6 +70,7 @@ GameObject:
   - 114: {fileID: 11401616}
   - 65: {fileID: 6580084}
   - 114: {fileID: 11471926}
+  - 114: {fileID: 11444482}
   m_Layer: 5
   m_Name: Fitment Panel_1
   m_TagString: Equipped Weapon
@@ -87,6 +90,7 @@ GameObject:
   - 114: {fileID: 11431060}
   - 65: {fileID: 6518012}
   - 114: {fileID: 11402094}
+  - 114: {fileID: 11485496}
   m_Layer: 5
   m_Name: Fitment Panel_2
   m_TagString: Equipped Weapon
@@ -111,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &6509982
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -251,6 +255,39 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
+--- !u!114 &11416462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
+  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  displayingPosition: {fileID: 0}
+  startPosition: {x: -1200, y: -430, z: 0}
+  targetPosition: {x: -676, y: -430, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!114 &11419330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +326,39 @@ MonoBehaviour:
   - {fileID: 152686}
   - {fileID: 113812}
   - {fileID: 115352}
+--- !u!114 &11424462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
+  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  displayingPosition: {fileID: 0}
+  startPosition: {x: -1200, y: -270, z: 0}
+  targetPosition: {x: -676, y: -270, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!114 &11431060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,6 +401,39 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11444482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
+  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  displayingPosition: {fileID: 0}
+  startPosition: {x: -1200, y: 50, z: 0}
+  targetPosition: {x: -676, y: 50, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!114 &11471926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,6 +492,39 @@ MonoBehaviour:
   - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
   - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
   displayingPosition: {fileID: 0}
+--- !u!114 &11485496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
+  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  displayingPosition: {fileID: 0}
+  startPosition: {x: -1200, y: -110, z: 0}
+  targetPosition: {x: -676, y: -110, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
 --- !u!114 &11487404
 MonoBehaviour:
   m_ObjectHideFlags: 1

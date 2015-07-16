@@ -58,6 +58,7 @@ public class WeaponEquipment : MonoBehaviour {
                 GameObject clone = (GameObject)Instantiate(weapon);
                 clone.name = weapon.name;
                 clone.transform.position = displayingPosition.transform.position;
+                clone.transform.rotation = displayingPosition.transform.rotation;
                 clone.transform.SetParent(displayingPosition.transform);
             }
         }

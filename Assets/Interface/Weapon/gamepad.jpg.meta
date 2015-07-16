@@ -1,11 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Interface/RobotIcon/CharacterIcon_4.png.meta
-guid: 918bc1e71e4a3254aa717d70dd979434
-=======
-guid: 747de61859b86d84f908d5496896a235
-timeCreated: 1436239436
+guid: 09eefe02a17dbdc4fb61c509e1ec75f6
+timeCreated: 1436960308
 licenseType: Free
->>>>>>> 05f82b125ce49fb583d99334f58057a1fa9c3a77:Assets/Interface/RobotIcon/CharacterPadIcon_2.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -34,22 +30,22 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
-  nPOTScale: 0
+    wrapMode: -1
+  nPOTScale: 1
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 1
-  textureType: 8
+  alphaIsTransparency: 0
+  textureType: -1
   buildTargetSettings: []
   spriteSheet:
     sprites: []

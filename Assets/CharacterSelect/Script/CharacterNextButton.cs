@@ -18,6 +18,7 @@
  * 
  * 2015/07/13 書き始める
  *     同日   コメントを付ける
+ * 2015/07/15 nowWeaponの親変更
  * 
  */
 using UnityEngine;
@@ -49,6 +50,17 @@ public class CharacterNextButton : MonoBehaviour {
     [SerializeField]
     private GameObject equippedWeapon = null;
 
+    /// <summary>
+    /// 親　nowCharacter
+    /// </summary>
+    [SerializeField]
+    private GameObject parent = null;
+    /// <summary>
+    /// 子　nowWeapon
+    /// </summary>
+    [SerializeField]
+    private GameObject children = null;
+
 	// Use this for initialization
 	private void Start () 
     {
@@ -71,5 +83,8 @@ public class CharacterNextButton : MonoBehaviour {
         weaponButton.SetActive(true);       //  表示
         equippedWeapon.SetActive(true);     //  表示
         characterCanvas.SetActive(false);   //  非表示
+
+        parent.transform.rotation = Quaternion.identity;
+        children.transform.SetParent(parent.transform); //  親変更
     }
 }
