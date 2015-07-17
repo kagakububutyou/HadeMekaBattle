@@ -5,6 +5,9 @@ public class ContainerCreator : MonoBehaviour
 {
 
 
+    /// <summary>
+    /// コンテナのプレハブ
+    /// </summary>
     [SerializeField]
     GameObject containerPrefab = null;
     GameObject containerClone = null;
@@ -15,15 +18,21 @@ public class ContainerCreator : MonoBehaviour
 	void Start () 
     {
         netWork = GetComponent<NetworkView>();
-        //コンテナ生成しを親にする
-        containerClone = (GameObject) Network.Instantiate(containerPrefab, gameObject.transform.position, Quaternion.identity, 1);
-        gameObject.transform.parent = containerClone.transform;
-    
-
     }
-	
+
+    void Create()
+    {
+        containerClone = (GameObject)Network.Instantiate(containerPrefab, gameObject.transform.position, Quaternion.identity, 0);
+        containerClone.transform.parent = gameObject.transform;
+    }
+
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Create();
+        }
 	
 	}
 }

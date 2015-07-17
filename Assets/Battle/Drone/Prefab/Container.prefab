@@ -8,15 +8,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426280}
-  - 33: {fileID: 3384336}
   - 54: {fileID: 5469492}
+  - 33: {fileID: 3384336}
   - 65: {fileID: 6500186}
   - 23: {fileID: 2322620}
   - 148: {fileID: 14873866}
   - 114: {fileID: 11424796}
   - 114: {fileID: 11472184}
-  - 114: {fileID: 11494370}
   - 114: {fileID: 11435432}
+  - 114: {fileID: 11494370}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e4aa81ab5744f4c9b500505f4cc1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ContainerState: {fileID: 11435432}
 --- !u!148 &14873866
 NetworkView:
   m_ObjectHideFlags: 1
@@ -195,6 +196,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ContainerState
+      value: 
+      objectReference: {fileID: 11435432}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117788}
