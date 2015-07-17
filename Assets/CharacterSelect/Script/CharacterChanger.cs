@@ -39,6 +39,9 @@ public class CharacterChanger : MonoBehaviour {
     [SerializeField]
     private EquippedCutIn icon = null;
 
+    [SerializeField]
+    private SelectionStatus[] status = null;
+
     /// <summary>
     /// Characterの取得
     /// </summary>
@@ -62,5 +65,9 @@ public class CharacterChanger : MonoBehaviour {
         clone.transform.SetParent(nowCharacter.transform);
         icon.LoopPositionMoving();
         icon.EquippedDisplay(character.name);
+        foreach (var item in status)
+        {
+            item.ChangeIcon(character.name);    
+        }
     }
 }

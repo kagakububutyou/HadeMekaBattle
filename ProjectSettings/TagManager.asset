@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Equipped Weapon
+  - StatusIcon
   layers:
   - Default
   - TransparentFX

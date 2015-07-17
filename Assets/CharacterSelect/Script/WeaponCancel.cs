@@ -70,6 +70,10 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// </summary>
     Canvas canvas = null;
 
+    private SelectionStatus icon = null;
+    private SelectionStatus logo = null;
+    private SelectionStatus status = null;
+
     /// <summary>
     /// パネルの設定
     /// </summary>
@@ -84,6 +88,10 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	private void Start () 
     {
         padCamera = GameObject.Find("GamePad Camera").GetComponent<Camera>();
+
+        icon = GameObject.Find("Icon").GetComponent<SelectionStatus>();
+        logo = GameObject.Find("Logo").GetComponent<SelectionStatus>();
+        status = GameObject.Find("Status").GetComponent<SelectionStatus>();
 	}
 
     /// <summary>
@@ -99,6 +107,10 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         canvas = GameObject.Find("EquippedWeaponCanvas").GetComponent<Canvas>();
         canvas.sortingOrder = 2;    //  オーダーレイヤーを変える
         isSelect = true;
+
+        icon.ChangeIcon(gameObject.name);
+        logo.ChangeIcon(gameObject.name);
+        status.ChangeIcon(gameObject.name);
     }
 
     /// <summary>

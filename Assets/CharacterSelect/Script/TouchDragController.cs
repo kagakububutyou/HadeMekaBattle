@@ -40,6 +40,10 @@ public class TouchDragController : MonoBehaviour{
     /// </summary>
     private Camera padCamera = null;
 
+    private SelectionStatus icon = null;
+    private SelectionStatus logo = null;
+    private SelectionStatus status = null;
+
     /// <summary>
     /// 装備武器の情報
     /// </summary>
@@ -55,6 +59,10 @@ public class TouchDragController : MonoBehaviour{
         isSelect = true;
      
         padCamera = GameObject.Find("GamePad Camera").GetComponent<Camera>();
+
+        icon = GameObject.Find("Icon").GetComponent<SelectionStatus>();
+        logo = GameObject.Find("Logo").GetComponent<SelectionStatus>();
+        status = GameObject.Find("Status").GetComponent<SelectionStatus>();
 
         //  装備武器のタグ検索
         var equippedWeapons = GameObject.FindGameObjectsWithTag("Equipped Weapon");
@@ -92,6 +100,10 @@ public class TouchDragController : MonoBehaviour{
         mousePos.z = 10.0f;                     //  z調整
         var worldPos = padCamera.ScreenToWorldPoint(mousePos);  //  座標変換
         gameObject.transform.position = worldPos;               //  代入
+
+        icon.ChangeIcon(gameObject.name);
+        logo.ChangeIcon(gameObject.name);
+        status.ChangeIcon(gameObject.name);
     }
     /// <summary>
     /// 離した時

@@ -66,7 +66,6 @@ public class EquippedCutIn : MonoBehaviour {
     {
         ChangeIcon(childrenName);
         TargetPositionMoving();
-        Debug.Log(childrenName);
     }
     /// <summary>
     /// 切り替え
