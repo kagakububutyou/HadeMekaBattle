@@ -24,6 +24,8 @@ public class BulletDataBase : MonoBehaviour {
             Debug.Log("発射レート : " + bullet.fireRate);
             Debug.Log("攻撃 : " + bullet.power);
         }
+
+        data = bulletData;
 	}
 
     public static BulletPalamaterData GetData(BuildManager.WeaponID id)

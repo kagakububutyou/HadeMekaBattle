@@ -14,26 +14,14 @@ public class BulletBasePalametar : MonoBehaviour {
 
     protected BulletPalamaterData data = null;
 
-    public void SetData(BuildManager.WeaponID _id) 
+    void Awake()
     {
         data = BulletDataBase.GetData(weaponID);
-
-        if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
-        {
-            this.gameObject.AddComponent<EnergyPalametar>();
-        }
-    }
-
-    /*void Awake()
-    {
-        data = BulletDataBase.GetData(weaponID);
-
-        Debug.Log(Firerate);
-
+        
         if (data.attackType == BulletPalamaterData.TYPE.ENERGY) 
         {
             this.gameObject.AddComponent<EnergyPalametar>();
         }
-    }*/
+    }
 
 }

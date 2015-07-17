@@ -64,28 +64,28 @@ public class BulletShooter : MonoBehaviour {
 
         // プレハブを取得
         bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
-        Debug.Log(bullet);
        
         if(bullet == null)
         {
             Debug.Log("bullet is NULL!!");
         }
 
-        SetData(bullet);
+        //SetData(bullet);
 
-        fireRate = GetRate(bullet);
+        fireRate = BulletDataBase.GetData(id).fireRate;
+        Debug.Log(BulletDataBase.GetData(id).fireRate);
 
         if(fireRate < -1)
         {
             Debug.Log("firerate is failed");
-        }
+        }//*/
 
         createInterval = (1.0f / fireRate);
 
 	}
 	
 	// Update is called once per frame
-	//void Update () {}
+	void Update () {}
 
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
@@ -123,15 +123,15 @@ public class BulletShooter : MonoBehaviour {
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                _obj.GetComponent<BulletPalameter>().SetData(id);
+                //_obj.GetComponent<BulletPalameter>().SetData(id);
                 break;
 
             case BuildManager.WeaponType.Missile:
-                _obj.GetComponent<MissilePalametar>().SetData(id);
+                //_obj.GetComponent<MissilePalametar>().SetData(id);
                 break;
 
             case BuildManager.WeaponType.Launcher:
-                _obj.GetComponent<LancherPalametar>().SetData(id);
+                //_obj.GetComponent<LancherPalametar>().SetData(id);
                 break;
         }
     }
