@@ -25,6 +25,8 @@ public class DroneStateManager : MonoBehaviour
     NowState dollState;
     OwnerState owner;
 
+    [SerializeField]
+    int damageValue = 0;
     NetworkView netState = null;
 
     public bool IsStay { get { return dollState == NowState.Stay; } }
@@ -35,6 +37,8 @@ public class DroneStateManager : MonoBehaviour
     public bool IsMaine{get { return owner == OwnerState.Maine;} }
     public bool IsYour { get { return owner == OwnerState.Your; } }
 
+    public int HitDamage { get { return damageValue; } }
+
     // Use this for initialization
 	void Start () 
     {
@@ -42,7 +46,6 @@ public class DroneStateManager : MonoBehaviour
         owner = OwnerState.None;
         netState = GetComponent<NetworkView>();
 	}
-
 
     public void ChangeActive()
     {

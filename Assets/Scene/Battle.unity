@@ -409,9 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 130908, guid: 8f3fea2b5b22c954892b46b9c384fd5c, type: 2}
   createPrefabs:
-  - {fileID: 158262, guid: f451e8d68772ba943b1f7b331f7d6b3a, type: 2}
-  - {fileID: 147550, guid: 69db13c5f3c0ca1499aee70d228a23a1, type: 2}
-  - {fileID: 140690, guid: 2d2384b597537b14fb4cb280edb0e672, type: 2}
+  - {fileID: 138208, guid: a26ccfb894c343243a52097704f27a35, type: 2}
   ip: localhost
   port: 7777
   connectionNum: 2

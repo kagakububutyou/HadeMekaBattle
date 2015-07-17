@@ -6,7 +6,7 @@ public class ExplosivePerformer : MonoBehaviour
 
     [SerializeField]
     DroneStateManager drone = null;
-
+    HealthManager player = null;
     //タイマー
     float nowTime = 0.0f;
 
@@ -47,6 +47,7 @@ public class ExplosivePerformer : MonoBehaviour
             //爆発処理
             if (IsTimeOut())
             {
+
                 Explosion();
             }
         }
@@ -54,6 +55,10 @@ public class ExplosivePerformer : MonoBehaviour
 
     void Explosion()
     {
+        //ダメージを与える
+        player.PhysicalDamage(drone.HitDamage);
+
+        //droneの活動を停止
         drone.ChangeStop();
     }
 
@@ -62,6 +67,7 @@ public class ExplosivePerformer : MonoBehaviour
         if (other.gameObject.tag == "Player" && !drone.WhoIsOwner())
         {
             drone.ChangeActive();
+            player = other.GetComponent<HealthManager>();
         }
     }
 
