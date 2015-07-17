@@ -18,6 +18,5 @@ public class LancherMover : MonoBehaviour {
 
 		// 向いている方向に進む
 		rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * lancherPalametar.Speed;
-		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * lancherPalametar.GetSpeed * Time.deltaTime ;
 	}
 }

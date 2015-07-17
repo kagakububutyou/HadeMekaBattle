@@ -22,7 +22,6 @@ public class BulletMover : MonoBehaviour {
 		if(bulletPalametar == null) return;
 
 		// 向いている方向に進む
-		GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward) * bulletPalametar.Speed;
-		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * bulletPalametar.GetSpeed * Time.deltaTime ;
+        rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * bulletPalametar.Speed;
 	}
 }
