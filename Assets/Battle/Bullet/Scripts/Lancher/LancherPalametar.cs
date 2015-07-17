@@ -16,5 +16,12 @@ public class LancherPalametar : BulletBasePalametar {
     void Start()
     {
         this.gameObject.GetComponent<HitChecker>().Palametar = this;
+
+        data = BulletDataBase.GetData(weaponID);
+
+        if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
+        {
+            this.gameObject.AddComponent<EnergyPalametar>();
+        }
     }
 }

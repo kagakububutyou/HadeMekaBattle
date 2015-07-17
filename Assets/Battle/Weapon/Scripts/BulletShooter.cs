@@ -13,9 +13,11 @@ public class BulletShooter : MonoBehaviour {
 	private BuildManager.WeaponID id;			// 武器名
 
     private BuildManager.WeaponType type = BuildManager.WeaponType.NONE;
-	//[SerializeField]
+	
+    [SerializeField]
 	private GameObject bullet = null;			// 生成する弾のプレハブ
 
+    [SerializeField]
 	private float fireRate;						// 連射速度
 
 	private EnergyManager energyManager = null;	// 親オブジェクトからエネルギー値を受け取る
@@ -62,26 +64,28 @@ public class BulletShooter : MonoBehaviour {
 
         // プレハブを取得
         bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
-        Debug.Log(bullet);
        
         if(bullet == null)
         {
             Debug.Log("bullet is NULL!!");
         }
 
-        fireRate = GetRate();
+        //SetData(bullet);
+
+        fireRate = BulletDataBase.GetData(id).fireRate;
+        Debug.Log(BulletDataBase.GetData(id).fireRate);
 
         if(fireRate < -1)
         {
             Debug.Log("firerate is failed");
-        }
+        }//*/
 
         createInterval = (1.0f / fireRate);
 
 	}
 	
 	// Update is called once per frame
-	//void Update () {}
+	void Update () {}
 
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
@@ -113,21 +117,38 @@ public class BulletShooter : MonoBehaviour {
         TargetRequest(obj);
 	}
 
-    float GetRate()
+    void SetData(GameObject _obj) 
     {
-        
-
         switch (type)
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                return bullet.GetComponent<BulletPalameter>().Firerate;
+                //_obj.GetComponent<BulletPalameter>().SetData(id);
+                break;
 
             case BuildManager.WeaponType.Missile:
-                return bullet.GetComponent<MissilePalametar>().Firerate;
+                //_obj.GetComponent<MissilePalametar>().SetData(id);
+                break;
 
             case BuildManager.WeaponType.Launcher:
-                return bullet.GetComponent<LancherPalametar>().Firerate;
+                //_obj.GetComponent<LancherPalametar>().SetData(id);
+                break;
+        }
+    }
+
+    float GetRate(GameObject _obj)
+    {
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                return _obj.GetComponent<BulletPalameter>().Firerate;
+
+            case BuildManager.WeaponType.Missile:
+                return _obj.GetComponent<MissilePalametar>().Firerate;
+
+            case BuildManager.WeaponType.Launcher:
+                return _obj.GetComponent<LancherPalametar>().Firerate;
         }
 
         return -1;
@@ -140,15 +161,24 @@ public class BulletShooter : MonoBehaviour {
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                //_obj.gameObject.GetComponent<BulletPalameter>().Energy = energyManager.EnergyRatio;
+                if(_obj.gameObject.GetComponent<BulletPalameter>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
+                }
                 break;
 
             case BuildManager.WeaponType.Missile:
-                //_obj.gameObject.GetComponent<MissilePalametar>().Energy = energyManager.EnergyRatio;
+                if (_obj.gameObject.GetComponent<MissilePalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
+                }    
                 break;
 
             case BuildManager.WeaponType.Launcher:
-                //_obj.gameObject.GetComponent<LancherPalametar>().Energy = energyManager.EnergyRatio;
+                if (_obj.gameObject.GetComponent<LancherPalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
+                }
                 break;
         }
     }
