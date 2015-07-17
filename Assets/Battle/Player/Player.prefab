@@ -10246,6 +10246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  bullet: {fileID: 0}
+  fireRate: 0
 --- !u!114 &11421810
 MonoBehaviour:
   m_ObjectHideFlags: 1
