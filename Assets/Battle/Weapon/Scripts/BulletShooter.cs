@@ -31,7 +31,6 @@ public class BulletShooter : MonoBehaviour {
 	void Start () {
         if(bulletTable.Count == 0)
         {
-            //Debug.Log("初期化 : bulletTable");
             bulletTable.Add(BuildManager.WeaponID.SGMT, "Bullet_SGMT");
             bulletTable.Add(BuildManager.WeaponID.YMD, "Bullet_YMD");
             bulletTable.Add(BuildManager.WeaponID.HRTK, "Bullet_HRTK");
@@ -48,6 +47,7 @@ public class BulletShooter : MonoBehaviour {
             bulletTable.Add(BuildManager.WeaponID.L_F_GK, "Lancher_L_F_GK");
         }
 
+        // タイプをセット
         type = BuildManager.GetTypeByID(id);
 
 
@@ -64,33 +64,32 @@ public class BulletShooter : MonoBehaviour {
 
         // プレハブを取得
         bullet = (GameObject)Resources.Load(("Prefabs/" + bulletTable[id]));
-       
         if(bullet == null)
         {
             Debug.Log("bullet is NULL!!");
         }
 
-        //SetData(bullet);
-
+        // ファイアレートをセット
         fireRate = BulletDataBase.GetData(id).fireRate;
         Debug.Log(BulletDataBase.GetData(id).fireRate);
-
-        if(fireRate < -1)
+        if(fireRate <= -1 || fireRate == 0.0f)
         {
             Debug.Log("firerate is failed");
-        }//*/
-
+        }
         createInterval = (1.0f / fireRate);
 
 	}
 	
 	// Update is called once per frame
-	void Update () {}
+	void Update () 
+    {
+        // CreateBulletが呼ばれていない間の処理
+
+    }
 
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
 	{
-        //Debug.Log("cr bll");
 		// クリエイトタイマーを増加させる
 		createTimer += Time.deltaTime;
 
@@ -116,25 +115,6 @@ public class BulletShooter : MonoBehaviour {
 		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
         TargetRequest(obj);
 	}
-
-    void SetData(GameObject _obj) 
-    {
-        switch (type)
-        {
-            case BuildManager.WeaponType.MachineGun:
-            case BuildManager.WeaponType.Rifle:
-                //_obj.GetComponent<BulletPalameter>().SetData(id);
-                break;
-
-            case BuildManager.WeaponType.Missile:
-                //_obj.GetComponent<MissilePalametar>().SetData(id);
-                break;
-
-            case BuildManager.WeaponType.Launcher:
-                //_obj.GetComponent<LancherPalametar>().SetData(id);
-                break;
-        }
-    }
 
     float GetRate(GameObject _obj)
     {
@@ -188,6 +168,7 @@ public class BulletShooter : MonoBehaviour {
     {
         if ((int)id / 10 == (int)BuildManager.WeaponType.Missile)
         {
+            // ターゲットを要求する
             _obj.gameObject.GetComponent<MissilePalametar>().TargetObject = null;
         }
     }
