@@ -6,12 +6,11 @@ public class TimeManager : MonoBehaviour {
     /// <summary>
     /// 経過時間を観測する(単位:秒)
     /// </summary>
-    float nowTimeSecond = 0;
-    public float NowTimeSecond { get { return nowTimeSecond; } }
+    public static float NowTimeSecond { get; private set; }
 
     void Start()
     {
-        nowTimeSecond = 0;
+        NowTimeSecond = 0;
     }
 
     void Update()
@@ -24,7 +23,7 @@ public class TimeManager : MonoBehaviour {
     /// </summary>
     void AddTime()
     {
-        nowTimeSecond += Time.deltaTime;
+        NowTimeSecond += Time.deltaTime;
     }
 
 
