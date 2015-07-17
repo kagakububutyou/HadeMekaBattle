@@ -42,13 +42,11 @@ public class NetworkManagerSetup : MonoBehaviour {
             Network.Instantiate(obj, obj.transform.position, obj.transform.rotation, 0);
         }
     }
-    int testCount = 0;
+
     //サーバ立ち上げ時に呼ばれるメソッド
     public void OnServerInitialized()
     {
-        Debug.Log("count : " + testCount++);
         Network.Instantiate(playerPrefab, playerPrefab.transform.position, playerPrefab.transform.rotation, 1);
-//        CreatePrefab();
     }
 
     //サーバに接続したときに呼ばれるメソッド
