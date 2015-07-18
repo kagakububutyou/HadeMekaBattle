@@ -25,7 +25,11 @@ public class BulletShooter : MonoBehaviour {
 
     private int bulletNumber = 100;             // 残段数
 
-
+    /// <summary>
+    /// プレイヤの座標との相対的な武器の位置
+    /// </summary>
+    [SerializeField, Tooltip("プレイヤの座標との相対的な武器の位置")]
+    Vector3 weaponPosition = Vector3.zero;
 
     private GameObject effect;                  // エフェクトのプレハブ
 
@@ -118,11 +122,15 @@ public class BulletShooter : MonoBehaviour {
 	// 弾を生成する
 	void Create()
 	{
+        var MuzzlePosition = new Vector3(weaponPosition.x * transform.right.x,
+                                         weaponPosition.y,
+                                         weaponPosition.z * transform.right.z);
+
 		// 生成する
 		GameObject obj;
-		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
-        
-        EffekseerEmitter.Create(effect, this.transform.position);
+		obj = Network.Instantiate (bullet, this.transform.position + MuzzlePosition, this.transform.rotation, 0) as GameObject;
+
+        EffekseerEmitter.Create(effect, this.transform.position + MuzzlePosition);
 
         GetPalameterLoading(obj);
 
