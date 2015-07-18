@@ -2,12 +2,19 @@
 using System.Collections;
 
 public class PlayerHider : MonoBehaviour {
-	
+
+    [SerializeField]
+    GameObject player = null;
+
 	// Update is called once per frame
 	void Update () {
-        if (!TimeManager.IsWaiting)
+        if (!TimeManager.IsWaiting )
         {
-            Camera.main.cullingMask |= (1 << LayerMask.NameToLayer("Player"));
+            if (player.tag == "Player")
+            {
+                Camera.main.cullingMask |= (1 << LayerMask.NameToLayer("Player"));
+            }
+
             Destroy(this);
         }
 	}
