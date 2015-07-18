@@ -13,15 +13,4 @@ public class LancherPalametar : BulletBasePalametar {
     public float VectorRotationY { get { return vectorRotationY; } }
     public float RotationSpeed { get { return rotationSpeed; } }
 
-    void Start()
-    {
-        this.gameObject.GetComponent<HitChecker>().Palametar = this;
-
-        data = BulletDataBase.GetData(weaponID);
-
-        if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
-        {
-            this.gameObject.AddComponent<EnergyPalametar>();
-        }
-    }
 }

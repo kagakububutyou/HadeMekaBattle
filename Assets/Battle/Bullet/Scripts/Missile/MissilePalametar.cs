@@ -32,15 +32,4 @@ public class MissilePalametar : BulletBasePalametar {
 	public float RotationSpeed{get{return rotationSpeed;}}
 	public float ApproachRange{get{return finalApproachRange;}}
 
-    void Start()
-    {
-        this.gameObject.GetComponent<HitChecker>().Palametar = this;
-
-        data = BulletDataBase.GetData(weaponID);
-
-        if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
-        {
-            this.gameObject.AddComponent<EnergyPalametar>();
-        }
-    }
 }

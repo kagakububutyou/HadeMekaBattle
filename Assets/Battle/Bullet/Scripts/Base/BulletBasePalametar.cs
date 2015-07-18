@@ -15,4 +15,15 @@ public class BulletBasePalametar : MonoBehaviour {
 
     protected BulletPalamaterData data = null;
 
+    public void GetPalameterData()
+    {
+        this.gameObject.GetComponent<HitChecker>().Palametar = this;
+
+        data = BulletDataBase.GetData(weaponID);
+
+        if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
+        {
+            this.gameObject.AddComponent<EnergyPalametar>();
+        }
+    }
 }

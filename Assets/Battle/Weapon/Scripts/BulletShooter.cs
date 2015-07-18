@@ -123,12 +123,34 @@ public class BulletShooter : MonoBehaviour {
 		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
         //EffekseerEmitter.Create(effect, this.transform.position);
 
+        GetPalameterLoading(obj);
+
         // energyをセットする
         EnergySet(obj);
 
 		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
         TargetRequest(obj);
 	}
+
+    // レートを取得
+    void GetPalameterLoading(GameObject _obj)
+    {
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                _obj.GetComponent<BulletPalameter>().GetPalameterData();
+                break;
+
+            case BuildManager.WeaponType.Missile:
+                _obj.GetComponent<MissilePalametar>().GetPalameterData();
+                break;
+
+            case BuildManager.WeaponType.Launcher:
+                _obj.GetComponent<LancherPalametar>().GetPalameterData();
+                break;
+        }
+    }
 
     // レートを取得
     float GetRate(GameObject _obj)
@@ -158,6 +180,7 @@ public class BulletShooter : MonoBehaviour {
             case BuildManager.WeaponType.Rifle:
                 if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
                 {
+                    Debug.Log(_obj.gameObject.GetComponent<EnergyPalametar>().name);
                     _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
                 }
                 break;
