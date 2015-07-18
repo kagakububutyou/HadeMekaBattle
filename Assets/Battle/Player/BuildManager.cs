@@ -9,7 +9,21 @@ public class BuildManager : MonoBehaviour {
     /// 4で決め打ち。
     /// </summary>
     const int weaponNumberMax = 4;
-    
+
+    /// <summary>
+    /// 機体一覧
+    /// </summary>
+    public enum BodyID
+    {
+        NONE = -1,  //エラーコード
+        OBATA,
+        NAKAGAWA,
+        SHIMOMURA,
+        KONDO,
+        SATOU
+
+    };
+
     /// <summary>
     /// 武器一覧
     /// </summary>
@@ -71,8 +85,8 @@ public class BuildManager : MonoBehaviour {
     /// -1がエラーコード
     /// </summary>
     [SerializeField]
-    int robotTextureID = -1;
-    public int RobotTextureID { get { return robotTextureID; } set { robotTextureID = value; } }
+    BodyID robotTextureID = BodyID.NONE;
+    public BodyID RobotTextureID { get { return robotTextureID; } set { robotTextureID = value; } }
 
     /// <summary>
     /// 武器を設定する

@@ -69,6 +69,15 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// 武器装備のキャンパス
     /// </summary>
     Canvas canvas = null;
+    /// <summary>
+    /// 武器のID
+    /// </summary>
+    private BuildManager.WeaponID weaponID = BuildManager.WeaponID.NULL;
+    /// <summary>
+    /// 武器のステータス表示
+    /// </summary>
+    [SerializeField]
+    private WeaponStatusChanger weaponStatusChanger = null;
 
     /// <summary>
     /// パネルの設定
@@ -79,11 +88,20 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         panel = rectTrans;
 
     }
+    /// <summary>
+    /// 武器のIdをもらってくる
+    /// </summary>
+    /// <param name="weaponID">武器のID</param>
+    public void GetWeaponID(BuildManager.WeaponID weaponID)
+    {
+        this.weaponID = weaponID;
+    }
 
 	// Use this for initialization
 	private void Start () 
     {
         padCamera = GameObject.Find("GamePad Camera").GetComponent<Camera>();
+        weaponStatusChanger = GameObject.Find("Status Panel").GetComponent<WeaponStatusChanger>();
 	}
 
     /// <summary>
@@ -99,6 +117,8 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         canvas = GameObject.Find("EquippedWeaponCanvas").GetComponent<Canvas>();
         canvas.sortingOrder = 2;    //  オーダーレイヤーを変える
         isSelect = true;
+        weaponStatusChanger.Change(weaponID);       //  ステータスの変更
+
     }
 
     /// <summary>
@@ -115,14 +135,14 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
         if (Physics.Raycast(ray, out hit))
         {
-            //  Panelとあたっていたら
+            //  Panelとあたっていなかったら
             if (hit.collider.gameObject != panel.gameObject)
             {
                 Destroy(gameObject);
                 WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
                 weaponEquipment.WeaponCancel();
-                EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
-                equippedCutIn.StartPositionMoving();
+                //PositionMoving positionMoving = GameObject.Find(panel.name).GetComponent<PositionMoving>();
+                //positionMoving.LoopPositionMoving();
             }
             else 
             {

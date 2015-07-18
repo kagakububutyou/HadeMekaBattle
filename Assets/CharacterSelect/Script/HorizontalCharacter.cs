@@ -25,28 +25,44 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 /// <summary>
 /// キャラクターの十字キーを取得するスクリプト
 /// </summary>
 public class HorizontalCharacter : MonoBehaviour {
 
     /// <summary>
-    /// ボタンを格納
+    /// 機体データの構造体
     /// </summary>
-    [SerializeField]
-    private Button[] button = null;
+    [System.Serializable]
+    public struct CharacterData
+    {
+        public CharacterData(BuildManager.BodyID bobyID, GameObject model, Button button)
+        {
+            this.bobyID = bobyID;
+            this.model = model;
+            this.button = button;
+        }
+
+        public BuildManager.BodyID bobyID;
+        public GameObject model;
+        public Button button;
+    }
+
     /// <summary>
-    /// キャラクターしまう用
+    /// キャラクターのデータ
     /// </summary>
     [SerializeField]
-    private GameObject[] characterObject = null;
+    List<CharacterData> characterData = new List<CharacterData>();
+
+    private BuildManager.BodyID nowBodyID = BuildManager.BodyID.NONE;
     /// <summary>
     /// キャラの切り替え用
     /// </summary>
     [SerializeField]
     private CharacterChanger characterChanger = null;
     /// <summary>
-    ///     ボタンのマネージャーさん
+    /// ボタンのマネージャーさん
     /// </summary>
     [SerializeField]
     private ButtonManager buttonManager = null;
@@ -60,41 +76,39 @@ public class HorizontalCharacter : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private int buttonIndex = 0;
-    /// <summary>
-    /// お父さんの設定
-    /// </summary>
-    [SerializeField]
-    private GameObject nowCharacter = null;
 
 	// Update is called once per frame
-	private void Update () 
+    private void Update()
     {
         Horizontal();
-	}
+    }
+
     /// <summary>
     /// 左右が押された時
     /// </summary>
     private void Horizontal()
     {
+        
         var indexValue = (int)Input.GetAxisRaw("Horizontal");
 
         if (indexValue == 0) return;
 
-        LoopCount();
 
         if (Input.GetButtonDown("Horizontal"))
         {
+           
             buttonIndex += indexValue;
-            buttonIndex = buttonIndex % button.Length;
+            buttonIndex = buttonIndex % characterData.Count;
             if(buttonIndex >= 0)
             {
-                CharacterChanger(buttonIndex);
+                CharacterChanger(characterData[buttonIndex]);
             }
             else
             {
-                var tmp = button.Length - Math.Abs(buttonIndex);
-                CharacterChanger(tmp);
+                var tmp = characterData.Count - Math.Abs(buttonIndex);
+                CharacterChanger(characterData[tmp]);
             }
+
         }
     }
 
@@ -102,26 +116,20 @@ public class HorizontalCharacter : MonoBehaviour {
     /// キャラクターの切り替え
     /// </summary>
     /// <param name="index">キャラの番号</param>
-    private void CharacterChanger(int index)
+    private void CharacterChanger(CharacterData data)
     {
-        characterChanger.GetCharacter(characterObject[index]);
-        buttonManager.OnPush(button[index]);
-        buttonScaling.OnPush(button[index]);
+        characterChanger.GetCharacter(data.bobyID);
+        buttonManager.OnPush(data.button);
+        buttonScaling.OnPush(data.button);
+
     }
 
-    /// <summary>
-    /// ループカウント
-    /// </summary>
-    /// スマートなやり方あったら教えて下さい
-    private void LoopCount()
+
+    public void GetOnPush(BuildManager.BodyID bobyID)
     {
-        for (int i = 0; i < button.Length; i++)
-        {
-            if(nowCharacter.transform.GetChild(0).gameObject.name == button[i].name)
-            {
-                buttonIndex = i;
-                return;
-            }
-        }
+        nowBodyID = bobyID;
+
+        buttonIndex = (int)nowBodyID;
+
     }
 }

@@ -22,14 +22,10 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class EquippedCutIn : MonoBehaviour {
 
-    /// <summary>
-    /// 武器のオブジェクト
-    /// </summary>
-    [SerializeField]
-    private Sprite[] icons = null;
     /// <summary>
     /// 武器の場所
     /// </summary>
@@ -37,71 +33,48 @@ public class EquippedCutIn : MonoBehaviour {
     private Image displayingPosition = null;
 
     /// <summary>
-    /// 開始位置
+    /// 武器のアイコンのデータ
     /// </summary>
-    [SerializeField]
-    private Vector3 startPosition = Vector3.zero;
-    /// <summary>
-    /// 目標位置
-    /// </summary>
-    [SerializeField]
-    private Vector3 targetPosition = Vector3.zero;
-    /// <summary>
-    /// 移動時間(秒)
-    /// </summary>
-    [SerializeField]
-    private float movingTimeSeconds = 0.0f;
+    [System.Serializable]
+    public struct EquippedCutInData
+    {
+        public EquippedCutInData(BuildManager.WeaponID weaponID, Sprite icon)
+        {
+            this.weaponID = weaponID;
+            this.icon = icon;
+        }
+        public BuildManager.WeaponID weaponID;
+        public Sprite icon;
 
+    }
+
+    [SerializeField]
+    private EquimentPositionChange positionMoving = null;
     /// <summary>
-    /// 行うイージングの種類
+    /// 武器の装備のデータ
     /// </summary>
     [SerializeField]
-    iTween.EaseType easeType = iTween.EaseType.linear;
+    private List<EquippedCutInData> weaponEquipmentData = new List<EquippedCutInData>();
 
     /// <summary>
     /// 装備の表示
     /// </summary>
     /// <param name="childrenName"></param>
-    public void EquippedDisplay(string childrenName)
+    public void EquippedDisplay(BuildManager.WeaponID weaponID)
     {
-        ChangeIcon(childrenName);
-        TargetPositionMoving();
-        Debug.Log(childrenName);
+        ChangeIcon(weaponID);
+
+        positionMoving.LoopPositionMoving();
+        positionMoving.TargetPositionMoving();
     }
+
     /// <summary>
     /// 切り替え
     /// </summary>
     /// <param name="childrenName"></param>
-    private void ChangeIcon(string childrenName)
+    private void ChangeIcon(BuildManager.WeaponID weaponID)
     {
-        foreach (var icon in icons)
-        {
-            if (childrenName == icon.name)
-            {
-                displayingPosition.sprite = icon;
-            }
-        }
-    }
-
-    /// <summary>
-    /// 表示位置に移動
-    /// </summary>
-    public void TargetPositionMoving()
-    {
-        iTween.MoveTo(displayingPosition.gameObject, iTween.Hash("x", targetPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
-    }
-    /// <summary>
-    /// 開始位置から始める
-    /// </summary>
-    public void LoopPositionMoving()
-    {
-        iTween.MoveFrom(displayingPosition.gameObject, iTween.Hash("x", startPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
-    }
-    /// <summary>
-    /// 開始位置に戻す
-    /// </summary>
-    public void StartPositionMoving()
-    {
-        iTween.MoveTo(displayingPosition.gameObject, iTween.Hash("x", startPosition.x, "islocal", true, "time", movingTimeSeconds, "easetype", easeType));
+        var icon = weaponEquipmentData.Find(i => i.weaponID == weaponID);
+        displayingPosition.sprite = icon.icon;
     }
 }
