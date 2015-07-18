@@ -80,7 +80,10 @@ public class BulletShooter : MonoBehaviour {
         createInterval = (1.0f / fireRate);
 
         // 弾数をセット
-        //bulletNumber = BulletDataBase.GetData(id).bulletNumber;
+        if (BulletDataBase.GetData(id).bulletNumber != 0)
+        {
+            bulletNumber = BulletDataBase.GetData(id).bulletNumber;
+        }
 
         // エフェクトを取得
         effect = GetEffect(bullet);
