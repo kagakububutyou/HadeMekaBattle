@@ -49,10 +49,21 @@ public class BoostManager : MonoBehaviour {
     [SerializeField,Range(quantityMin,quantityMax)]
     float autoRegainPerSecond = 5.0f;
 
-	// Update is called once per frame
+    void Start()
+    {
+        IsShowingError = false;
+    }
+
+    // Update is called once per frame
 	void Update () {
 
         AutoRegain();
+
+        if(IsShowingError && needQuantity < quantity)
+        {
+            needQuantity = 0.0f;
+            IsShowingError = false;
+        }
 
 	}
 
@@ -84,9 +95,16 @@ public class BoostManager : MonoBehaviour {
         return quantity;
     }
 
+    public static bool IsShowingError { get; private set; }
+    float needQuantity = 0.0f;
     public bool CanUseBoost(float _consumption)
     {
-        if (_consumption * boostRatio > quantity) return false;
+        if (_consumption * boostRatio > quantity)
+        {
+            needQuantity = _consumption * boostRatio;
+            IsShowingError = true;
+            return false;
+        }
 
         return true;
     }
