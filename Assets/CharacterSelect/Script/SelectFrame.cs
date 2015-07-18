@@ -29,7 +29,6 @@ public class SelectFrame : MonoBehaviour {
     /// <summary>
     /// 選択した時のフレーム
     /// </summary>
-    [SerializeField]
     private Image selectFrame = null;
     /// <summary>
     /// お父さん

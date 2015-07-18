@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11413908}
   - 114: {fileID: 11403882}
   m_Layer: 5
-  m_Name: CharacterPadIcon_5
+  m_Name: CharacterIcon_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11406964}
   - 114: {fileID: 11477340}
   m_Layer: 5
-  m_Name: CharacterPadIcon_1
+  m_Name: CharacterIcon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ GameObject:
   - 114: {fileID: 11455768}
   - 114: {fileID: 11448316}
   m_Layer: 5
-  m_Name: CharacterPadIcon_3
+  m_Name: CharacterIcon_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - 114: {fileID: 11467684}
   - 114: {fileID: 11445444}
   m_Layer: 5
-  m_Name: CharacterPadIcon_2
+  m_Name: CharacterIcon_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ GameObject:
   - 114: {fileID: 11485330}
   - 114: {fileID: 11490390}
   m_Layer: 5
-  m_Name: CharacterPadIcon_4
+  m_Name: CharacterIcon_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,14 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyId: 4
   characterButton: {fileID: 11413908}
-  characterObject:
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 11443146}
+  horizontalCharacter: {fileID: 0}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
 --- !u!114 &11406964
@@ -403,7 +399,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1780dc45be4269a489cb073e2e3aa72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData:
+  - bodyId: 0
+    characterObject: {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
+  - bodyId: 1
+    characterObject: {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
+  - bodyId: 2
+    characterObject: {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
+  - bodyId: 3
+    characterObject: {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
+  - bodyId: 4
+    characterObject: {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
   nowCharacter: {fileID: 0}
+  icon: {fileID: 0}
+  introduction: {fileID: 0}
 --- !u!114 &11444508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,14 +445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyId: 1
   characterButton: {fileID: 11467684}
-  characterObject:
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 11443146}
+  horizontalCharacter: {fileID: 0}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
 --- !u!114 &11447128
@@ -457,23 +462,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c09b5002a2b194ba7d0ccee92056d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button:
-  - {fileID: 11406964}
-  - {fileID: 11467684}
-  - {fileID: 11455768}
-  - {fileID: 11485330}
-  - {fileID: 11413908}
-  characterObject:
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
+  characterData:
+  - bobyID: 0
+    model: {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
+    button: {fileID: 11406964}
+  - bobyID: 1
+    model: {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
+    button: {fileID: 11467684}
+  - bobyID: 2
+    model: {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
+    button: {fileID: 11455768}
+  - bobyID: 3
+    model: {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
+    button: {fileID: 11485330}
+  - bobyID: 4
+    model: {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
+    button: {fileID: 11413908}
   characterChanger: {fileID: 11443146}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
   buttonIndex: 2
-  nowCharacter: {fileID: 0}
 --- !u!114 &11448316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,14 +493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyId: 2
   characterButton: {fileID: 11455768}
-  characterObject:
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 11443146}
+  horizontalCharacter: {fileID: 0}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
 --- !u!114 &11449022
@@ -689,14 +693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyId: 0
   characterButton: {fileID: 11406964}
-  characterObject:
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 11443146}
+  horizontalCharacter: {fileID: 0}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
 --- !u!114 &11481016
@@ -789,14 +789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyId: 3
   characterButton: {fileID: 11485330}
-  characterObject:
-  - {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
-  - {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
-  - {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
-  - {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
-  - {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
   characterChanger: {fileID: 11443146}
+  horizontalCharacter: {fileID: 0}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
 --- !u!222 &22200990
