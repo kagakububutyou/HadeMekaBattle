@@ -20,6 +20,10 @@ public class HitChecker : MonoBehaviour {
 
     [SerializeField]
     private GameObject effect = null;
+    public GameObject Effect { 
+        get { return effect; }
+        set { if (effect == null) effect = value; } 
+    }
 
     void Start()
     {

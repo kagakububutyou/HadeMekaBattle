@@ -121,6 +121,7 @@ public class BulletShooter : MonoBehaviour {
 		// 生成する
 		GameObject obj;
 		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
+        
         //EffekseerEmitter.Create(effect, this.transform.position);
 
         GetPalameterLoading(obj);
@@ -132,7 +133,7 @@ public class BulletShooter : MonoBehaviour {
         TargetRequest(obj);
 	}
 
-    // レートを取得
+    // パラメータを設定
     void GetPalameterLoading(GameObject _obj)
     {
         switch (type)
