@@ -20,18 +20,15 @@ public class ContainerDestroyer : MonoBehaviour
         }
     }
 
-    //衝突した場合箱を削除
+    //Playerに衝突した場合
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            //コンテナを開ける
+            ContainerState.ContainerOpene();
         }
     }
 
-    private void  Destroy()
-    {
-        ;
-    }
 
 }
