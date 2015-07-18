@@ -89,7 +89,7 @@ public class CharacterChanger : MonoBehaviour {
 
         /// お父さんを設定
         clone.transform.SetParent(nowCharacter.transform);
-
+        clone.transform.rotation = Quaternion.identity;
         monitorLogo.LoopPositionMoving();
         monitorLogo.TargetPositionMoving();
      

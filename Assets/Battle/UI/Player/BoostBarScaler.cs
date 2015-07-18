@@ -41,7 +41,18 @@ public class BoostBarScaler : MonoBehaviour {
 
             var barLength = GetBarLength();
             image.fillAmount = barLength;
+
+            if (BoostManager.IsShowingError)
+            {
+                Debug.Log("tasukete");
+                image.color = Color.red;
+            }
+            else
+            {
+                image.color = Color.white;
+            }
         }
+
 
 	}
 
