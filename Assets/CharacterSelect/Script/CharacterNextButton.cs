@@ -83,8 +83,9 @@ public class CharacterNextButton : MonoBehaviour {
         weaponButton.SetActive(true);       //  表示
         equippedWeapon.SetActive(true);     //  表示
         characterCanvas.SetActive(false);   //  非表示
-
+        //　回転をリセットする
         parent.transform.rotation = Quaternion.identity;
+        parent.transform.GetChild(0).gameObject.transform.rotation = Quaternion.identity;
         children.transform.SetParent(parent.transform); //  親変更
     }
 }
