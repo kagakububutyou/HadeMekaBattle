@@ -25,11 +25,35 @@
  */
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 /// <summary>
 /// キャラクターの切り替えのスクリプト
 /// </summary>
 public class CharacterChanger : MonoBehaviour {
 
+
+    /// <summary>
+    /// キャラクターの情報
+    /// </summary>
+    [System.Serializable]
+    public struct CharacterData
+    {
+        public CharacterData(BuildManager.BodyID bodyId, GameObject characterObject)
+        {
+            this.bodyId = bodyId;
+            this.characterObject = characterObject;
+        }
+
+        public BuildManager.BodyID bodyId;
+        public GameObject characterObject;
+    }
+
+
+    /// <summary>
+    /// 機体のデータ
+    /// </summary>
+    [SerializeField]
+    private List<CharacterData> characterData = new List<CharacterData>();
     /// <summary>
     /// お父さんの設定
     /// </summary>
@@ -37,10 +61,9 @@ public class CharacterChanger : MonoBehaviour {
     private GameObject nowCharacter = null;
 
     [SerializeField]
-    private EquippedCutIn icon = null;
-
+    private EquimentPositionChange monitorLogo = null;
     [SerializeField]
-    private SelectionStatus[] status = null;
+    private CharacterIntroduction introduction = null;
 
     /// <summary>
     /// Characterの取得
@@ -48,7 +71,7 @@ public class CharacterChanger : MonoBehaviour {
     /// <param name="character">キャラをもらってくる</param>
     /// 子供がふたり以上いたら子供全員消す
     /// 出産する
-    public void GetCharacter(GameObject character)
+    public void GetCharacter(BuildManager.BodyID bodyId)
     {
         /// 子供がいたら子供全員消す
         if (nowCharacter.transform.IsChildOf(nowCharacter.transform))
@@ -58,16 +81,19 @@ public class CharacterChanger : MonoBehaviour {
                 GameObject.Destroy(n.gameObject);
             }
         }
+        var body = characterData.Find(i => i.bodyId == bodyId);
+        
         /// 以下で生成
-        GameObject clone = (GameObject)Instantiate(character);
-        clone.name = character.name;
+        GameObject clone = (GameObject)Instantiate(body.characterObject);
+        clone.name = body.characterObject.name;
+
         /// お父さんを設定
         clone.transform.SetParent(nowCharacter.transform);
-        icon.LoopPositionMoving();
-        icon.EquippedDisplay(character.name);
-        foreach (var item in status)
-        {
-            item.ChangeIcon(character.name);    
-        }
+
+        monitorLogo.LoopPositionMoving();
+        monitorLogo.TargetPositionMoving();
+     
+        introduction.Change(body.bodyId);
+        
     }
 }

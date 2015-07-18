@@ -40,19 +40,24 @@ public class TouchDragController : MonoBehaviour{
     /// </summary>
     private Camera padCamera = null;
 
-    private SelectionStatus icon = null;
-    private SelectionStatus logo = null;
-    private SelectionStatus status = null;
-
     /// <summary>
     /// 装備武器の情報
     /// </summary>
     private List<RectTransform> panel = new List<RectTransform>();
+    /// <summary>
+    /// 武器のステータス表示
+    /// </summary>
+    [SerializeField]
+    private WeaponStatusChanger weaponStatusChanger = null;
     
     /// <summary>
     /// 選択しているかどうか
     /// </summary>
     bool isSelect = false;
+    /// <summary>
+    /// 武器のId
+    /// </summary>
+    private BuildManager.WeaponID weaponID;
 	// Use this for initialization
 	private void Start () 
     {
@@ -60,9 +65,7 @@ public class TouchDragController : MonoBehaviour{
      
         padCamera = GameObject.Find("GamePad Camera").GetComponent<Camera>();
 
-        icon = GameObject.Find("Icon").GetComponent<SelectionStatus>();
-        logo = GameObject.Find("Logo").GetComponent<SelectionStatus>();
-        status = GameObject.Find("Status").GetComponent<SelectionStatus>();
+        weaponStatusChanger = GameObject.Find("Status Panel").GetComponent<WeaponStatusChanger>();
 
         //  装備武器のタグ検索
         var equippedWeapons = GameObject.FindGameObjectsWithTag("Equipped Weapon");
@@ -90,6 +93,14 @@ public class TouchDragController : MonoBehaviour{
             ButtonUp();
         }
     }
+    /// <summary>
+    /// 武器のIdをもらってくる
+    /// </summary>
+    /// <param name="weaponID">武器のID</param>
+    public void GetWeaponID(BuildManager.WeaponID weaponID)
+    {
+        this.weaponID = weaponID;
+    }
 
     /// <summary>
     /// 選択している時
@@ -101,9 +112,7 @@ public class TouchDragController : MonoBehaviour{
         var worldPos = padCamera.ScreenToWorldPoint(mousePos);  //  座標変換
         gameObject.transform.position = worldPos;               //  代入
 
-        icon.ChangeIcon(gameObject.name);
-        logo.ChangeIcon(gameObject.name);
-        status.ChangeIcon(gameObject.name);
+        weaponStatusChanger.Change(weaponID);       //  ステータスの変更
     }
     /// <summary>
     /// 離した時
@@ -185,11 +194,12 @@ public class TouchDragController : MonoBehaviour{
         Destroy(this);                                          //  スクリプト消す
         var cansel = gameObject.AddComponent<WeaponCancel>();   //  スクリプトくっつける
         cansel.SetNowPanel(panel);                              //  Panelを渡す
+        cansel.GetWeaponID(weaponID);                           //  武器のIDを渡す
         //  武器装備
         WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
-        weaponEquipment.WeaponChange(transform.name);
+        weaponEquipment.WeaponChange(weaponID);
         EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
-        equippedCutIn.LoopPositionMoving();
-        equippedCutIn.EquippedDisplay(transform.name);
+        //equippedCutIn.LoopPositionMoving();
+        equippedCutIn.EquippedDisplay(weaponID);
     }
 }

@@ -18,32 +18,38 @@
  * 
  * 2015/07/04 書き始める
  * 2015/07/14 コメントつける
+ * 2015/07/18 IDに変更
  * 
  */
 
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 /// <summary>
 /// キャラクターのタッチを取得するスクリプト
 /// </summary>
 public class TouchCharacter : MonoBehaviour {
 
+
+    /// <summary>
+    /// キャラクターのId
+    /// </summary>
+    [SerializeField]
+    private BuildManager.BodyID bodyId = BuildManager.BodyID.NONE;
     /// <summary>
     /// 自分自身のボタン
     /// </summary>
     [SerializeField]
     private Button characterButton = null;
     /// <summary>
-    /// キャラクター全員分のオブジェクト
-    /// </summary>
-    [SerializeField]
-    private GameObject[] characterObject = null;
-    /// <summary>
     /// キャラクター変更
     /// </summary>
     [SerializeField]
     private CharacterChanger characterChanger = null;
+
+    [SerializeField]
+    private HorizontalCharacter horizontalCharacter = null;
     /// <summary>
     /// キャラクターキャンパスを
     /// </summary>
@@ -79,12 +85,7 @@ public class TouchCharacter : MonoBehaviour {
     /// 切り替わる
     private void Clone()
     {
-        foreach (var item in characterObject)
-        {
-            if (item.name == characterButton.name)
-            {
-                characterChanger.GetCharacter(item);
-            }
-        }
+        characterChanger.GetCharacter(bodyId);
+        horizontalCharacter.GetOnPush(bodyId);
     }
 }

@@ -37,7 +37,13 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// 自分自身
     /// </summary>
     [SerializeField]
-    private Button characterButton = null;  
+    private Button characterButton = null;
+
+    /// <summary>
+    /// 武器ID
+    /// </summary>
+    [SerializeField]
+    private BuildManager.WeaponID weaponId = BuildManager.WeaponID.NULL;
 
     /// <summary>
     /// お父さんの設定
@@ -130,7 +136,8 @@ public class TouchWeapon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         clone.transform.SetParent(myFather.transform);              //  親決めて
         clone.name = characterButton.name;                          //  名前変えて
         clone.transform.rotation = myButton.transform.rotation;     //  角度変える
-        clone.gameObject.AddComponent<TouchDragController>();       //  スクリプトくっつける
+        var weapon = clone.gameObject.AddComponent<TouchDragController>();       //  スクリプトくっつける
+        weapon.GetWeaponID(weaponId);                               //  武器のIDを渡す
         Destroy(clone.gameObject.GetComponent<TouchWeapon>());      //  スクリプトをはずす
         var rectTrans = clone.transform as RectTransform;           //  データもらってくる
         rectTrans.localScale = new Vector3(10.0f, 10.0f, 1);        //  サイズ変更

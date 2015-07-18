@@ -208,24 +208,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165ec2187244a774b9262741cc9f59e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
-  - {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
-  - {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
-  - {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
-  - {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
-  - {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
-  - {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
-  - {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
-  - {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
-  - {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
-  - {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
-  - {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
-  - {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
-  - {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
-  - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
-  - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
-  displayingPosition: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 30
+    weaponObject: {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
+  - weaponID: 32
+    weaponObject: {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
+  - weaponID: 0
+    weaponObject: {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
+  - weaponID: 1
+    weaponObject: {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
+  - weaponID: 2
+    weaponObject: {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
+  - weaponID: 3
+    weaponObject: {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
+  - weaponID: 20
+    weaponObject: {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
+  - weaponID: 21
+    weaponObject: {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
+  - weaponID: 22
+    weaponObject: {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
+  - weaponID: 23
+    weaponObject: {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
+  - weaponID: 10
+    weaponObject: {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
+  - weaponID: 11
+    weaponObject: {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
+  equippedPosition: {fileID: 0}
+  equimentPositionChange: {fileID: 0}
 --- !u!114 &11407386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,24 +254,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165ec2187244a774b9262741cc9f59e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
-  - {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
-  - {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
-  - {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
-  - {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
-  - {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
-  - {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
-  - {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
-  - {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
-  - {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
-  - {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
-  - {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
-  - {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
-  - {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
-  - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
-  - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
-  displayingPosition: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 30
+    weaponObject: {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
+  - weaponID: 32
+    weaponObject: {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
+  - weaponID: 0
+    weaponObject: {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
+  - weaponID: 1
+    weaponObject: {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
+  - weaponID: 2
+    weaponObject: {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
+  - weaponID: 3
+    weaponObject: {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
+  - weaponID: 20
+    weaponObject: {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
+  - weaponID: 21
+    weaponObject: {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
+  - weaponID: 22
+    weaponObject: {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
+  - weaponID: 23
+    weaponObject: {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
+  - weaponID: 10
+    weaponObject: {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
+  - weaponID: 11
+    weaponObject: {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
+  equippedPosition: {fileID: 0}
+  equimentPositionChange: {fileID: 0}
 --- !u!114 &11416462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,28 +300,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
-  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
-  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
-  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
-  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
-  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
-  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
-  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
-  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
-  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
-  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
-  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
-  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
-  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
-  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
-  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
-  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 0}
-  startPosition: {x: -1200, y: -430, z: 0}
-  targetPosition: {x: -676, y: -430, z: 0}
-  movingTimeSeconds: 1
-  easeType: 16
+  positionMoving: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 0
+    icon: {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - weaponID: 1
+    icon: {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - weaponID: 2
+    icon: {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - weaponID: 3
+    icon: {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - weaponID: 10
+    icon: {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - weaponID: 11
+    icon: {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  - weaponID: 20
+    icon: {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - weaponID: 21
+    icon: {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - weaponID: 22
+    icon: {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - weaponID: 23
+    icon: {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - weaponID: 30
+    icon: {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - weaponID: 31
+    icon: {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
 --- !u!114 &11419330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,28 +384,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
-  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
-  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
-  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
-  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
-  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
-  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
-  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
-  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
-  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
-  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
-  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
-  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
-  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
-  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
-  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
-  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 0}
-  startPosition: {x: -1200, y: -270, z: 0}
-  targetPosition: {x: -676, y: -270, z: 0}
-  movingTimeSeconds: 1
-  easeType: 16
+  positionMoving: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 0
+    icon: {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - weaponID: 1
+    icon: {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - weaponID: 2
+    icon: {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - weaponID: 3
+    icon: {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - weaponID: 10
+    icon: {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - weaponID: 11
+    icon: {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  - weaponID: 20
+    icon: {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - weaponID: 21
+    icon: {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - weaponID: 22
+    icon: {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - weaponID: 23
+    icon: {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - weaponID: 30
+    icon: {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - weaponID: 31
+    icon: {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
 --- !u!114 &11431060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -412,28 +472,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
-  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
-  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
-  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
-  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
-  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
-  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
-  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
-  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
-  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
-  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
-  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
-  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
-  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
-  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
-  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
-  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 0}
-  startPosition: {x: -1200, y: 50, z: 0}
-  targetPosition: {x: -676, y: 50, z: 0}
-  movingTimeSeconds: 1
-  easeType: 16
+  positionMoving: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 0
+    icon: {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - weaponID: 1
+    icon: {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - weaponID: 2
+    icon: {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - weaponID: 3
+    icon: {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - weaponID: 10
+    icon: {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - weaponID: 11
+    icon: {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  - weaponID: 20
+    icon: {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - weaponID: 21
+    icon: {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - weaponID: 22
+    icon: {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - weaponID: 23
+    icon: {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - weaponID: 30
+    icon: {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - weaponID: 31
+    icon: {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
 --- !u!114 &11471926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,24 +518,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165ec2187244a774b9262741cc9f59e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
-  - {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
-  - {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
-  - {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
-  - {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
-  - {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
-  - {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
-  - {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
-  - {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
-  - {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
-  - {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
-  - {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
-  - {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
-  - {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
-  - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
-  - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
-  displayingPosition: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 30
+    weaponObject: {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
+  - weaponID: 32
+    weaponObject: {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
+  - weaponID: 0
+    weaponObject: {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
+  - weaponID: 1
+    weaponObject: {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
+  - weaponID: 2
+    weaponObject: {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
+  - weaponID: 3
+    weaponObject: {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
+  - weaponID: 20
+    weaponObject: {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
+  - weaponID: 21
+    weaponObject: {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
+  - weaponID: 22
+    weaponObject: {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
+  - weaponID: 23
+    weaponObject: {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
+  - weaponID: 10
+    weaponObject: {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
+  - weaponID: 11
+    weaponObject: {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
+  equippedPosition: {fileID: 0}
+  equimentPositionChange: {fileID: 0}
 --- !u!114 &11476048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,24 +564,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165ec2187244a774b9262741cc9f59e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
-  - {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
-  - {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
-  - {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
-  - {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
-  - {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
-  - {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
-  - {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
-  - {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
-  - {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
-  - {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
-  - {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
-  - {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
-  - {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
-  - {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
-  - {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
-  displayingPosition: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 30
+    weaponObject: {fileID: 148358, guid: cb22463e7f31abf4a90b8a56cd6616fc, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 144948, guid: d1356d2d52fcfb243b1ecd4b71fa11b1, type: 2}
+  - weaponID: 31
+    weaponObject: {fileID: 191968, guid: 9556a428a816f6541978b06aa470bd89, type: 2}
+  - weaponID: 32
+    weaponObject: {fileID: 186430, guid: 16412ebbcf01b5145868905360c452a9, type: 2}
+  - weaponID: 0
+    weaponObject: {fileID: 163752, guid: 659d961f229d0a643817e90f6e0779c4, type: 2}
+  - weaponID: 1
+    weaponObject: {fileID: 122996, guid: 18091da40e63e204581a36105cb83217, type: 2}
+  - weaponID: 2
+    weaponObject: {fileID: 111392, guid: 0fdb86fe3aa06de45b63355f823e4a1b, type: 2}
+  - weaponID: 3
+    weaponObject: {fileID: 185376, guid: ee69f3080e093bb46a60b36425f29146, type: 2}
+  - weaponID: 20
+    weaponObject: {fileID: 110436, guid: 3b761937712e3ee469370e113ef8776f, type: 2}
+  - weaponID: 21
+    weaponObject: {fileID: 153632, guid: 05d51750c5e6a8a4f9737ee356e98994, type: 2}
+  - weaponID: 22
+    weaponObject: {fileID: 161786, guid: 1a17abaa0b547e24aaef9d4ad22b042e, type: 2}
+  - weaponID: 23
+    weaponObject: {fileID: 180234, guid: cd00cfc629112c54182dfc4cce96ef10, type: 2}
+  - weaponID: 10
+    weaponObject: {fileID: 131904, guid: 0a4e92e7a2ebd8549b2bfe6495b03ce7, type: 2}
+  - weaponID: 11
+    weaponObject: {fileID: 175502, guid: a2a3a1cd421122446a1d454fc4788770, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 195172, guid: 216d52a617041b74395acfb093a87074, type: 2}
+  - weaponID: 12
+    weaponObject: {fileID: 147932, guid: 8e49598e148ffea489051f2b55c573fc, type: 2}
+  equippedPosition: {fileID: 0}
+  equimentPositionChange: {fileID: 0}
 --- !u!114 &11485496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,28 +610,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
-  - {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
-  - {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
-  - {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
-  - {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
-  - {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
-  - {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
-  - {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
-  - {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
-  - {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
-  - {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
-  - {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
-  - {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
-  - {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
-  - {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
-  - {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
-  - {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
   displayingPosition: {fileID: 0}
-  startPosition: {x: -1200, y: -110, z: 0}
-  targetPosition: {x: -676, y: -110, z: 0}
-  movingTimeSeconds: 1
-  easeType: 16
+  positionMoving: {fileID: 0}
+  weaponEquipmentData:
+  - weaponID: 0
+    icon: {fileID: 21300000, guid: 13e34f2e440f3594ba0ca533452f8317, type: 3}
+  - weaponID: 1
+    icon: {fileID: 21300000, guid: 49af2239021e71f4582169061db90392, type: 3}
+  - weaponID: 2
+    icon: {fileID: 21300000, guid: 9bc7fae938cef6046a1be2901f2f4b51, type: 3}
+  - weaponID: 3
+    icon: {fileID: 21300000, guid: f1e72cc88e717334ebf60f2d3cf8b87d, type: 3}
+  - weaponID: 10
+    icon: {fileID: 21300000, guid: 9396a7270271c3045a24d1f2fd48f35a, type: 3}
+  - weaponID: 11
+    icon: {fileID: 21300000, guid: 89b071723f6534b4c903d8b67be0fc09, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: e6600a334f6578d46a526ab5c248b0e6, type: 3}
+  - weaponID: 12
+    icon: {fileID: 21300000, guid: b59b19c65c53a704a85203bfce957fa3, type: 3}
+  - weaponID: 20
+    icon: {fileID: 21300000, guid: a11d41570d23b104b8cfdb5cd9beb666, type: 3}
+  - weaponID: 21
+    icon: {fileID: 21300000, guid: 34261626efabf9640bc8adc7d9c3d74e, type: 3}
+  - weaponID: 22
+    icon: {fileID: 21300000, guid: 20ad45487c89d9f4e9466695ce126549, type: 3}
+  - weaponID: 23
+    icon: {fileID: 21300000, guid: 6e14f70ea00527d42b5447fcf839a209, type: 3}
+  - weaponID: 30
+    icon: {fileID: 21300000, guid: cb1b3e6acceae7c478ac30fb3b039de2, type: 3}
+  - weaponID: 31
+    icon: {fileID: 21300000, guid: e3db3188585ec944da31a197e6151d5e, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 3039a4895676a784091f076b5d7feafc, type: 3}
+  - weaponID: 32
+    icon: {fileID: 21300000, guid: 12a2c92652026fd4faa32dcf6f1427b7, type: 3}
 --- !u!114 &11487404
 MonoBehaviour:
   m_ObjectHideFlags: 1

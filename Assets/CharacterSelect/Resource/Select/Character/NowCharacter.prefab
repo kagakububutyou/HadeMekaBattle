@@ -11,8 +11,9 @@ GameObject:
   - 33: {fileID: 3302598}
   - 65: {fileID: 6563756}
   - 23: {fileID: 2389680}
+  - 114: {fileID: 11467262}
   m_Layer: 0
-  m_Name: CharacterPadIcon_3
+  m_Name: CharacterIcon_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +27,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409068}
-  - 114: {fileID: 11485982}
+  - 114: {fileID: 11400936}
+  - 114: {fileID: 11400790}
   m_Layer: 0
   m_Name: NowCharacter
   m_TagString: Untagged
@@ -42,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 164924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.33000004, z: 0}
-  m_LocalScale: {x: 5, y: 7, z: 5}
+  m_LocalScale: {x: -5, y: -7, z: 5}
   m_Children:
   - {fileID: 463708}
   m_Father: {fileID: 0}
@@ -102,7 +104,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11485982
+--- !u!114 &11400790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ce4660ee2b1049b9cb17e5a619c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponEquipmentData: []
+  displayingPosition: {fileID: 0}
+  startPosition: {x: -1200, y: 210, z: 0}
+  targetPosition: {x: -676, y: 210, z: 0}
+  movingTimeSeconds: 1
+  easeType: 16
+--- !u!114 &11400936
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,6 +133,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateEularPerSecond: 90
+--- !u!114 &11467262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a55b35b89e9ea24dbdf51bcc41c608e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyId: 2
+  characterButton: {fileID: 0}
+  characterChanger: {fileID: 0}
+  buttonManager: {fileID: 0}
+  buttonScaling: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
