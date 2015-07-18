@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BulletDataBase : MonoBehaviour {
+
     static List<BulletPalamaterData> data = new List<BulletPalamaterData>();
 
 	// Use this for initialization
@@ -14,20 +15,27 @@ public class BulletDataBase : MonoBehaviour {
             Debug.LogError("MachineGun DataBaseが空です");
             return;
         }
-        var bulletData = LitJson.JsonMapper.ToObject<List<BulletPalamaterData>>(json.text);
 
-        foreach (var bullet in bulletData)
+        data = LitJson.JsonMapper.ToObject<List<BulletPalamaterData>>(json.text);
+
+        /*
+        foreach (var bullet in data)
         {
             Debug.Log("WeaponID : " + bullet.weaponID);
             Debug.Log("タイプ : " + bullet.attackType);
             Debug.Log("速度 : " + bullet.speed);
             Debug.Log("発射レート : " + bullet.fireRate);
             Debug.Log("攻撃 : " + bullet.power);
+            Debug.Log("弾数 : " + bullet.bulletNumber);
         }
-	}
+        */
+
+    }
 
     public static BulletPalamaterData GetData(BuildManager.WeaponID id)
     {
-        return data.Find(i => i.weaponID == id);
+        var weapon = data.Find(i => i.weaponID == id);
+
+        return weapon;
     }
 }

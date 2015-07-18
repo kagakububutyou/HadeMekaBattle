@@ -4,6 +4,7 @@ using System.Collections;
 public class HitChecker : MonoBehaviour {
 
     BulletBasePalametar palametar = null;
+    EnergyPalametar energyPalametar = null;
 
     public BulletBasePalametar Palametar 
     { 
@@ -19,43 +20,18 @@ public class HitChecker : MonoBehaviour {
 
     [SerializeField]
     private GameObject effect = null;
+    public GameObject Effect { 
+        get { return effect; }
+        set { if (effect == null) effect = value; } 
+    }
+
+    void Start()
+    {
+        energyPalametar = GetComponent<EnergyPalametar>();
+    }
 
 	// Update is called once per frame
 	//void Update () {}
-
-    // 衝突判定(Trigger)
-    /*void OnTriggerEnter(Collider other) 
-    {
-        Debug.Log("衝突処理開始");
-        
-        // 当たったのがプレイヤーなら処理を行わない
-        if (other.gameObject.GetComponent<NetworkView>().isMine == true) return;
-
-        // エフェクト生成
-        EffekseerEmitter.Create(effect, this.transform.position);
-
-        // 弾を消す
-        Destroy(this.gameObject);
-
-        // ダメージ計算
-        if (other.gameObject.tag == "Player")
-        {
-            // 接触した相手が持ち主だった場合
-            if (other.gameObject.GetComponent<NetworkView>().isMine == true) return;
-
-            // ダメージ計算
-            if (palametar.AttackType == BulletBasePalametar.TYPE.PHYSICAL)
-            {
-                // 物理攻撃によるダメージ計算
-                other.gameObject.GetComponent<HealthManager>().PhysicalDamage((int)palametar.Power);
-            }
-            else if (palametar.AttackType == BulletBasePalametar.TYPE.ENERGY)
-            {
-                // エネルギー攻撃によるダメージ計算
-                other.gameObject.GetComponent<HealthManager>().EnergyDamage(100);
-            }
-        }
-    }//*/
 
     // 衝突判定(Collision)
     void OnCollisionEnter(Collision collision)
@@ -70,7 +46,7 @@ public class HitChecker : MonoBehaviour {
         EffekseerEmitter.Create(effect, this.transform.position);
 
         // 弾を消す
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
 
         // ダメージ計算
         if (collision.gameObject.tag == "Player")
@@ -81,13 +57,14 @@ public class HitChecker : MonoBehaviour {
             // ダメージ計算
             if (palametar.AttackType == BulletPalamaterData.TYPE.PHYSICAL) 
             {
-                //
+                // 物理ダメージ
                 collision.gameObject.GetComponent<HealthManager>().PhysicalDamage((int)palametar.Power);
             }
             else if (palametar.AttackType == BulletPalamaterData.TYPE.ENERGY)
             {
-                //
-                collision.gameObject.GetComponent<HealthManager>().EnergyDamage(100);
+                // エネルギーダメージ
+                float pow = ((energyPalametar.Energy + 1.0f) * palametar.Power) + palametar.Power;
+                collision.gameObject.GetComponent<HealthManager>().EnergyDamage((int)pow);
             }
         }
     }//*/

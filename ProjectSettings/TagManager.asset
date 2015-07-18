@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Equipped Weapon
+<<<<<<< HEAD
   - StatusIcon
+=======
+  - Enemy
+>>>>>>> 8d9212c792b39ba915a340ddfbe43a82a3d65a3b
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - 
   - TV-UI
-  - 
+  - Player
   - 
   - 
   - 

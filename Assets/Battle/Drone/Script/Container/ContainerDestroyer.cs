@@ -3,28 +3,32 @@ using System.Collections;
 
 public class ContainerDestroyer : MonoBehaviour 
 {
-	// Use this for initialization
-	void Start () 
-    {
-        //ContainerState = GetComponent<ContainerStateManager>();
-    }
+
+    [SerializeField]
+    ContainerStateManager ContainerState = null;
+
+    //int Count = 0;
 
 	// Update is called once per frame
 	void Update () 
     {
- 
-	}
+         //Count   = gameObject.transform.childCount;
+         //Debug.Log("Count"+ Count);
+	    if(ContainerState.IsOpened)
+        {
+            Destroy(gameObject); 
+        }
+    }
 
-    //衝突した場合箱を削除
+    //Playerに衝突した場合
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            //子オブジェクトから切り離し
-            //ContainerState.ContainerOpene();
-            gameObject.transform.DetachChildren();
-            Destroy(gameObject);
+            //コンテナを開ける
+            ContainerState.ContainerOpene();
         }
     }
+
 
 }

@@ -22,6 +22,5 @@ public class MissileMover : MonoBehaviour {
 
 		// 向いている方向に移動
 		rigidbody.velocity = this.transform.TransformDirection(Vector3.forward) * missilePalametar.Speed;
-		//this.transform.position += this.transform.TransformDirection(Vector3.forward) * missilePalametar.GetSpeed * Time.deltaTime ;
 	}
 }

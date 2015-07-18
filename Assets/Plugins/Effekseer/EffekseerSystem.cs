@@ -91,6 +91,7 @@ public class EffekseerSystem : MonoBehaviour
 		name = Path.GetFileNameWithoutExtension(name);
 		if (effects.ContainsKey(name) == false) {
 			string fullPath = Path.Combine(EffekseerSystem.resourcePath, Path.ChangeExtension(name, "efk"));
+			fullPath += "\0";
 			
 			byte[] bytes = Encoding.Unicode.GetBytes(fullPath);
 			GCHandle ghc = GCHandle.Alloc(bytes, GCHandleType.Pinned);
@@ -145,6 +146,9 @@ public class EffekseerSystem : MonoBehaviour
 	}
 	
 	void OnRenderObject() {
+		if ((Camera.current.cullingMask & (1 << gameObject.layer)) == 0) {
+			return;
+		}
 		int eventId = renderEventId;
 		#if UNITY_EDITOR
 			if (SceneView.currentDrawingSceneView != null && 
@@ -159,7 +163,10 @@ public class EffekseerSystem : MonoBehaviour
 		
 		{
 			float[] projectionMatrixArray = Matrix2Array(Camera.current.projectionMatrix);
-			if (RenderTexture.active) {
+			if ((Application.platform == RuntimePlatform.WindowsPlayer ||
+				 Application.platform == RuntimePlatform.WindowsEditor) &&
+				RenderTexture.active
+			) {
 				projectionMatrixArray[5] = -projectionMatrixArray[5];
 			}
 			GCHandle ghc = GCHandle.Alloc(projectionMatrixArray, GCHandleType.Pinned);

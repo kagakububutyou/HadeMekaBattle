@@ -47,7 +47,6 @@ public class NetworkManagerSetup : MonoBehaviour {
     public void OnServerInitialized()
     {
         Network.Instantiate(playerPrefab, playerPrefab.transform.position, playerPrefab.transform.rotation, 1);
-        CreatePrefab();
     }
 
     //サーバに接続したときに呼ばれるメソッド
