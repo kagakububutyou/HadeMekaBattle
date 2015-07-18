@@ -25,17 +25,18 @@ public class CameraFollower : MonoBehaviour {
 
     Rigidbody rigidBody = null;
 
+    [SerializeField]
+    float moveStartTime = 5.0f;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	}
-
     void FixedUpdate()
     {
+        if (TimeManager.IsWaiting) return;
+
         Move();
     }
 
@@ -47,6 +48,5 @@ public class CameraFollower : MonoBehaviour {
 
         rigidBody.velocity = Vector3.zero;
         rigidBody.AddForce(moveSpeed * (followingPosition - transform.position), ForceMode.VelocityChange);
-//        transform.position += moveDivideValue * (followingPosition - transform.position);
     }
 }
