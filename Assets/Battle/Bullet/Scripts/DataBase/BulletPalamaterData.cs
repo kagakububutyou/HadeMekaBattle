@@ -21,4 +21,7 @@ public class BulletPalamaterData : MonoBehaviour {
 
     /*--------------属性パラメータ--------------*/
     public TYPE attackType = TYPE.PHYSICAL;
+
+    /*-------------弾数の初期パラメータ----------*/
+    public int bulletNumber;
 }
