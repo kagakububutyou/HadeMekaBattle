@@ -11,21 +11,23 @@ public class BulletShooter : MonoBehaviour {
 
 	[SerializeField]
 	private BuildManager.WeaponID id;			// 武器名
+    public BuildManager.WeaponID GetWeaponId { get { return id; } }
 
     private BuildManager.WeaponType type = BuildManager.WeaponType.NONE;
 	
-    [SerializeField]
 	private GameObject bullet = null;			// 生成する弾のプレハブ
-
-    [SerializeField]
-	private float fireRate;						// 連射速度
 
 	private EnergyManager energyManager = null;	// 親オブジェクトからエネルギー値を受け取る
 
+    private float fireRate;						// 連射速度
 	private float createTimer = 0.0f;			// 弾生成時間管理
 	private float createInterval = 0.0f;		// 生成間隔
 
-	public BuildManager.WeaponID GetWeaponId{get{return id;}}
+    private int bulletNumber = 100;             // 残段数
+
+
+
+    private GameObject effect;                  // エフェクトのプレハブ
 
 	// Use this for initialization
 	void Start () {
@@ -71,13 +73,20 @@ public class BulletShooter : MonoBehaviour {
 
         // ファイアレートをセット
         fireRate = BulletDataBase.GetData(id).fireRate;
-        Debug.Log(BulletDataBase.GetData(id).fireRate);
         if(fireRate <= -1 || fireRate == 0.0f)
         {
             Debug.Log("firerate is failed");
         }
         createInterval = (1.0f / fireRate);
 
+        // 弾数をセット
+        if (BulletDataBase.GetData(id).bulletNumber != 0)
+        {
+            bulletNumber = BulletDataBase.GetData(id).bulletNumber;
+        }
+
+        // エフェクトを取得
+        effect = GetEffect(bullet);
 	}
 	
 	// Update is called once per frame
@@ -90,16 +99,20 @@ public class BulletShooter : MonoBehaviour {
 	// ショットを打つ(基本外部使用限定)
 	public void CreateBullet()
 	{
-		// クリエイトタイマーを増加させる
-		createTimer += Time.deltaTime;
+        // 残段数がなければ処理をしない
+        if (bulletNumber > 0)
+        {
+            // クリエイトタイマーを増加させる
+            createTimer += Time.deltaTime;
 
-		// タイマーがインターバル値を超えたら生成する処理を呼ぶ
-		while(createTimer >= createInterval)
-		{
-			//Debug.Log("ショット！");
-			Create();						// 生成し
-			createTimer -= createInterval;	// インターバルを減らす
-		}
+            // タイマーがインターバル値を超えたら生成する処理を呼ぶ
+            while (createTimer >= createInterval && bulletNumber > 0)
+            {
+                Create();						
+                createTimer -= createInterval;	
+                bulletNumber--;
+            }
+        }
 	}
 
 	// 弾を生成する
@@ -108,6 +121,7 @@ public class BulletShooter : MonoBehaviour {
 		// 生成する
 		GameObject obj;
 		obj = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
+        //EffekseerEmitter.Create(effect, this.transform.position);
 
         // energyをセットする
         EnergySet(obj);
@@ -116,6 +130,7 @@ public class BulletShooter : MonoBehaviour {
         TargetRequest(obj);
 	}
 
+    // レートを取得
     float GetRate(GameObject _obj)
     {
         switch (type)
@@ -141,21 +156,21 @@ public class BulletShooter : MonoBehaviour {
         {
             case BuildManager.WeaponType.MachineGun:
             case BuildManager.WeaponType.Rifle:
-                if(_obj.gameObject.GetComponent<BulletPalameter>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
                 {
                     _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
                 }
                 break;
 
             case BuildManager.WeaponType.Missile:
-                if (_obj.gameObject.GetComponent<MissilePalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
                 {
                     _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
                 }    
                 break;
 
             case BuildManager.WeaponType.Launcher:
-                if (_obj.gameObject.GetComponent<LancherPalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
                 {
                     _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
                 }
@@ -171,5 +186,66 @@ public class BulletShooter : MonoBehaviour {
             // ターゲットを要求する
             _obj.gameObject.GetComponent<MissilePalametar>().TargetObject = null;
         }
+    }
+
+    // エフェクトの取得
+    GameObject GetEffect(GameObject _obj) 
+    {
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return (GameObject)Resources.Load("Effects/EnergyFiring");
+                }
+                break;
+
+            case BuildManager.WeaponType.Missile:
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return (GameObject)Resources.Load("Effects/EnergyFiring");
+                }
+                break;
+
+            case BuildManager.WeaponType.Launcher:
+                if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return (GameObject)Resources.Load("Effects/EnergyFiring");
+                }
+                break;
+        }
+
+        return (GameObject)Resources.Load("Effects/LiveAmmunitionFiring");
+    }
+
+    // 攻撃タイプの取得
+    BulletPalamaterData.TYPE GetType(GameObject _obj) 
+    {
+        switch (type)
+        {
+            case BuildManager.WeaponType.MachineGun:
+            case BuildManager.WeaponType.Rifle:
+                if (_obj.gameObject.GetComponent<BulletPalameter>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return BulletPalamaterData.TYPE.ENERGY;
+                }
+                break;
+
+            case BuildManager.WeaponType.Missile:
+                if (_obj.gameObject.GetComponent<MissilePalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return BulletPalamaterData.TYPE.ENERGY;
+                }
+                break;
+
+            case BuildManager.WeaponType.Launcher:
+                if (_obj.gameObject.GetComponent<LancherPalametar>().AttackType == BulletPalamaterData.TYPE.ENERGY)
+                {
+                    return BulletPalamaterData.TYPE.ENERGY;
+                }
+                break;
+        }
+        return BulletPalamaterData.TYPE.PHYSICAL;
     }
 }

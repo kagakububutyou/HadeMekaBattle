@@ -10,7 +10,8 @@ public class BulletBasePalametar : MonoBehaviour {
     public float Power { get { return data.power; } }
     public float Speed { get { return data.speed; } }
     public float Firerate { get { return BulletDataBase.GetData(weaponID).fireRate; } }
-    public BulletPalamaterData.TYPE AttackType { get { return data.attackType; } }
+    public BulletPalamaterData.TYPE AttackType { get { if (data != null) return data.attackType; else return BulletDataBase.GetData(weaponID).attackType; } }
+    public int BulletNumber { get { return BulletDataBase.GetData(weaponID).bulletNumber; } }
 
     protected BulletPalamaterData data = null;
 
