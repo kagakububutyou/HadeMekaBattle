@@ -70,10 +70,17 @@ public class EffekseerEmitter : MonoBehaviour {
 		}
 	}
 
-    public static void Create(GameObject effect, Vector3 vector3)
+    /*public static void Create(GameObject effect, Vector3 vector3)
     {
         var clone = (GameObject)Network.Instantiate(effect,vector3,Quaternion.identity,0);
         clone.name = effect.name;
+    }//*/
+
+    public static GameObject Create(GameObject effect, Vector3 vector3)
+    {
+        var clone = (GameObject)Network.Instantiate(effect,vector3,Quaternion.identity,0);
+        clone.name = effect.name;
+        return clone;
     }
 
     public static void Destroy(GameObject effect)
