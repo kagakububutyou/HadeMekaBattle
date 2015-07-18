@@ -4,41 +4,26 @@ using UnityEngine.Networking;
 
 public class PlayerShooter : MonoBehaviour {
 
-    NetworkView myNetworkView = null;
 
-    BulletShooter bulletShooter = null;
+    BulletShooter[] bulletShooter = new BulletShooter[2];
 
     void Start()
     {
-        myNetworkView = GetComponent<NetworkView>();
-        bulletShooter = GetComponent<BulletShooter>();
+        bulletShooter = GetComponents<BulletShooter>();
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        if (IsCheckCreate())
+        if (Input.GetAxis("Fire1") != 0)
         {
-            bulletShooter.CreateBullet();
+            bulletShooter[0].CreateBullet();
+        }
+
+        if(Input.GetAxis("Fire2") != 0)
+        {
+            bulletShooter[1].CreateBullet();
         }
 	}
-
-    /// <summary>
-    /// 生成できるかどうかをチェックする。
-    /// </summary>
-    /// <returns></returns>
-    bool IsCheckCreate()
-    {
-        if (!myNetworkView.isMine) return false;
-
-        if (Input.GetAxis("Fire1") != 0 )
-        {
-            return true;
-        }
-        return false;
-    }
-
-
-
 
 }

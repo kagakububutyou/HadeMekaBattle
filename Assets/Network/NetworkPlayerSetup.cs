@@ -8,6 +8,10 @@ public class NetworkPlayerSetup : MonoBehaviour {
     NetworkView myNetworkView = null;
     GameObject enemyManager = null;
     AttachCamera attachCamera = null;
+
+    [SerializeField]
+    GameObject initEffect = null;
+
     // Use this for initialization
 	void Start () {
         myNetworkView = GetComponent<NetworkView>();
@@ -26,6 +30,9 @@ public class NetworkPlayerSetup : MonoBehaviour {
             attachCamera.Initialize();
             attachCamera.Attach();
         }
+
+        EffekseerEmitter.Create(initEffect,Vector3.zero);
+
 	}
 
     /// <summary>
