@@ -5,6 +5,9 @@ public class BulletBasePalametar : MonoBehaviour {
     [SerializeField]
     protected BuildManager.WeaponID weaponID;
 
+    protected HitChecker checker = null;       // ヒットチェッカークラス
+    protected GameObject bullet = null;        // 弾のデータ
+    protected GameObject effect = null;        // エフェクトのデータ
 
 	// プロパティ
     public float Power { get { return data.power; } }
@@ -17,13 +20,31 @@ public class BulletBasePalametar : MonoBehaviour {
 
     public void GetPalameterData()
     {
-        this.gameObject.GetComponent<HitChecker>().Palametar = this;
-
+        // dataのセット
         data = BulletDataBase.GetData(weaponID);
-
         if (data.attackType == BulletPalamaterData.TYPE.ENERGY)
         {
             this.gameObject.AddComponent<EnergyPalametar>();
         }
+
+        // プレハブのセット
+        if (AttackType == BulletPalamaterData.TYPE.PHYSICAL)
+        {
+            bullet = (GameObject)Resources.Load("Effects/LiveBullet");
+            effect = (GameObject)Resources.Load("Effects/LiveHit");
+        }
+        else 
+        {
+            bullet = (GameObject)Resources.Load("Effects/EnergyBullet");
+            effect = (GameObject)Resources.Load("Effects/EnergyHit");
+        }
+
+        // checkerのセット
+        checker = this.gameObject.GetComponent<HitChecker>();
+        checker.Palametar = this;
+        checker.Effect = effect;
+
+        GameObject clone = Network.Instantiate (bullet, this.transform.position, this.transform.rotation, 0) as GameObject;
+        clone.transform.parent = this.gameObject.transform;
     }
 }
