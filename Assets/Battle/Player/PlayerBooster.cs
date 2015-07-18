@@ -17,6 +17,9 @@ public class PlayerBooster : MonoBehaviour {
 
     BoostManager boostManager = null;
 
+    [SerializeField]
+    BoostEffectPlayer boostEffectPlayer = null;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -25,14 +28,19 @@ public class PlayerBooster : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Boost") != 0 && boostManager.CanUseBoost(boostConsumption) )
+        if (Input.GetAxisRaw("Boost") != 0 && boostManager.CanUseBoost(boostConsumption))
         {
             Boost();
+        }
+        else
+        {
+            boostEffectPlayer.Stop();
         }
     }
 
     void Boost()
     {
+        boostEffectPlayer.Play(true);
         boostManager.AddQuantity(-boostConsumption);
         rigidBody.AddForce(Vector3.up * boostPower * boostManager.BoostRatio, ForceMode.VelocityChange);
     }
