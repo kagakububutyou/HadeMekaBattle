@@ -17,7 +17,6 @@ public class PlayerMover : MonoBehaviour {
     [SerializeField]
     float boostConsumption = 0.03f;
 
-
     Rigidbody rigidBody = null;
 
     BoostManager boostManager = null;
@@ -31,6 +30,8 @@ public class PlayerMover : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (TimeManager.IsWaiting) return;
+
         GetInput();
         Move();
 
