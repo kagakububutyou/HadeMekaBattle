@@ -189,7 +189,6 @@ public class BulletShooter : MonoBehaviour {
             case BuildManager.WeaponType.Rifle:
                 if (GetType(_obj) == BulletPalamaterData.TYPE.ENERGY)
                 {
-                    Debug.Log(_obj.gameObject.GetComponent<EnergyPalametar>().name);
                     _obj.gameObject.GetComponent<EnergyPalametar>().Energy = energyManager.EnergyRatio;
                 }
                 break;
