@@ -14,12 +14,6 @@ public class ExplosivePerformer : MonoBehaviour
     [SerializeField]
     float waitingTime =0.0f;
 
-	// Use this for initialization
-	void Start () 
-    {
-        ;
-	}
-
     void Timer()
     {
         nowTime += Time.deltaTime;
