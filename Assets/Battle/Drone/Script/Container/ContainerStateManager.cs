@@ -3,6 +3,13 @@ using System.Collections;
 
 public class ContainerStateManager : MonoBehaviour 
 {
+    enum NowState
+    {
+        Stay,
+        Active,
+        Destroy,
+    }
+    DroneCreator droneCreator = null;
 
     bool isOpened = false;
 
@@ -10,6 +17,8 @@ public class ContainerStateManager : MonoBehaviour
 
     public void ContainerOpene()
     {
+        droneCreator = GetComponent<DroneCreator>();
+        droneCreator.Create();
         isOpened = true ;
     }
 

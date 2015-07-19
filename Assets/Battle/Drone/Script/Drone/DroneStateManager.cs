@@ -12,7 +12,7 @@ public class DroneStateManager : MonoBehaviour
     {
         Stay,
         Active,
-        Stop
+        Destroy,
     }
 
     enum OwnerState
@@ -31,7 +31,7 @@ public class DroneStateManager : MonoBehaviour
 
     public bool IsStay { get { return dollState == NowState.Stay; } }
     public bool IsActive { get { return dollState == NowState.Active; } }
-    public bool IsStop { get { return dollState == NowState.Stop; } }
+    public bool IsStop { get { return dollState == NowState.Destroy; } }
 
     public bool IsNone { get { return owner == OwnerState.None; } }
     public bool IsMaine{get { return owner == OwnerState.Maine;} }
@@ -56,7 +56,7 @@ public class DroneStateManager : MonoBehaviour
     public void ChangeStop()
     {
         //状態をActiveにする
-        dollState = NowState.Stop;
+        dollState = NowState.Destroy;
         //Debug.Log("Good-By!!" );
     }
 
