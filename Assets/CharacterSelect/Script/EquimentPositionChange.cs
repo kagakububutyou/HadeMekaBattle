@@ -17,12 +17,15 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/18 書き始め
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// 装備のカットイン
+/// </summary>
 public class EquimentPositionChange : MonoBehaviour {
 
     /// <summary>
@@ -45,7 +48,16 @@ public class EquimentPositionChange : MonoBehaviour {
     /// 行うイージングの種類
     /// </summary>
     [SerializeField]
-    iTween.EaseType easeType = iTween.EaseType.linear;
+    private iTween.EaseType easeType = iTween.EaseType.linear;
+
+    /// <summary>
+    /// 動くかどうか
+    /// </summary>
+    private bool isMoving = false;
+    /// <summary>
+    /// 動いた時間
+    /// </summary>
+    private float moveTime = 0;
 
 	// Use this for initialization
 	private void Start () 
@@ -65,14 +77,6 @@ public class EquimentPositionChange : MonoBehaviour {
             }
         }
 	}
-    /// <summary>
-    /// 動くかどうか
-    /// </summary>
-    bool isMoving = false;
-    /// <summary>
-    /// 動いた時間
-    /// </summary>
-    float moveTime = 0;
 
     /// <summary>
     /// 表示位置に移動

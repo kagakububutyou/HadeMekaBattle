@@ -24,7 +24,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 /// <summary>
-/// ボタンのマネージャーのスクリプト
+/// 押されたボタンを反応しないようにするのスクリプト
 /// </summary>
 public class ButtonManager : MonoBehaviour {
 

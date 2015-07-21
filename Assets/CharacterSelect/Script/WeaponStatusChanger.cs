@@ -17,13 +17,16 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/15 書き始め
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+/// <summary>
+/// 武器のステータス表示
+/// </summary>
 public class WeaponStatusChanger : MonoBehaviour {
 
     /// <summary>
@@ -46,10 +49,21 @@ public class WeaponStatusChanger : MonoBehaviour {
             this.icon = icon;
             this.status = status;
         }
-
+        /// <summary>
+        /// 武器のID
+        /// </summary>
         public BuildManager.WeaponID weaponID;
+        /// <summary>
+        /// 名前
+        /// </summary>
         public Sprite logo;
+        /// <summary>
+        /// 画像
+        /// </summary>
         public Sprite icon;
+        /// <summary>
+        /// ステータス
+        /// </summary>
         public Sprite status;
     }
 

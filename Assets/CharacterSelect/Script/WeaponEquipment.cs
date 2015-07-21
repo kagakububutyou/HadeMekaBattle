@@ -18,12 +18,15 @@
  * 
  * 2015/07/14 書き始める
  * 2015/07/18 構造型に変更
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+/// <summary>
+/// 武器を装備する
+/// </summary>
 public class WeaponEquipment : MonoBehaviour {
 
     /// <summary>
@@ -32,12 +35,23 @@ public class WeaponEquipment : MonoBehaviour {
     [System.Serializable]
     public struct WeaponEquipmentData
     {
+        /// <summary>
+        /// 武器のデータ
+        /// </summary>
+        /// <param name="weaponID">武器のID</param>
+        /// <param name="weaponObject">モデル</param>
         public WeaponEquipmentData(BuildManager.WeaponID weaponID, GameObject weaponObject)
         {
             this.weaponID = weaponID;
             this.weaponObject = weaponObject;
         }
+        /// <summary>
+        /// 武器のID
+        /// </summary>
         public BuildManager.WeaponID weaponID;
+        /// <summary>
+        /// 武器のモデル
+        /// </summary>
         public GameObject weaponObject;
 
     }
@@ -52,17 +66,18 @@ public class WeaponEquipment : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private GameObject equippedPosition = null;
-
+    /// <summary>
+    /// 装備のアイコンの移動
+    /// </summary>
     [SerializeField]
-    EquimentPositionChange equimentPositionChange = null;
+    private EquimentPositionChange equimentPositionChange = null;
 
-
-	/// <summary>
-	/// 武器の装備
-	/// </summary>
+    /// <summary>
+    /// 武器の装備
+    /// </summary>
+    /// <param name="weaponID">武器のID</param>
     public void WeaponChange(BuildManager.WeaponID weaponID) 
     {
-        //*
         /// 子供がいたら子供全員消す
         if (equippedPosition.transform.IsChildOf(equippedPosition.transform))
         {
@@ -71,15 +86,14 @@ public class WeaponEquipment : MonoBehaviour {
                 GameObject.Destroy(n.gameObject);
             }
         }
-        //*/
 
         //　以下で同じ武器のidを装備する
         var weapon = weaponEquipmentData.Find(i => i.weaponID == weaponID);
-        GameObject clone = (GameObject)Instantiate(weapon.weaponObject);
-        clone.name = weapon.weaponObject.name;
-        clone.transform.position = equippedPosition.transform.position;
-        clone.transform.rotation = equippedPosition.transform.rotation;
-        clone.transform.SetParent(equippedPosition.transform);
+        GameObject clone = (GameObject)Instantiate(weapon.weaponObject);        //  武器作る
+        clone.name = weapon.weaponObject.name;                                  //  名前変更
+        clone.transform.position = equippedPosition.transform.position;         //  座標変更
+        clone.transform.rotation = equippedPosition.transform.rotation;         //  回転変更
+        clone.transform.SetParent(equippedPosition.transform);                  //  親変更
 	}
 
     /// <summary>
@@ -87,6 +101,7 @@ public class WeaponEquipment : MonoBehaviour {
     /// </summary>
     public void WeaponCancel()
     {
+        /// 子供がいたら子供全員消す
         if (equippedPosition.transform.IsChildOf(equippedPosition.transform))
         {
             foreach (Transform n in equippedPosition.transform)
@@ -94,7 +109,7 @@ public class WeaponEquipment : MonoBehaviour {
                 GameObject.Destroy(n.gameObject);
             }
         }
-
+        /// アイコンを強制的に戻す
         equimentPositionChange.ForcedWithdrawal();
     }
 }
