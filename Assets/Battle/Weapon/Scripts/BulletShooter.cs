@@ -24,6 +24,8 @@ public class BulletShooter : MonoBehaviour {
 	private float createInterval = 0.0f;		// 生成間隔
 
     private int bulletNumber = 100;             // 残段数
+    private int maxBulletNumber = 100;
+    private GameObject retBullet;
 
     /// <summary>
     /// プレイヤの座標との相対的な武器の位置
@@ -86,7 +88,7 @@ public class BulletShooter : MonoBehaviour {
         // 弾数をセット
         if (BulletDataBase.GetData(id).bulletNumber != 0)
         {
-            bulletNumber = BulletDataBase.GetData(id).bulletNumber;
+            maxBulletNumber = bulletNumber = BulletDataBase.GetData(id).bulletNumber;
         }
 
         // エフェクトを取得
@@ -101,7 +103,7 @@ public class BulletShooter : MonoBehaviour {
     }
 
 	// ショットを打つ(基本外部使用限定)
-	public void CreateBullet()
+	public GameObject CreateBullet()
 	{
         // 残段数がなければ処理をしない
         if (bulletNumber > 0)
@@ -110,17 +112,22 @@ public class BulletShooter : MonoBehaviour {
             createTimer += Time.deltaTime;
 
             // タイマーがインターバル値を超えたら生成する処理を呼ぶ
-            while (createTimer >= createInterval && bulletNumber > 0)
+            while (createTimer >= createInterval)
             {
-                Create();						
+                retBullet = null;
+                if (bulletNumber > 0 || bulletNumber <= -100)
+                {
+                    retBullet = Create();
+                    if(bulletNumber > 0) bulletNumber--;
+                }
                 createTimer -= createInterval;	
-                bulletNumber--;
             }
         }
+        return retBullet;
 	}
 
 	// 弾を生成する
-	void Create()
+	GameObject Create()
 	{
         var MuzzlePosition = new Vector3(weaponPosition.x * transform.right.x,
                                          weaponPosition.y,
@@ -139,6 +146,8 @@ public class BulletShooter : MonoBehaviour {
 
 		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
         TargetRequest(obj);
+
+        return obj;
 	}
 
     // パラメータを設定
@@ -278,5 +287,36 @@ public class BulletShooter : MonoBehaviour {
                 break;
         }
         return BulletPalamaterData.TYPE.PHYSICAL;
+    }
+
+    // リロード
+    public void ReloadAmmo() 
+    {
+        bulletNumber = maxBulletNumber;
+    }
+
+    // 弾追加
+    public void AddAmmo(int _num) 
+    {
+        bulletNumber = _num;
+    }
+
+    // 弾数取得
+    public int GetAmmo() 
+    { 
+        return bulletNumber; 
+    }
+
+    // 発射制限の変更
+    public void SwitchBulletShooter() 
+    {
+        if (bulletNumber <= -100)
+        {
+            bulletNumber = maxBulletNumber;
+        }
+        else 
+        {
+            bulletNumber = -100;
+        }
     }
 }
