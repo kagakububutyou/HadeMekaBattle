@@ -17,13 +17,16 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/18 書き始める
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+/// <summary>
+/// キャラクターの紹介を表示するスクリプト
+/// </summary>
 public class CharacterIntroduction : MonoBehaviour {
 
     /// <summary>
@@ -48,16 +51,28 @@ public class CharacterIntroduction : MonoBehaviour {
             this.description = description;
             this.monitorLogo = monitorLogo;
         }
-
+        /// <summary>
+        /// キャラのID
+        /// </summary>
         public BuildManager.BodyID bodyId;
+        /// <summary>
+        /// アイコン
+        /// </summary>
         public Sprite icon;
+        /// <summary>
+        /// ロゴ
+        /// </summary>
         public Sprite logo;
+        /// <summary>
+        /// 紹介文
+        /// </summary>
         public Sprite description;
-
+        /// <summary>
+        /// 装備枠のカットイン
+        /// </summary>
         public Sprite monitorLogo;
 
     }
-
 
     /// <summary>
     /// 紹介文のデータ
@@ -85,18 +100,10 @@ public class CharacterIntroduction : MonoBehaviour {
     [SerializeField]
     private Image monitorLogo = null;
 
-	// Use this for initialization
-	private void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	private void Update () 
-    {
-	
-	}
-
+    /// <summary>
+    /// 紹介の切り替え
+    /// </summary>
+    /// <param name="bodyId">キャラのID</param>
     public void Change(BuildManager.BodyID bodyId)
     {
         var body = introduction.Find(i => i.bodyId == bodyId);

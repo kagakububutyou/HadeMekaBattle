@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &149448
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,9 +183,11 @@ MonoBehaviour:
   bodyId: 4
   characterButton: {fileID: 11413908}
   characterChanger: {fileID: 11443146}
-  horizontalCharacter: {fileID: 0}
+  horizontalCharacter: {fileID: 11447128}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
+  introduction: {fileID: 0}
+  nextButton: {fileID: 147108}
 --- !u!114 &11406964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,17 +403,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData:
   - bodyId: 0
-    characterObject: {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
+    characterObject: {fileID: 163356, guid: 3f94c114bda30cd44880e48a0adab487, type: 2}
   - bodyId: 1
-    characterObject: {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
+    characterObject: {fileID: 146804, guid: 8b64adf1ef312a04ba185f1523cdabed, type: 2}
   - bodyId: 2
-    characterObject: {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
+    characterObject: {fileID: 137282, guid: 0f71334797fae7142976c3b0860eb72b, type: 2}
   - bodyId: 3
-    characterObject: {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
+    characterObject: {fileID: 162282, guid: 1d605295aed38974d91a93abed2f5309, type: 2}
   - bodyId: 4
-    characterObject: {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
+    characterObject: {fileID: 120630, guid: 91f4af591e4aafe44acf8f77855fe089, type: 2}
   nowCharacter: {fileID: 0}
-  icon: {fileID: 0}
+  monitorLogo: {fileID: 0}
   introduction: {fileID: 0}
 --- !u!114 &11444508
 MonoBehaviour:
@@ -448,9 +450,11 @@ MonoBehaviour:
   bodyId: 1
   characterButton: {fileID: 11467684}
   characterChanger: {fileID: 11443146}
-  horizontalCharacter: {fileID: 0}
+  horizontalCharacter: {fileID: 11447128}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
+  introduction: {fileID: 0}
+  nextButton: {fileID: 147108}
 --- !u!114 &11447128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,19 +468,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData:
   - bobyID: 0
-    model: {fileID: 179288, guid: 34de817068623e44c90bdd3c172beee0, type: 2}
+    model: {fileID: 163356, guid: 3f94c114bda30cd44880e48a0adab487, type: 2}
     button: {fileID: 11406964}
   - bobyID: 1
-    model: {fileID: 136460, guid: 63521ce5798e8f14f8145f957035f93f, type: 2}
+    model: {fileID: 146804, guid: 8b64adf1ef312a04ba185f1523cdabed, type: 2}
     button: {fileID: 11467684}
   - bobyID: 2
-    model: {fileID: 171764, guid: 3fe6811fa249703429c047cc79faf561, type: 2}
+    model: {fileID: 137282, guid: 0f71334797fae7142976c3b0860eb72b, type: 2}
     button: {fileID: 11455768}
   - bobyID: 3
-    model: {fileID: 102598, guid: ffdbfee44a2819e4e8589b1fd79aa0b7, type: 2}
+    model: {fileID: 162282, guid: 1d605295aed38974d91a93abed2f5309, type: 2}
     button: {fileID: 11485330}
   - bobyID: 4
-    model: {fileID: 189656, guid: 34e60ea2c16063741a664c613fb573b6, type: 2}
+    model: {fileID: 120630, guid: 91f4af591e4aafe44acf8f77855fe089, type: 2}
     button: {fileID: 11413908}
   characterChanger: {fileID: 11443146}
   buttonManager: {fileID: 11475390}
@@ -496,9 +500,11 @@ MonoBehaviour:
   bodyId: 2
   characterButton: {fileID: 11455768}
   characterChanger: {fileID: 11443146}
-  horizontalCharacter: {fileID: 0}
+  horizontalCharacter: {fileID: 11447128}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
+  introduction: {fileID: 0}
+  nextButton: {fileID: 147108}
 --- !u!114 &11449022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,7 +553,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128232}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -696,9 +702,11 @@ MonoBehaviour:
   bodyId: 0
   characterButton: {fileID: 11406964}
   characterChanger: {fileID: 11443146}
-  horizontalCharacter: {fileID: 0}
+  horizontalCharacter: {fileID: 11447128}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
+  introduction: {fileID: 0}
+  nextButton: {fileID: 147108}
 --- !u!114 &11481016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -792,9 +800,11 @@ MonoBehaviour:
   bodyId: 3
   characterButton: {fileID: 11485330}
   characterChanger: {fileID: 11443146}
-  horizontalCharacter: {fileID: 0}
+  horizontalCharacter: {fileID: 11447128}
   buttonManager: {fileID: 11475390}
   buttonScaling: {fileID: 11419118}
+  introduction: {fileID: 0}
+  nextButton: {fileID: 147108}
 --- !u!222 &22200990
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -920,7 +930,7 @@ RectTransform:
   m_GameObject: {fileID: 128232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children: []
   m_Father: {fileID: 22497146}
   m_RootOrder: 0

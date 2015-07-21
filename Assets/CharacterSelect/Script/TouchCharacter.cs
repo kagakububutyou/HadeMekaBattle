@@ -19,6 +19,7 @@
  * 2015/07/04 書き始める
  * 2015/07/14 コメントつける
  * 2015/07/18 IDに変更
+ * 2015/07/21 リファクタリング
  * 
  */
 
@@ -30,7 +31,6 @@ using System.Collections.Generic;
 /// キャラクターのタッチを取得するスクリプト
 /// </summary>
 public class TouchCharacter : MonoBehaviour {
-
 
     /// <summary>
     /// キャラクターのId
@@ -47,7 +47,9 @@ public class TouchCharacter : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private CharacterChanger characterChanger = null;
-
+    /// <summary>
+    /// 十字キーでキャラ変更
+    /// </summary>
     [SerializeField]
     private HorizontalCharacter horizontalCharacter = null;
     /// <summary>
@@ -60,6 +62,17 @@ public class TouchCharacter : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private ButtonScaling buttonScaling = null;
+    /// <summary>
+    /// キャラクターの紹介文
+    /// </summary>
+    [SerializeField]
+    private GameObject introduction = null;
+
+    /// <summary>
+    /// NestButton
+    /// </summary>
+    [SerializeField]
+    private GameObject nextButton = null;
 
 	// Use this for initialization
 	private void Start () 
@@ -74,6 +87,7 @@ public class TouchCharacter : MonoBehaviour {
     /// どのボタンが渡されたかを
     private void PushButton()
     {
+        IsDisplaying();
         Clone();
         buttonManager.OnPush(characterButton);
         buttonScaling.OnPush(characterButton);
@@ -87,5 +101,17 @@ public class TouchCharacter : MonoBehaviour {
     {
         characterChanger.GetCharacter(bodyId);
         horizontalCharacter.GetOnPush(bodyId);
+    }
+    /// <summary>
+    /// ボタンが押された時に表示するもの
+    /// </summary>
+    private void IsDisplaying()
+    {
+        //  表示していなかったら表示
+        if (!introduction.activeInHierarchy)
+        {
+            introduction.SetActive(true);
+            nextButton.SetActive(true);
+        }
     }
 }

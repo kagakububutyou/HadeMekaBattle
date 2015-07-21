@@ -19,6 +19,7 @@
  * 2015/07/04 書き始める
  * 2015/07/08 切り替え番号の取得方法の変更
  * 2015/07/13 Start関数削除
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
@@ -37,15 +38,29 @@ public class HorizontalCharacter : MonoBehaviour {
     [System.Serializable]
     public struct CharacterData
     {
+        /// <summary>
+        /// キャラクターのデータ
+        /// </summary>
+        /// <param name="bobyID">キャラのID</param>
+        /// <param name="model">キャラのモデルデータ</param>
+        /// <param name="button">ボタン</param>
         public CharacterData(BuildManager.BodyID bobyID, GameObject model, Button button)
         {
             this.bobyID = bobyID;
             this.model = model;
             this.button = button;
         }
-
+        /// <summary>
+        /// キャラのID
+        /// </summary>
         public BuildManager.BodyID bobyID;
+        /// <summary>
+        /// キャラのモデル
+        /// </summary>
         public GameObject model;
+        /// <summary>
+        /// 対応するボタン
+        /// </summary>
         public Button button;
     }
 
@@ -54,7 +69,9 @@ public class HorizontalCharacter : MonoBehaviour {
     /// </summary>
     [SerializeField]
     List<CharacterData> characterData = new List<CharacterData>();
-
+    /// <summary>
+    /// キャラのID
+    /// </summary>
     private BuildManager.BodyID nowBodyID = BuildManager.BodyID.NONE;
     /// <summary>
     /// キャラの切り替え用
@@ -88,21 +105,24 @@ public class HorizontalCharacter : MonoBehaviour {
     /// </summary>
     private void Horizontal()
     {
-        
+        //  左右の取得
         var indexValue = (int)Input.GetAxisRaw("Horizontal");
 
+        //  押されてなかったら抜ける
         if (indexValue == 0) return;
 
-
+        //  押されていたら
         if (Input.GetButtonDown("Horizontal"))
         {
-           
+            //  インデックスを動かす
             buttonIndex += indexValue;
             buttonIndex = buttonIndex % characterData.Count;
+            //  0>=でそのまま 
             if(buttonIndex >= 0)
             {
                 CharacterChanger(characterData[buttonIndex]);
             }
+            //  0 <でListの個数-絶対値(インデックス)
             else
             {
                 var tmp = characterData.Count - Math.Abs(buttonIndex);
@@ -121,14 +141,16 @@ public class HorizontalCharacter : MonoBehaviour {
         characterChanger.GetCharacter(data.bobyID);
         buttonManager.OnPush(data.button);
         buttonScaling.OnPush(data.button);
-
     }
 
-
+    /// <summary>
+    /// キャラのIDをもらう
+    /// </summary>
+    /// <param name="bobyID">キャラのID</param>
     public void GetOnPush(BuildManager.BodyID bobyID)
     {
         nowBodyID = bobyID;
-
+        //  int型に変換
         buttonIndex = (int)nowBodyID;
 
     }

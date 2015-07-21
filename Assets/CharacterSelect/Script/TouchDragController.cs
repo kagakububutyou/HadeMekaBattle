@@ -18,12 +18,15 @@
  * 
  * 2015/07/11 書き始める
  * 2015/07/14 Parentの設定の変更
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+/// <summary>
+/// 武器選択する
+/// </summary>
 public class TouchDragController : MonoBehaviour{ 
     
     /// <summary>
@@ -57,7 +60,7 @@ public class TouchDragController : MonoBehaviour{
     /// <summary>
     /// 武器のId
     /// </summary>
-    private BuildManager.WeaponID weaponID;
+    private BuildManager.WeaponID weaponID = BuildManager.WeaponID.NULL;
 	// Use this for initialization
 	private void Start () 
     {
@@ -198,8 +201,7 @@ public class TouchDragController : MonoBehaviour{
         //  武器装備
         WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
         weaponEquipment.WeaponChange(weaponID);
-        EquippedCutIn equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedCutIn>();
-        //equippedCutIn.LoopPositionMoving();
+        EquippedChanger equippedCutIn = GameObject.Find(panel.name).GetComponent<EquippedChanger>();
         equippedCutIn.EquippedDisplay(weaponID);
     }
 }

@@ -19,6 +19,7 @@
  * 2015/07/13 書き始める
  *     同日   コメントを付ける
  * 2015/07/15 nowWeaponの親変更
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
@@ -60,6 +61,11 @@ public class CharacterNextButton : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private GameObject children = null;
+    /// <summary>
+    /// キャラの回転
+    /// </summary>
+    [SerializeField]
+    private Quaternion characterRotate = Quaternion.identity;
 
 	// Use this for initialization
 	private void Start () 
@@ -85,7 +91,10 @@ public class CharacterNextButton : MonoBehaviour {
         characterCanvas.SetActive(false);   //  非表示
         //　回転をリセットする
         parent.transform.rotation = Quaternion.identity;
-        parent.transform.GetChild(0).gameObject.transform.rotation = Quaternion.identity;
-        children.transform.SetParent(parent.transform); //  親変更
+        parent.transform.GetChild(0).transform.rotation = characterRotate;
+
+        //  親変更
+        children.transform.SetParent(parent.transform);
+
     }
 }

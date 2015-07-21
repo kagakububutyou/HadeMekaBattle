@@ -56,7 +56,7 @@ public class CharacterRotater : MonoBehaviour {
     /// ラジアン　　0～2π
     private void Rotate()
     {
-        float rotateValue = Input.GetAxisRaw("Rotate");
+        float rotateValue = Input.GetAxis("Rotate");
 
         if (rotateValue == 0) return;   //  回転していなかったら抜ける
         //  ここで回転

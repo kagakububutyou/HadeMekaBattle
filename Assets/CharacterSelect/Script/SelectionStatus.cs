@@ -17,12 +17,16 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/15 書き始め
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// ステータスの表示
+/// </summary>
+/// 使ってんの？
 public class SelectionStatus : MonoBehaviour {
 
     /// <summary>

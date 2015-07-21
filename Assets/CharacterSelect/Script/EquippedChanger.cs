@@ -17,14 +17,17 @@
  * Code by shinnnosuke hiratsuka
  * 
  * 2015/07/15 書き始め
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
-public class EquippedCutIn : MonoBehaviour {
+/// <summary>
+/// 装備のアイコン変更
+/// </summary>
+public class EquippedChanger : MonoBehaviour {
 
     /// <summary>
     /// 武器の場所
@@ -47,7 +50,9 @@ public class EquippedCutIn : MonoBehaviour {
         public Sprite icon;
 
     }
-
+    /// <summary>
+    /// 装備の枠を動かす
+    /// </summary>
     [SerializeField]
     private EquimentPositionChange positionMoving = null;
     /// <summary>

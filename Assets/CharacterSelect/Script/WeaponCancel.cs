@@ -18,6 +18,7 @@
  * 
  * 2015/07/11 書き始める
  * 2015/07/14 コメントつける
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
@@ -25,7 +26,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
+/// <summary>
+/// 武器をキャンセルする
+/// </summary>
 public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     /// <summary>
@@ -41,7 +44,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// <summary>
     /// 選択しているかどうか？
     /// </summary>
-    bool isSelect = false;
+    private bool isSelect = false;
 
     /// <summary>
     /// 押しっぱなし時に呼び出すイベント
@@ -50,12 +53,12 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// <summary>
     /// 押しっぱなし判定の間隔（この間隔毎にイベントが呼ばれる）
     /// </summary>
-    float intervalAction = 0.2f;
+    private float intervalAction = 0.2f;
    
     /// <summary>
     /// 次の押下判定時間
     /// </summary>
-    float nextTime = 0f;
+    private float nextTime = 0f;
 
     /// <summary>
     /// 押下状態
@@ -68,7 +71,7 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     /// <summary>
     /// 武器装備のキャンパス
     /// </summary>
-    Canvas canvas = null;
+    private Canvas canvas = null;
     /// <summary>
     /// 武器のID
     /// </summary>
@@ -141,8 +144,6 @@ public class WeaponCancel : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 Destroy(gameObject);
                 WeaponEquipment weaponEquipment = GameObject.Find(panel.name).GetComponent<WeaponEquipment>();
                 weaponEquipment.WeaponCancel();
-                //PositionMoving positionMoving = GameObject.Find(panel.name).GetComponent<PositionMoving>();
-                //positionMoving.LoopPositionMoving();
             }
             else 
             {

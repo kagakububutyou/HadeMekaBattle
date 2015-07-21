@@ -38,13 +38,23 @@ public class CharacterChanger : MonoBehaviour {
     [System.Serializable]
     public struct CharacterData
     {
+        /// <summary>
+        /// キャラクターデータ
+        /// </summary>
+        /// <param name="bodyId">キャラのID</param>
+        /// <param name="characterObject">オブジェクト</param>
         public CharacterData(BuildManager.BodyID bodyId, GameObject characterObject)
         {
             this.bodyId = bodyId;
             this.characterObject = characterObject;
         }
-
+        /// <summary>
+        /// キャラのID
+        /// </summary>
         public BuildManager.BodyID bodyId;
+        /// <summary>
+        /// キャラクターのオブジェクト
+        /// </summary>
         public GameObject characterObject;
     }
 
@@ -59,9 +69,14 @@ public class CharacterChanger : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private GameObject nowCharacter = null;
-
+    /// <summary>
+    /// キャラクターのアイコンのカットイン
+    /// </summary>
     [SerializeField]
     private EquimentPositionChange monitorLogo = null;
+    /// <summary>
+    /// キャラクターのアイコンの切り替え
+    /// </summary>
     [SerializeField]
     private CharacterIntroduction introduction = null;
 
@@ -81,18 +96,24 @@ public class CharacterChanger : MonoBehaviour {
                 GameObject.Destroy(n.gameObject);
             }
         }
+
         var body = characterData.Find(i => i.bodyId == bodyId);
         
         /// 以下で生成
         GameObject clone = (GameObject)Instantiate(body.characterObject);
+
+        //  名前変える
         clone.name = body.characterObject.name;
 
         /// お父さんを設定
         clone.transform.SetParent(nowCharacter.transform);
-        clone.transform.rotation = Quaternion.identity;
+        clone.transform.rotation = body.characterObject.transform.rotation;
+
+        //  カットイン
         monitorLogo.LoopPositionMoving();
         monitorLogo.TargetPositionMoving();
      
+        //  アイコン変更
         introduction.Change(body.bodyId);
         
     }

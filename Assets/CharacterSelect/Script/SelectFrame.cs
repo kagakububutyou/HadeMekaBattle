@@ -18,12 +18,16 @@
  * 
  * 2015/07/10 書き始める
  * 2015/07/14 関数の整理
+ * 2015/07/21 リファクタリング
  * 
  */
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+/// <summary>
+/// タッチした場所にフレームを生成するスクリプト
+/// </summary>
+/// 今使ってない
 public class SelectFrame : MonoBehaviour {
 
     /// <summary>
