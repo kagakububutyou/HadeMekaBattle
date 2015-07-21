@@ -7,7 +7,7 @@ public class BulletDataBase : MonoBehaviour {
     static List<BulletPalamaterData> data = new List<BulletPalamaterData>();
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         var json = Resources.Load("DataBase/BulletData") as TextAsset;
 
         if (string.IsNullOrEmpty(json.text))

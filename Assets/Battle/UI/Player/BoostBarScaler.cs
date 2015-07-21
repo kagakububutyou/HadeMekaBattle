@@ -44,7 +44,6 @@ public class BoostBarScaler : MonoBehaviour {
 
             if (BoostManager.IsShowingError)
             {
-                Debug.Log("tasukete");
                 image.color = Color.red;
             }
             else

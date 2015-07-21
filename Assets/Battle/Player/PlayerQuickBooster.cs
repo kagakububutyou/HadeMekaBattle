@@ -50,6 +50,9 @@ public class PlayerQuickBooster : MonoBehaviour {
 
     BoostManager boostManager = null;
 
+    [SerializeField]
+    QuickBoostEffectCreator boostEffectPlayer = null;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -64,7 +67,6 @@ public class PlayerQuickBooster : MonoBehaviour {
         if (pushingTime == 1 && boostManager.CanUseBoost(boostConsumption))
         {
             BeginQuickBoost();
-                        
         }
         
         if (isBoost)
@@ -99,6 +101,8 @@ public class PlayerQuickBooster : MonoBehaviour {
         rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
 
         boostManager.AddQuantity(-boostConsumption);
+
+        boostEffectPlayer.Play();
     }
 
     void QuickBoost()

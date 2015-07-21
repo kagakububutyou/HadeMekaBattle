@@ -14,8 +14,8 @@ GameObject:
   - 148: {fileID: 14866070}
   - 114: {fileID: 11489602}
   - 114: {fileID: 11489950}
-  - 114: {fileID: 11443366}
   - 54: {fileID: 5431792}
+  - 114: {fileID: 11443366}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged

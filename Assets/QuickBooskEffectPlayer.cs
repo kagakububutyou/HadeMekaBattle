@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RollPerformer : MonoBehaviour
-{
-    [SerializeField]
-    DroneStateManager drone = null;
+public class QuickBooskEffectPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

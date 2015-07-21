@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11408430}
   - 114: {fileID: 11433954}
   - 114: {fileID: 11402950}
+  - 114: {fileID: 11410470}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -126,6 +127,21 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11410470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2524c287edbc7284591fea7a6dbd1bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DroneType:
+  - {fileID: 143434, guid: 73a1e2576ee9c0f4883f6f6fc914d2b5, type: 2}
+  - {fileID: 100850, guid: 19683f4f169c48a4387e273a3ae7c239, type: 2}
+  - {fileID: 148566, guid: 58eb37c1634cf7f4eb8395a44007551f, type: 2}
 --- !u!114 &11433954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +203,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: DroneType.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DroneType.Array.data[0]
+      value: 
+      objectReference: {fileID: 143434, guid: 73a1e2576ee9c0f4883f6f6fc914d2b5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DroneType.Array.data[1]
+      value: 
+      objectReference: {fileID: 100850, guid: 19683f4f169c48a4387e273a3ae7c239, type: 2}
+    - target: {fileID: 0}
+      propertyPath: DroneType.Array.data[2]
+      value: 
+      objectReference: {fileID: 148566, guid: 58eb37c1634cf7f4eb8395a44007551f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128818}
