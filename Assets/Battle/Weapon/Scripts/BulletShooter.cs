@@ -24,6 +24,7 @@ public class BulletShooter : MonoBehaviour {
 	private float createInterval = 0.0f;		// 生成間隔
 
     private int bulletNumber = 100;             // 残段数
+    private int maxBulletNumber = 100;
     private GameObject retBullet;
 
     /// <summary>
@@ -87,7 +88,7 @@ public class BulletShooter : MonoBehaviour {
         // 弾数をセット
         if (BulletDataBase.GetData(id).bulletNumber != 0)
         {
-            bulletNumber = BulletDataBase.GetData(id).bulletNumber;
+            maxBulletNumber = bulletNumber = BulletDataBase.GetData(id).bulletNumber;
         }
 
         // エフェクトを取得
@@ -111,11 +112,15 @@ public class BulletShooter : MonoBehaviour {
             createTimer += Time.deltaTime;
 
             // タイマーがインターバル値を超えたら生成する処理を呼ぶ
-            while (createTimer >= createInterval && bulletNumber > 0)
+            while (createTimer >= createInterval)
             {
-                retBullet = Create();						
+                retBullet = null;
+                if (bulletNumber > 0 || bulletNumber <= -100)
+                {
+                    retBullet = Create();
+                    if(bulletNumber > 0) bulletNumber--;
+                }
                 createTimer -= createInterval;	
-                bulletNumber--;
             }
         }
         return retBullet;
@@ -282,5 +287,36 @@ public class BulletShooter : MonoBehaviour {
                 break;
         }
         return BulletPalamaterData.TYPE.PHYSICAL;
+    }
+
+    // リロード
+    public void ReloadAmmo() 
+    {
+        bulletNumber = maxBulletNumber;
+    }
+
+    // 弾追加
+    public void AddAmmo(int _num) 
+    {
+        bulletNumber = _num;
+    }
+
+    // 弾数取得
+    public int GetAmmo() 
+    { 
+        return bulletNumber; 
+    }
+
+    // 発射制限の変更
+    public void SwitchBulletShooter() 
+    {
+        if (bulletNumber <= -100)
+        {
+            bulletNumber = maxBulletNumber;
+        }
+        else 
+        {
+            bulletNumber = -100;
+        }
     }
 }
