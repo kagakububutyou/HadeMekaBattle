@@ -24,6 +24,7 @@ public class BulletShooter : MonoBehaviour {
 	private float createInterval = 0.0f;		// 生成間隔
 
     private int bulletNumber = 100;             // 残段数
+    private GameObject retBullet;
 
     /// <summary>
     /// プレイヤの座標との相対的な武器の位置
@@ -101,7 +102,7 @@ public class BulletShooter : MonoBehaviour {
     }
 
 	// ショットを打つ(基本外部使用限定)
-	public void CreateBullet()
+	public GameObject CreateBullet()
 	{
         // 残段数がなければ処理をしない
         if (bulletNumber > 0)
@@ -112,15 +113,16 @@ public class BulletShooter : MonoBehaviour {
             // タイマーがインターバル値を超えたら生成する処理を呼ぶ
             while (createTimer >= createInterval && bulletNumber > 0)
             {
-                Create();						
+                retBullet = Create();						
                 createTimer -= createInterval;	
                 bulletNumber--;
             }
         }
+        return retBullet;
 	}
 
 	// 弾を生成する
-	void Create()
+	GameObject Create()
 	{
         var MuzzlePosition = new Vector3(weaponPosition.x * transform.right.x,
                                          weaponPosition.y,
@@ -139,6 +141,8 @@ public class BulletShooter : MonoBehaviour {
 
 		// ホーミングミサイルならターゲットの座標を要求する処理を噛ませる
         TargetRequest(obj);
+
+        return obj;
 	}
 
     // パラメータを設定
